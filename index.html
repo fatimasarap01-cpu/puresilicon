@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PureSilicon – No Plastic, No PEVA. Designed to be Reused.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --olive: #5a6a22;
+    --olive-dark: #3d4a17;
+    --olive-light: #7a8c2e;
+    --burgundy: #6b1a1a;
+    --burgundy-light: #8c2a2a;
+    --cream: #f5f0e8;
+    --cream-dark: #ede5d4;
+    --white: #fefcf8;
+    --text-dark: #1e1e1e;
+    --text-mid: #444;
+    --text-light: #777;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── ANNOUNCEMENT BAR ── */
+  .announcement-bar {
+    background: var(--olive);
+    color: var(--cream);
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .announcement-bar a { color: var(--cream); text-decoration: underline; }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--white);
+    border-bottom: 1px solid #e0d8cc;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .hamburger { cursor: pointer; font-size: 20px; color: var(--text-dark); background: none; border: none; }
+  .logo-area { text-align: center; }
+  .logo-svg { width: 44px; height: 44px; display: block; margin: 0 auto 2px; }
+  .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--olive-dark);
+    line-height: 1.1;
+  }
+  .header-icons { display: flex; gap: 16px; align-items: center; }
+  .header-icons button { background: none; border: none; cursor: pointer; font-size: 18px; color: var(--text-dark); }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    height: 85vh;
+    min-height: 520px;
+    background: linear-gradient(135deg, var(--olive-dark) 0%, var(--olive) 40%, #7a9020 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-content {
+    text-align: center;
+    z-index: 2;
+    padding: 0 24px;
+    animation: fadeUp 1s ease both;
+  }
+  .hero-eyebrow {
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 8vw, 90px);
+    font-weight: 900;
+    color: var(--cream);
+    line-height: 1.0;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+  .hero h1 span { color: #c8d96e; }
+  .hero-sub {
+    color: rgba(255,255,255,0.85);
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-bottom: 36px;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--cream);
+    color: var(--olive-dark);
+    padding: 14px 40px;
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid var(--cream);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .btn-primary:hover { background: transparent; color: var(--cream); }
+  .btn-outline {
+    display: inline-block;
+    background: transparent;
+    color: var(--olive-dark);
+    padding: 12px 36px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid var(--olive);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .btn-outline:hover { background: var(--olive); color: var(--cream); }
+
+  /* ── CATEGORY GRID ── */
+  .categories {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 24px;
+  }
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .cat-card { cursor: pointer; }
+  .cat-img {
+    width: 100%;
+    aspect-ratio: 1;
+    background: var(--cream-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .cat-img svg { width: 60%; height: 60%; opacity: 0.5; }
+  .cat-img .cat-emoji { font-size: 64px; }
+  .cat-img:hover .cat-emoji { transform: scale(1.1); transition: transform 0.3s; }
+  .cat-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--text-dark);
+  }
+
+  /* ── PRODUCTS ── */
+  .section { max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--olive-dark);
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .product-card {
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  .product-card:hover { transform: translateY(-4px); }
+  .product-img {
+    width: 100%;
+    aspect-ratio: 1;
+    background: var(--cream-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    font-size: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .product-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--burgundy);
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+  }
+  .stars { color: var(--olive); font-size: 13px; margin-bottom: 6px; }
+  .product-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+  .product-price { font-size: 14px; font-weight: 600; color: var(--olive-dark); margin-bottom: 10px; }
+  .add-to-cart {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--olive);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+  }
+
+  /* ── FEATURE SPLIT ── */
+  .feature-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 480px;
+    margin: 20px 0;
+  }
+  .feature-img {
+    background: var(--cream-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    min-height: 380px;
+  }
+  .feature-text {
+    background: var(--olive);
+    color: var(--cream);
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .feature-text .eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 14px;
+  }
+  .feature-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .feature-text p {
+    font-size: 15px;
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 14px;
+    opacity: 0.9;
+  }
+  .feature-text .btn-primary {
+    align-self: flex-start;
+    margin-top: 10px;
+    background: var(--cream);
+    color: var(--olive-dark);
+    border-color: var(--cream);
+  }
+  .feature-text .btn-primary:hover { background: transparent; color: var(--cream); border-color: var(--cream); }
+
+  /* reversed */
+  .feature-split.reverse .feature-img { order: 2; }
+  .feature-split.reverse .feature-text {
+    background: var(--burgundy);
+    order: 1;
+  }
+
+  /* ── VALUES ── */
+  .values-section {
+    background: var(--cream);
+    padding: 70px 24px;
+    text-align: center;
+  }
+  .values-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 50px;
+  }
+  .value-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    border: 2px solid var(--olive);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+  }
+  .value-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--olive-dark);
+    margin-bottom: 12px;
+  }
+  .value-text { font-size: 14px; line-height: 1.8; color: var(--text-mid); }
+  .value-link { color: var(--olive); font-size: 13px; font-weight: 600; text-decoration: underline; display: inline-block; margin-top: 10px; }
+
+  /* ── REVIEWS ── */
+  .reviews-section {
+    background: var(--white);
+    padding: 70px 24px;
+    text-align: center;
+  }
+  .review-stars { color: var(--olive); font-size: 24px; margin-bottom: 6px; }
+  .review-count { font-size: 13px; color: var(--text-light); margin-bottom: 40px; }
+  .reviews-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  .review-card {
+    background: var(--cream);
+    padding: 28px;
+    text-align: left;
+  }
+  .review-card-stars { color: var(--olive); font-size: 14px; margin-bottom: 8px; }
+  .review-title { font-weight: 700; font-size: 14px; margin-bottom: 8px; }
+  .review-text { font-size: 13px; color: var(--text-mid); line-height: 1.7; margin-bottom: 12px; }
+  .review-author { font-size: 12px; color: var(--text-light); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+
+  /* ── NEWSLETTER ── */
+  .newsletter {
+    background: var(--olive-dark);
+    color: var(--cream);
+    padding: 70px 24px;
+    text-align: center;
+  }
+  .newsletter h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .newsletter .big-offer {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 8vw, 80px);
+    font-weight: 900;
+    color: #c8d96e;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .newsletter p { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; margin-bottom: 30px; }
+  .nl-form { display: flex; max-width: 460px; margin: 0 auto; gap: 0; }
+  .nl-form input {
+    flex: 1;
+    padding: 14px 20px;
+    border: none;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    outline: none;
+    border-bottom: 2px solid rgba(255,255,255,0.4);
+  }
+  .nl-form input::placeholder { color: rgba(255,255,255,0.5); }
+  .nl-form button {
+    padding: 14px 24px;
+    background: #c8d96e;
+    color: var(--olive-dark);
+    border: none;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .nl-form button:hover { background: #b8c960; }
+
+  /* ── CERTIFICATIONS ── */
+  .certs {
+    background: var(--cream-dark);
+    padding: 40px 24px;
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .cert-item { text-align: center; }
+  .cert-badge {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+  }
+  .cert-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--olive-dark); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--text-dark);
+    color: rgba(255,255,255,0.7);
+    padding: 60px 24px 30px;
+  }
+  .footer-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    margin-bottom: 50px;
+  }
+  .footer-col h4 {
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .footer-col a {
+    display: block;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 13px;
+    margin-bottom: 8px;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: #c8d96e; }
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-bottom span { font-size: 12px; }
+  .social-icons { display: flex; gap: 16px; }
+  .social-icons a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 16px; transition: color 0.2s; }
+  .social-icons a:hover { color: #c8d96e; }
+
+  /* ── MOBILE NAV OVERLAY ── */
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--white);
+    z-index: 200;
+    flex-direction: column;
+    padding: 30px 24px;
+  }
+  .nav-overlay.open { display: flex; }
+  .nav-close { align-self: flex-end; font-size: 24px; background: none; border: none; cursor: pointer; margin-bottom: 30px; }
+  .nav-overlay a {
+    display: block;
+    padding: 18px 0;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--text-dark);
+    text-decoration: none;
+    border-bottom: 1px solid #eee;
+    text-transform: uppercase;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .categories-grid { grid-template-columns: repeat(2, 1fr); }
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+    .feature-split { grid-template-columns: 1fr; }
+    .feature-split.reverse .feature-img { order: 0; }
+    .feature-split.reverse .feature-text { order: 0; }
+    .values-grid { grid-template-columns: 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV OVERLAY -->
+<div class="nav-overlay" id="navOverlay">
+  <button class="nav-close" onclick="document.getElementById('navOverlay').classList.remove('open')">✕</button>
+  <a href="#">Home</a>
+  <a href="#">Shop</a>
+  <a href="#">About</a>
+  <a href="#">Sustainability</a>
+  <a href="#">Recipes & Tips</a>
+  <a href="#">Contact</a>
+</div>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announcement-bar">
+  🌿 Save 10% when you <a href="#">sign up to our newsletter</a> &nbsp;·&nbsp; Free shipping on orders over $75
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <button class="hamburger" onclick="document.getElementById('navOverlay').classList.add('open')">☰</button>
+    <div class="logo-area">
+      <!-- Inline SVG logo matching the 3-petal leaf shape -->
+      <svg class="logo-svg" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M40 18 C40 18 22 8 18 26 C14 42 34 48 40 54 C46 48 66 42 62 26 C58 8 40 18 40 18Z" fill="#5a6a22" opacity="0.9"/>
+        <path d="M28 52 C28 52 10 46 12 64 C14 80 34 76 40 70 C38 62 30 58 28 52Z" fill="#5a6a22"/>
+        <path d="M52 52 C52 52 70 46 68 64 C66 80 46 76 40 70 C42 62 50 58 52 52Z" fill="#5a6a22"/>
+      </svg>
+      <div class="logo-text">Pure<br>Silicon</div>
+    </div>
+    <div class="header-icons">
+      <button>🔍</button>
+      <button>🛒</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">No Plastic · No PEVA · Pure Silicone</div>
+    <h1>Reusables,<br>for <span>Life</span></h1>
+    <p class="hero-sub">Store your food without compromise</p>
+    <a href="#" class="btn-primary">Shop Now</a>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories">
+  <div class="categories-grid">
+    <div class="cat-card">
+      <div class="cat-img" style="background:#e8f0cc;">
+        <span class="cat-emoji">🧴</span>
+      </div>
+      <div class="cat-label">Silicone<br>Food Bags</div>
+    </div>
+    <div class="cat-card">
+      <div class="cat-img" style="background:#f0e0d0;">
+        <span class="cat-emoji">🥡</span>
+      </div>
+      <div class="cat-label">Storage<br>Containers</div>
+    </div>
+    <div class="cat-card">
+      <div class="cat-img" style="background:#e0ead8;">
+        <span class="cat-emoji">⭐</span>
+      </div>
+      <div class="cat-label">Best<br>Sellers</div>
+    </div>
+    <div class="cat-card">
+      <div class="cat-img" style="background:#f4e8d8;">
+        <span class="cat-emoji">🎁</span>
+      </div>
+      <div class="cat-label">Bundles &<br>Gift Sets</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section">
+  <div class="section-title">Our Products</div>
+  <div class="products-grid">
+    <div class="product-card">
+      <div class="product-img" style="background:#e6efd4;">
+        <div class="product-badge">Best Seller</div>
+        🧴
+      </div>
+      <div class="stars">★★★★★</div>
+      <div class="product-name">Reusable Silicone Food Bags – Starter Kit (3-Pack)</div>
+      <div class="product-price">$34.99</div>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background:#f2e4d4;">
+        🫙
+      </div>
+      <div class="stars">★★★★★</div>
+      <div class="product-name">Silicone Freezer Bags – Small 330ml Slim Pouch (2-Pack)</div>
+      <div class="product-price">$18.99</div>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background:#e4ecd8;">
+        <div class="product-badge">New</div>
+        🥗
+      </div>
+      <div class="stars">★★★★★</div>
+      <div class="product-name">Silicone Snack Bags – Multi-Size Set of 3 (Clear)</div>
+      <div class="product-price">$24.99</div>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <div class="product-img" style="background:#f8f0e4;">
+        🍱
+      </div>
+      <div class="stars">★★★★★</div>
+      <div class="product-name">Silicone Food Storage Container Set – Leakproof Lids</div>
+      <div class="product-price">$42.99</div>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE SPLIT 1 -->
+<section class="feature-split">
+  <div class="feature-img">🌿</div>
+  <div class="feature-text">
+    <div class="eyebrow">You Asked, We Listened</div>
+    <h2>Now in<br>All-Clear</h2>
+    <p>Our bestselling silicone pouches are now available in a brand-new all-clear 3-pack. Same trusted quality, same convenience — just crystal clarity to see exactly what's inside.</p>
+    <p>Perfect for busy days, organised fridges, and little ones who like to know what's coming next.</p>
+    <a href="#" class="btn-primary">Shop Now</a>
+  </div>
+</section>
+
+<!-- FEATURE SPLIT 2 (reversed) -->
+<section class="feature-split reverse">
+  <div class="feature-img" style="background:#f2e4d0;">🥙</div>
+  <div class="feature-text">
+    <div class="eyebrow">Sustainable Living</div>
+    <h2>Built for<br>Real Life</h2>
+    <p>Make meal prep easier and more sustainable with our reusable essentials. Silicone bags replace single-use plastic for snacks, sandwiches, and leftovers.</p>
+    <p>Practical, long-lasting, and planet-friendly — PureSilicon helps you reduce waste without compromising on convenience.</p>
+    <a href="#" class="btn-primary">Explore Range</a>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-section">
+  <div class="section-title" style="text-align:center;">Why PureSilicon</div>
+  <div class="values-grid">
+    <div>
+      <div class="value-icon">♻️</div>
+      <div class="value-title">Reuse & Reduce Waste</div>
+      <p class="value-text">Our commitment to waste reduction is at the core of what we do. Every product is designed to replace single-use plastic — forever.</p>
+      <a href="#" class="value-link">Learn more</a>
+    </div>
+    <div>
+      <div class="value-icon">🥦</div>
+      <div class="value-title">Live Well</div>
+      <p class="value-text">100% food-grade silicone — BPA free, PEVA free, and plastic free. Our products make meal prep and healthy living effortless.</p>
+      <a href="#" class="value-link">Learn more</a>
+    </div>
+    <div>
+      <div class="value-icon">💚</div>
+      <div class="value-title">We Care</div>
+      <p class="value-text">Sustainability is at the heart of everything we do. We design for longevity, reusability, and recyclability — because the planet deserves the best.</p>
+      <a href="#" class="value-link">Learn more</a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section">
+  <div class="section-title">What Our Customers Are Saying</div>
+  <div class="review-stars">★★★★★</div>
+  <div class="review-count">from 847 reviews</div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-card-stars">★★★★★</div>
+      <div class="review-title">Fantastic silicone food bags!</div>
+      <p class="review-text">These are just great for storing my vegetables and meal preps. Leakproof, easy to clean, and they've already replaced every plastic bag in my house...</p>
+      <div class="review-author">— Sarah M.</div>
+    </div>
+    <div class="review-card">
+      <div class="review-card-stars">★★★★★</div>
+      <div class="review-title">Best purchase I've made this year</div>
+      <p class="review-text">I bought the starter kit and I'm obsessed. The quality is incredible and I love knowing I'm not contributing to plastic waste anymore. Will buy more...</p>
+      <div class="review-author">— Jamie K.</div>
+    </div>
+    <div class="review-card">
+      <div class="review-card-stars">★★★★★</div>
+      <div class="review-title">Perfect for meal prepping</div>
+      <p class="review-text">I use these every single week for meal prep. They go in the fridge, freezer, and microwave. So versatile and they've held up perfectly after months of use...</p>
+      <div class="review-author">— Aisha T.</div>
+    </div>
+    <div class="review-card">
+      <div class="review-card-stars">★★★★★</div>
+      <div class="review-title">Finally ditched plastic bags!</div>
+      <p class="review-text">I've tried so many reusable bags but PureSilicon is on another level. The seal is airtight, cleanup is a breeze, and they look great in my fridge too...</p>
+      <div class="review-author">— Marcus L.</div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="big-offer">10% OFF</div>
+  <h2>Your First Order</h2>
+  <p>Receive 10% off when you sign up to our newsletter</p>
+  <div class="nl-form">
+    <input type="email" placeholder="Enter your email">
+    <button>Subscribe &amp; Save</button>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<div class="certs">
+  <div class="cert-item">
+    <div class="cert-badge">🌱</div>
+    <div class="cert-label">One Tree Planted</div>
+  </div>
+  <div class="cert-item">
+    <div class="cert-badge">👩‍💼</div>
+    <div class="cert-label">Women Owned</div>
+  </div>
+  <div class="cert-item">
+    <div class="cert-badge">♾️</div>
+    <div class="cert-label">Terracycle Partner</div>
+  </div>
+  <div class="cert-item">
+    <div class="cert-badge">✅</div>
+    <div class="cert-label">BPA Free</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Our Company</h4>
+      <a href="#">Who We Are</a>
+      <a href="#">Shipping & Refund Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">FAQs</a>
+      <a href="#">Giving Back</a>
+    </div>
+    <div class="footer-col">
+      <h4>Links</h4>
+      <a href="#">Contact Us</a>
+      <a href="#">Let's Collaborate</a>
+      <a href="#">Wholesale</a>
+      <a href="#">Sustainability</a>
+      <a href="#">Sitemap</a>
+    </div>
+    <div class="footer-col">
+      <h4>Get Connected</h4>
+      <a href="#">📘 Facebook</a>
+      <a href="#">📸 Instagram</a>
+      <a href="#">📌 Pinterest</a>
+      <a href="#">▶️ YouTube</a>
+      <a href="#">🎵 TikTok</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <a href="mailto:hello@puresilicon.ca">hello@puresilicon.ca</a>
+      <p style="font-size:13px; color:rgba(255,255,255,0.5); line-height:1.7; margin-top:8px;">
+        PureSilicon<br>
+        Calgary, Alberta<br>
+        Canada
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026, PureSilicon. All rights reserved.</span>
+    <div class="social-icons">
+      <a href="#">f</a>
+      <a href="#">ig</a>
+      <a href="#">yt</a>
+      <a href="#">tt</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
