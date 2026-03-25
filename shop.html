@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop All Products – PureSilicon</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --olive: #5a6a22;
+    --olive-dark: #3d4a17;
+    --olive-light: #7a8c2e;
+    --burgundy: #6b1a1a;
+    --burgundy-light: #8c2a2a;
+    --cream: #f5f0e8;
+    --cream-dark: #ede5d4;
+    --white: #fefcf8;
+    --text-dark: #1e1e1e;
+    --text-mid: #444;
+    --text-light: #777;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── ANNOUNCEMENT BAR ── */
+  .announcement-bar {
+    background: var(--olive);
+    color: var(--cream);
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .announcement-bar a { color: var(--cream); text-decoration: underline; }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--white);
+    border-bottom: 1px solid #e0d8cc;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .hamburger { cursor: pointer; font-size: 20px; color: var(--text-dark); background: none; border: none; }
+  .logo-area { text-align: center; }
+  .logo-img { height: 150px; display: block; margin: 0 auto; }
+  .header-icons { display: flex; gap: 16px; align-items: center; }
+  .header-icons button { background: none; border: none; cursor: pointer; font-size: 18px; color: var(--text-dark); }
+
+  /* ── MOBILE NAV OVERLAY ── */
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--white);
+    z-index: 200;
+    flex-direction: column;
+    padding: 30px 24px;
+  }
+  .nav-overlay.open { display: flex; }
+  .nav-close { align-self: flex-end; font-size: 24px; background: none; border: none; cursor: pointer; margin-bottom: 30px; }
+  .nav-overlay a {
+    display: block;
+    padding: 18px 0;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--text-dark);
+    text-decoration: none;
+    border-bottom: 1px solid #eee;
+    text-transform: uppercase;
+  }
+
+  /* ── COLLECTION HEADER ── */
+  .collection-header {
+    background: var(--cream);
+    padding: 50px 24px 40px;
+    text-align: center;
+  }
+  .collection-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--olive-dark);
+    margin-bottom: 12px;
+  }
+  .collection-header p {
+    font-size: 15px;
+    color: var(--text-mid);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* ── COLLECTION TOOLBAR ── */
+  .collection-toolbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e8e2d8;
+  }
+  .product-count {
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .sort-select {
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    color: var(--text-mid);
+    border: 1px solid #ddd;
+    padding: 8px 16px;
+    background: var(--white);
+    cursor: pointer;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── PRODUCT GRID (Moonmoon-inspired) ── */
+  .collection-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .product-card {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-card-img {
+    width: 100%;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: opacity 0.3s ease;
+  }
+
+  .product-card:hover .product-card-img {
+    opacity: 0.92;
+  }
+
+  .product-card-img .product-emoji {
+    font-size: 80px;
+    transition: transform 0.4s ease;
+  }
+
+  .product-card:hover .product-emoji {
+    transform: scale(1.08);
+  }
+
+  .product-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: var(--burgundy);
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    z-index: 2;
+  }
+
+  .product-card-info {
+    padding: 18px 4px 24px;
+    text-align: center;
+  }
+
+  .product-card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+  }
+
+  .product-card-price {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--olive-dark);
+    margin-bottom: 14px;
+  }
+
+  .product-card-btn {
+    display: inline-block;
+    background: var(--olive-dark);
+    color: var(--cream);
+    padding: 10px 28px;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid var(--olive-dark);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .product-card-btn:hover {
+    background: transparent;
+    color: var(--olive-dark);
+  }
+
+  /* ── NEWSLETTER ── */
+  .newsletter {
+    background: var(--olive-dark);
+    color: var(--cream);
+    padding: 70px 24px;
+    text-align: center;
+  }
+  .newsletter h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .newsletter .big-offer {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 8vw, 80px);
+    font-weight: 900;
+    color: #c8d96e;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .newsletter p { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; margin-bottom: 30px; }
+  .nl-form { display: flex; max-width: 460px; margin: 0 auto; gap: 0; }
+  .nl-form input {
+    flex: 1;
+    padding: 14px 20px;
+    border: none;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    outline: none;
+    border-bottom: 2px solid rgba(255,255,255,0.4);
+  }
+  .nl-form input::placeholder { color: rgba(255,255,255,0.5); }
+  .nl-form button {
+    padding: 14px 24px;
+    background: #c8d96e;
+    color: var(--olive-dark);
+    border: none;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .nl-form button:hover { background: #b8c960; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--text-dark);
+    color: rgba(255,255,255,0.7);
+    padding: 60px 24px 30px;
+  }
+  .footer-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    margin-bottom: 50px;
+  }
+  .footer-col h4 {
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .footer-col a {
+    display: block;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 13px;
+    margin-bottom: 8px;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: #c8d96e; }
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-bottom span { font-size: 12px; }
+  .social-icons { display: flex; gap: 16px; }
+  .social-icons a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 16px; transition: color 0.2s; }
+  .social-icons a:hover { color: #c8d96e; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 960px) {
+    .collection-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .collection-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .product-card-info { padding: 12px 2px 20px; }
+    .product-card-name { font-size: 13px; }
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .collection-toolbar { flex-direction: column; gap: 12px; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV OVERLAY -->
+<div class="nav-overlay" id="navOverlay">
+  <button class="nav-close" onclick="document.getElementById('navOverlay').classList.remove('open')">&#10005;</button>
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="#">About</a>
+  <a href="#">Sustainability</a>
+  <a href="#">Recipes & Tips</a>
+  <a href="#">Contact</a>
+</div>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announcement-bar">
+  &#127807; Save 10% when you <a href="#">sign up to our newsletter</a> &nbsp;&middot;&nbsp; Free shipping on orders over $75
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <button class="hamburger" onclick="document.getElementById('navOverlay').classList.add('open')">&#9776;</button>
+    <a href="index.html" class="logo-area">
+      <img class="logo-img" src="pure-silicon-logo.png" alt="PureSilicon">
+    </a>
+    <div class="header-icons">
+      <button>&#128269;</button>
+      <button>&#128722;</button>
+    </div>
+  </div>
+</header>
+
+<!-- COLLECTION HEADER -->
+<section class="collection-header">
+  <h1>All Products</h1>
+  <p>Reusable, food-grade silicone essentials designed to replace single-use plastic — for good.</p>
+</section>
+
+<!-- TOOLBAR -->
+<div class="collection-toolbar">
+  <span class="product-count">6 Products</span>
+  <select class="sort-select">
+    <option>Sort by: Featured</option>
+    <option>Price: Low to High</option>
+    <option>Price: High to Low</option>
+    <option>Newest</option>
+  </select>
+</div>
+
+<!-- PRODUCT GRID -->
+<div class="collection-grid">
+
+  <!-- 1. Terracotta Silicone Bag -->
+  <div class="product-card">
+    <div class="product-card-img" style="background: #d9a88c;">
+      <div class="product-badge">Best Seller</div>
+      <span class="product-emoji">&#129524;</span>
+    </div>
+    <div class="product-card-info">
+      <div class="product-card-name">Reusable Silicone Food Bag – Terracotta</div>
+      <div class="product-card-price">$34.99</div>
+      <button class="product-card-btn">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- 2. Green Silicone Bag -->
+  <div class="product-card">
+    <div class="product-card-img" style="background: #b5c98a;">
+      <span class="product-emoji">&#129524;</span>
+    </div>
+    <div class="product-card-info">
+      <div class="product-card-name">Reusable Silicone Food Bag – Green</div>
+      <div class="product-card-price">$34.99</div>
+      <button class="product-card-btn">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- 3. White Silicone Bag -->
+  <div class="product-card">
+    <div class="product-card-img" style="background: #e8e4dc;">
+      <div class="product-badge">New</div>
+      <span class="product-emoji">&#129524;</span>
+    </div>
+    <div class="product-card-info">
+      <div class="product-card-name">Reusable Silicone Food Bag – White</div>
+      <div class="product-card-price">$34.99</div>
+      <button class="product-card-btn">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- 4. Beige Storage Container -->
+  <div class="product-card">
+    <div class="product-card-img" style="background: #ddd5c5;">
+      <span class="product-emoji">&#129379;</span>
+    </div>
+    <div class="product-card-info">
+      <div class="product-card-name">Silicone Storage Container – Beige</div>
+      <div class="product-card-price">$34.99</div>
+      <button class="product-card-btn">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- 5. Clear Silicone Bag 3-Pack -->
+  <div class="product-card">
+    <div class="product-card-img" style="background: #e0ead6;">
+      <span class="product-emoji">&#127861;</span>
+    </div>
+    <div class="product-card-info">
+      <div class="product-card-name">Silicone Snack Bags – Clear 3-Pack</div>
+      <div class="product-card-price">$34.99</div>
+      <button class="product-card-btn">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- 6. Starter Kit Bundle -->
+  <div class="product-card">
+    <div class="product-card-img" style="background: #d4c9b5;">
+      <div class="product-badge">Bundle</div>
+      <span class="product-emoji">&#127873;</span>
+    </div>
+    <div class="product-card-info">
+      <div class="product-card-name">Silicone Starter Kit – Mixed Set of 3</div>
+      <div class="product-card-price">$34.99</div>
+      <button class="product-card-btn">Add to Cart</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="big-offer">10% OFF</div>
+  <h2>Your First Order</h2>
+  <p>Receive 10% off when you sign up to our newsletter</p>
+  <div class="nl-form">
+    <input type="email" placeholder="Enter your email">
+    <button>Subscribe &amp; Save</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>Our Company</h4>
+      <a href="#">Who We Are</a>
+      <a href="#">Shipping & Refund Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">FAQs</a>
+      <a href="#">Giving Back</a>
+    </div>
+    <div class="footer-col">
+      <h4>Links</h4>
+      <a href="#">Contact Us</a>
+      <a href="#">Let's Collaborate</a>
+      <a href="#">Wholesale</a>
+      <a href="#">Sustainability</a>
+      <a href="#">Sitemap</a>
+    </div>
+    <div class="footer-col">
+      <h4>Get Connected</h4>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Pinterest</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <a href="mailto:support@puresilicon.ca">support@puresilicon.ca</a>
+      <p style="font-size:13px; color:rgba(255,255,255,0.5); line-height:1.7; margin-top:8px;">
+        PureSilicon<br>
+        Calgary, Alberta<br>
+        Canada
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026, PureSilicon. All rights reserved.</span>
+    <div class="social-icons">
+      <a href="#">f</a>
+      <a href="#">ig</a>
+      <a href="#">yt</a>
+      <a href="#">tt</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
