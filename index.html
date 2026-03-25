@@ -501,6 +501,221 @@
   .social-icons a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 16px; transition: color 0.2s; }
   .social-icons a:hover { color: #c8d96e; }
 
+  /* ── ABOUT OVERLAY ── */
+  .about-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--white);
+    z-index: 300;
+    overflow-y: auto;
+  }
+  .about-overlay.open { display: block; }
+  .about-close {
+    position: fixed;
+    top: 24px;
+    right: 28px;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 310;
+    color: var(--text-dark);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+  }
+  .about-close:hover { color: var(--olive); }
+  .about-close.on-dark { color: var(--cream); }
+  .about-close.on-dark:hover { color: #c8d96e; }
+
+  .about-hero {
+    background: linear-gradient(135deg, var(--olive-dark) 0%, var(--olive) 50%, #7a9020 100%);
+    padding: 120px 24px 80px;
+    text-align: center;
+    position: relative;
+  }
+  .about-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .about-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin: 0 auto;
+    animation: fadeUp 0.8s ease both;
+  }
+  .about-hero .eyebrow {
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .about-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 7vw, 72px);
+    font-weight: 900;
+    color: var(--cream);
+    line-height: 1.05;
+    margin-bottom: 20px;
+  }
+  .about-hero h1 span { color: #c8d96e; }
+  .about-hero p {
+    color: rgba(255,255,255,0.8);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+  }
+
+  .about-story {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 420px;
+  }
+  .about-story-img {
+    background: var(--cream-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    min-height: 360px;
+  }
+  .about-story-text {
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .about-story-text .eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--olive);
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  .about-story-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 18px;
+    color: var(--olive-dark);
+    text-transform: uppercase;
+  }
+  .about-story-text p {
+    font-size: 15px;
+    line-height: 1.85;
+    font-weight: 300;
+    color: var(--text-mid);
+    margin-bottom: 12px;
+  }
+
+  .about-story.dark .about-story-text {
+    background: var(--olive);
+    color: var(--cream);
+  }
+  .about-story.dark .about-story-text .eyebrow { color: rgba(255,255,255,0.6); }
+  .about-story.dark .about-story-text h2 { color: var(--cream); }
+  .about-story.dark .about-story-text p { color: rgba(255,255,255,0.85); }
+
+  .about-story.burgundy .about-story-text {
+    background: var(--burgundy);
+    color: var(--cream);
+  }
+  .about-story.burgundy .about-story-text .eyebrow { color: rgba(255,255,255,0.6); }
+  .about-story.burgundy .about-story-text h2 { color: var(--cream); }
+  .about-story.burgundy .about-story-text p { color: rgba(255,255,255,0.85); }
+
+  .about-story.reverse .about-story-img { order: 2; }
+  .about-story.reverse .about-story-text { order: 1; }
+
+  .about-values-strip {
+    background: var(--cream);
+    padding: 60px 24px;
+    text-align: center;
+  }
+  .about-values-strip h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--olive-dark);
+    margin-bottom: 40px;
+  }
+  .about-values-row {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+  }
+  .about-val-icon { font-size: 36px; margin-bottom: 14px; }
+  .about-val-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--olive-dark);
+    margin-bottom: 8px;
+  }
+  .about-val-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-mid);
+  }
+
+  .about-closing {
+    background: linear-gradient(135deg, var(--olive-dark) 0%, var(--olive) 100%);
+    padding: 70px 24px;
+    text-align: center;
+  }
+  .about-closing h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 900;
+    color: var(--cream);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .about-closing p {
+    color: rgba(255,255,255,0.8);
+    font-size: 15px;
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto 10px;
+    font-weight: 300;
+  }
+  .about-closing .founder {
+    color: #c8d96e;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 24px;
+    letter-spacing: 1px;
+  }
+  .about-closing .btn-primary {
+    margin-top: 30px;
+  }
+
+  @media (max-width: 768px) {
+    .about-story { grid-template-columns: 1fr; }
+    .about-story.reverse .about-story-img { order: 0; }
+    .about-story.reverse .about-story-text { order: 0; }
+    .about-story-text { padding: 40px 24px; }
+    .about-values-row { grid-template-columns: 1fr; }
+  }
+
   /* ── MOBILE NAV OVERLAY ── */
   .nav-overlay {
     display: none;
@@ -550,11 +765,107 @@
   <button class="nav-close" onclick="document.getElementById('navOverlay').classList.remove('open')">✕</button>
   <a href="index.html">Home</a>
   <a href="shop.html">Shop</a>
-  <a href="#">About</a>
+  <a href="#" onclick="event.preventDefault();document.getElementById('navOverlay').classList.remove('open');document.getElementById('aboutOverlay').classList.add('open');document.body.style.overflow='hidden';">About</a>
   <a href="#">Sustainability</a>
   <a href="#">Recipes & Tips</a>
   <a href="#">Contact</a>
 </div>
+
+<!-- ABOUT OVERLAY -->
+<div class="about-overlay" id="aboutOverlay">
+  <button class="about-close on-dark" id="aboutCloseBtn" onclick="document.getElementById('aboutOverlay').classList.remove('open');document.body.style.overflow='';">✕</button>
+
+  <!-- Hero -->
+  <div class="about-hero">
+    <div class="about-hero-content">
+      <div class="eyebrow">Our Story</div>
+      <h1>It All Started with a <span>Simple Question</span></h1>
+      <p>What if storing food could be better — for your family, and for the planet? That one question sparked a journey that became PureSilicon.</p>
+    </div>
+  </div>
+
+  <!-- Story Block 1 -->
+  <div class="about-story dark">
+    <div class="about-story-img" style="background:#e8f0cc;">🌱</div>
+    <div class="about-story-text">
+      <div class="eyebrow">The Beginning</div>
+      <h2>PureSilicon<br>Was Born</h2>
+      <p>As a busy parent, our founder grew frustrated with the endless cycle of single-use plastic bags — buying, using, discarding, repeating. There had to be a better way.</p>
+      <p>After researching food-grade silicone and its remarkable safety profile, the idea for PureSilicon took shape: durable, reusable food storage that families could trust.</p>
+    </div>
+  </div>
+
+  <!-- Story Block 2 -->
+  <div class="about-story reverse">
+    <div class="about-story-img" style="background:#f0e0d0;">🍳</div>
+    <div class="about-story-text">
+      <div class="eyebrow">Our Mission</div>
+      <h2>Making It Easy<br>to Reuse</h2>
+      <p>We believe sustainability shouldn't mean sacrifice. Every PureSilicon product is designed for real life — meal prep, school lunches, leftovers, and everything in between.</p>
+      <p>No plastic, no PEVA, no compromises. Just pure, food-grade silicone that goes from freezer to microwave to dishwasher.</p>
+    </div>
+  </div>
+
+  <!-- Story Block 3 -->
+  <div class="about-story burgundy">
+    <div class="about-story-img" style="background:#f4e8d8;">🥗</div>
+    <div class="about-story-text">
+      <div class="eyebrow">For You</div>
+      <h2>For the<br>Food Lovers</h2>
+      <p>Whether you're prepping meals for the week or packing snacks for an adventure, PureSilicon keeps your food fresh, sealed, and ready to go.</p>
+      <p>Our products are crafted for people who care about what they eat and how they store it — because good food deserves good storage.</p>
+    </div>
+  </div>
+
+  <!-- Values Strip -->
+  <div class="about-values-strip">
+    <h2>What We Stand For</h2>
+    <div class="about-values-row">
+      <div>
+        <div class="about-val-icon">♻️</div>
+        <div class="about-val-label">Zero Waste</div>
+        <p class="about-val-desc">Every product replaces hundreds of single-use plastic bags over its lifetime.</p>
+      </div>
+      <div>
+        <div class="about-val-icon">🛡️</div>
+        <div class="about-val-label">Food Safe</div>
+        <p class="about-val-desc">100% food-grade silicone. BPA free, PEVA free, phthalate free — always.</p>
+      </div>
+      <div>
+        <div class="about-val-icon">👩‍💼</div>
+        <div class="about-val-label">Women Owned</div>
+        <p class="about-val-desc">Proudly founded and led by women, right here in Calgary, Alberta.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Closing -->
+  <div class="about-closing">
+    <h2>Thank You for Joining Us</h2>
+    <p>Every PureSilicon bag in your kitchen is one less piece of plastic in the world. We're so grateful you've chosen to be part of this journey with us.</p>
+    <div class="founder">— The PureSilicon Team</div>
+    <a href="shop.html" class="btn-primary" style="margin-top:30px;">Shop Our Collection</a>
+  </div>
+</div>
+
+<script>
+(function() {
+  var aboutOverlay = document.getElementById('aboutOverlay');
+  if (!aboutOverlay) return;
+  var closeBtn = document.getElementById('aboutCloseBtn');
+  aboutOverlay.addEventListener('scroll', function() {
+    var heroH = aboutOverlay.querySelector('.about-hero');
+    if (heroH) {
+      var bottom = heroH.getBoundingClientRect().bottom;
+      if (bottom < 60) {
+        closeBtn.classList.remove('on-dark');
+      } else {
+        closeBtn.classList.add('on-dark');
+      }
+    }
+  });
+})();
+</script>
 
 <!-- ANNOUNCEMENT BAR -->
 <div class="announcement-bar">
@@ -779,7 +1090,7 @@
   <div class="footer-grid">
     <div class="footer-col">
       <h4>Our Company</h4>
-      <a href="#">Who We Are</a>
+      <a href="#" onclick="event.preventDefault();document.getElementById('aboutOverlay').classList.add('open');document.body.style.overflow='hidden';">Who We Are</a>
       <a href="#">Shipping & Refund Policy</a>
       <a href="#">Terms of Service</a>
       <a href="#">Privacy Policy</a>
