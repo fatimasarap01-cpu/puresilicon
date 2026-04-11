@@ -649,7 +649,7 @@
   .about-story.reverse .about-story-img { order: 2; }
   .about-story.reverse .about-story-text { order: 1; }
   .about-values-strip {
-    background: var(--cream);
+    background: #fff;
     padding: 60px 24px;
     text-align: center;
   }
@@ -669,7 +669,8 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 36px;
   }
-  .about-val-icon { font-size: 36px; margin-bottom: 14px; }
+  .about-val-icon { width: 80px; height: 80px; margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; }
+  .about-val-icon img { width: 100%; height: 100%; object-fit: contain; }
   .about-val-label {
     font-size: 13px;
     font-weight: 700;
@@ -817,17 +818,17 @@
     <h2>What We Stand For</h2>
     <div class="about-values-row">
       <div>
-        <div class="about-val-icon">♻️</div>
+        <div class="about-val-icon"><img src="recycle.png" alt="Recycle"></div>
         <div class="about-val-label">Zero Waste</div>
         <p class="about-val-desc">Every product replaces hundreds of single-use plastic bags over its lifetime.</p>
       </div>
       <div>
-        <div class="about-val-icon">🛡️</div>
+        <div class="about-val-icon"><img src="bpa-free.png" alt="BPA Free"></div>
         <div class="about-val-label">Food Safe</div>
         <p class="about-val-desc">100% food-grade silicone. BPA free, PEVA free, phthalate free — always.</p>
       </div>
       <div>
-        <div class="about-val-icon">👩‍💼</div>
+        <div class="about-val-icon"><img src="women-owned.png" alt="Women Owned"></div>
         <div class="about-val-label">Women Owned</div>
         <p class="about-val-desc">Proudly founded and led by women, right here in Calgary, Alberta.</p>
       </div>
