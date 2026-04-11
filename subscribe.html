@@ -455,28 +455,38 @@
           profileAttributes.first_name = firstName;
         }
 
+        profileAttributes.subscriptions = {
+          email: { marketing: { consent: 'SUBSCRIBED' } }
+        };
+
         var payload = {
           data: {
             type: 'subscription',
             attributes: {
               custom_source: 'website',
-              profiles: {
-                data: [
-                  {
-                    type: 'profile',
-                    attributes: profileAttributes
-                  }
-                ]
+              profile: {
+                data: {
+                  type: 'profile',
+                  attributes: profileAttributes
+                }
+              }
+            },
+            relationships: {
+              list: {
+                data: {
+                  type: 'list',
+                  id: 'Y7tEX8'
+                }
               }
             }
           }
         };
 
-        fetch('https://a.klaviyo.com/client/subscriptions/?company_id=RJRWkV&list_id=Y7tEX8', {
+        fetch('https://a.klaviyo.com/client/subscriptions/?company_id=RJRWkV', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
-            'revision': '2024-02-15'
+            'Content-Type': 'application/vnd.api+json',
+            'revision': '2024-10-15'
           },
           body: JSON.stringify(payload)
         })
