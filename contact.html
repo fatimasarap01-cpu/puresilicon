@@ -547,9 +547,9 @@
       <a href="index.html"><img class="logo-img" src="pure-silicon-logo.png" alt="PureSilicon"></a>
     </div>
     <div class="header-icons">
-      <button onclick="toggleSearch()" title="Search">&#128269;</button>
+      <button onclick="toggleSearch()" title="Search"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg></button>
       <button onclick="toggleCart()" title="Cart" style="position:relative;" id="cartBtn">
-        &#128722;
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
         <span id="cartBadge" style="display:none;position:absolute;top:-6px;right:-8px;background:#6b1a1a;color:white;font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;align-items:center;justify-content:center;line-height:1;">0</span>
       </button>
     </div>
@@ -559,7 +559,7 @@
 <!-- SEARCH OVERLAY -->
 <div id="searchOverlay" style="display:none;position:sticky;top:170px;z-index:99;background:#f5f0e8;border-bottom:2px solid #7a8c2e;padding:18px 24px;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
   <div style="max-width:600px;margin:0 auto;display:flex;align-items:center;gap:12px;">
-    <span style="font-size:18px;color:#777;">&#128269;</span>
+    <span style="color:#777;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg></span>
     <input id="searchInput" type="text" placeholder="Search products…" autocomplete="off"
       style="flex:1;border:none;border-bottom:2px solid #5a6a22;background:transparent;padding:8px 4px;font-family:'Jost',sans-serif;font-size:15px;color:#1e1e1e;outline:none;"
       onkeydown="if(event.key==='Enter') goSearch()">
