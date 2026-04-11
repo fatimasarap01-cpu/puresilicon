@@ -572,15 +572,11 @@
  
     <form
       class="contact-form"
-      name="contact"
+      action="https://api.web3forms.com/submit"
       method="POST"
-      data-netlify="true"
-      netlify-honeypot="bot-field"
       id="contactForm"
     >
-      <!-- Hidden fields required by Netlify Forms -->
-      <input type="hidden" name="form-name" value="contact">
-      <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+      <input type="hidden" name="access_key" value="3abe9f0a-c28a-426e-a375-943397d4657a">
  
       <div class="form-row">
         <div class="field-group">
@@ -819,28 +815,26 @@
     if (!isOpen) item.classList.add('open');
   }
  
-  // Contact form – Netlify Forms handles submission; show success message on redirect
+  // Contact form – Web3Forms handles submission
   const form = document.getElementById('contactForm');
   const successMsg = document.getElementById('successMsg');
- 
-  // Show success message if redirected back with ?success param
-  if (window.location.search.includes('success')) {
-    successMsg.classList.add('show');
-    form.style.display = 'none';
-  }
- 
+
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     const data = new FormData(form);
-    fetch('/', {
+    fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(data).toString()
+      body: data
     })
-    .then(() => {
-      form.style.display = 'none';
-      successMsg.classList.add('show');
-      window.scrollTo({ top: form.parentElement.offsetTop - 100, behavior: 'smooth' });
+    .then(res => res.json())
+    .then(json => {
+      if (json.success) {
+        form.style.display = 'none';
+        successMsg.classList.add('show');
+        window.scrollTo({ top: form.parentElement.offsetTop - 100, behavior: 'smooth' });
+      } else {
+        alert('Something went wrong. Please email us directly at support@puresilicon.ca');
+      }
     })
     .catch(() => {
       alert('Something went wrong. Please email us directly at support@puresilicon.ca');
