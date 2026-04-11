@@ -884,6 +884,10 @@
 </footer>
 
 <script>
+// ── SHARED CART HELPERS (localStorage) ──
+function getCart() { try { return JSON.parse(localStorage.getItem('psCart') || '[]'); } catch(e) { return []; } }
+function saveCart(c) { localStorage.setItem('psCart', JSON.stringify(c)); }
+
 // ── SEARCH ──
 function toggleSearch() {
   var el = document.getElementById('searchOverlay');
@@ -913,61 +917,48 @@ function clearSearch() {
 }
 
 // ── CART ──
-var cart = [];
-
 function toggleCart() {
   var el = document.getElementById('cartOverlay');
   el.style.display = el.style.display === 'none' ? 'flex' : 'none';
   document.body.style.overflow = el.style.display === 'flex' ? 'hidden' : '';
+  if (el.style.display === 'flex') renderCart();
 }
 
 function addToCart(name, price, emoji) {
+  var cart = getCart();
   var existing = cart.find(function(i) { return i.name === name; });
-  if (existing) {
-    existing.qty++;
-  } else {
-    cart.push({ name: name, price: price, emoji: emoji, qty: 1 });
-  }
-  updateCartUI();
-  // flash the cart open briefly
+  if (existing) { existing.qty++; } else { cart.push({ name: name, price: price, emoji: emoji, qty: 1 }); }
+  saveCart(cart);
+  renderCart();
+  updateBadge();
   document.getElementById('cartOverlay').style.display = 'flex';
   document.body.style.overflow = 'hidden';
 }
 
 function changeQty(name, delta) {
+  var cart = getCart();
   var idx = cart.findIndex(function(i) { return i.name === name; });
   if (idx === -1) return;
   cart[idx].qty += delta;
   if (cart[idx].qty <= 0) cart.splice(idx, 1);
-  updateCartUI();
+  saveCart(cart);
+  renderCart();
+  updateBadge();
 }
 
-function updateCartUI() {
-  var total = cart.reduce(function(s, i) { return s + i.qty; }, 0);
+function renderCart() {
+  var cart = getCart();
+  var container = document.getElementById('cartItems');
+  var footer = document.getElementById('cartFooter');
   var subtotal = cart.reduce(function(s, i) { return s + i.price * i.qty; }, 0);
 
-  // badge
-  var badge = document.getElementById('cartBadge');
-  badge.textContent = total;
-  badge.style.display = total > 0 ? 'flex' : 'none';
-
-  // items
-  var container = document.getElementById('cartItems');
-  var empty = document.getElementById('cartEmpty');
-  var footer = document.getElementById('cartFooter');
-
   if (cart.length === 0) {
-    empty.style.display = 'block';
+    container.innerHTML = '<p style="color:var(--text-light);font-size:14px;text-align:center;margin-top:40px;letter-spacing:1px;">Your cart is empty.</p>';
     footer.style.display = 'none';
-    container.innerHTML = '';
-    container.appendChild(empty);
     return;
   }
-
-  empty.style.display = 'none';
   footer.style.display = 'block';
   document.getElementById('cartSubtotal').textContent = '$' + subtotal.toFixed(2);
-
   container.innerHTML = '';
   cart.forEach(function(item) {
     var row = document.createElement('div');
@@ -979,13 +970,34 @@ function updateCartUI() {
         '<div style="font-size:13px;color:var(--olive-dark);font-weight:500;">$' + item.price.toFixed(2) + '</div>' +
       '</div>' +
       '<div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">' +
-        '<button onclick="changeQty(\'' + item.name.replace(/'/g,"\\'") + '\',-1)" style="width:28px;height:28px;border:1px solid #ddd;background:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;">−</button>' +
+        '<button onclick="changeQty(\'' + item.name.replace(/'/g,"\\'") + '\',-1)" style="width:28px;height:28px;border:1px solid #ddd;background:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;">&#8722;</button>' +
         '<span style="font-size:14px;font-weight:600;min-width:16px;text-align:center;">' + item.qty + '</span>' +
         '<button onclick="changeQty(\'' + item.name.replace(/'/g,"\\'") + '\',1)" style="width:28px;height:28px;border:1px solid #ddd;background:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;">+</button>' +
       '</div>';
     container.appendChild(row);
   });
 }
+
+function updateBadge() {
+  var cart = getCart();
+  var total = cart.reduce(function(s, i) { return s + i.qty; }, 0);
+  var badge = document.getElementById('cartBadge');
+  badge.textContent = total;
+  badge.style.display = total > 0 ? 'flex' : 'none';
+}
+
+// ── INIT ──
+updateBadge();
+// Read ?q= URL param and pre-fill search
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var q = params.get('q');
+  if (q) {
+    document.getElementById('searchOverlay').style.display = 'block';
+    document.getElementById('searchInput').value = q;
+    filterProducts();
+  }
+})();
 </script>
 </body>
 </html>
