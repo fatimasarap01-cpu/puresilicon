@@ -459,11 +459,18 @@
           data: {
             type: 'subscription',
             attributes: {
-              list_id: 'Y7tEX8',
               profile: {
                 data: {
                   type: 'profile',
                   attributes: profileAttributes
+                }
+              }
+            },
+            relationships: {
+              list: {
+                data: {
+                  type: 'list',
+                  id: 'Y7tEX8'
                 }
               }
             }
@@ -474,7 +481,7 @@
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'revision': '2024-10-15'
+            'revision': '2023-02-22'
           },
           body: JSON.stringify(payload)
         })
