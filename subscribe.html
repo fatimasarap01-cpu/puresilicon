@@ -482,6 +482,14 @@
                   attributes: profileAttributes
                 }
               }
+            },
+            relationships: {
+              list: {
+                data: {
+                  type: 'list',
+                  id: 'Y7tEX8'
+                }
+              }
             }
           }
         };
@@ -490,13 +498,13 @@
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'revision': '2024-02-15'
+            'revision': '2024-10-15'
           },
           body: JSON.stringify(payload)
         })
         .then(function (res) {
           if (!res.ok) {
-            return res.text().then(function () { throw new Error('API error'); });
+            return res.text().then(function (body) { console.error('Klaviyo error:', body); throw new Error('API error'); });
           }
           // Show thank-you state
           formState.style.display = 'none';
