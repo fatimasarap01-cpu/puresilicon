@@ -455,10 +455,6 @@
           profileAttributes.first_name = firstName;
         }
 
-        profileAttributes.subscriptions = {
-          email: { marketing: { consent: 'SUBSCRIBED' } }
-        };
-
         var payload = {
           data: {
             type: 'subscription',
