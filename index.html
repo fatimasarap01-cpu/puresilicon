@@ -74,6 +74,69 @@
   .header-icons { display: flex; gap: 16px; align-items: center; }
   .header-icons button { background: none; border: none; cursor: pointer; font-size: 18px; color: var(--text-dark); }
 
+  /* ── DESKTOP NAV DROPDOWN ── */
+  .desktop-nav {
+    border-top: 1px solid #e0d8cc;
+    background: var(--white);
+  }
+  .nav-list {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+  }
+  .nav-list > li { position: relative; }
+  .nav-list > li > a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 14px 22px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+  .nav-list > li:hover > a { color: var(--olive); }
+  .nav-chevron { font-size: 9px; transition: transform 0.2s; opacity: 0.6; }
+  .nav-list > li:hover .nav-chevron { transform: rotate(180deg); }
+  .has-dropdown .dropdown {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--white);
+    border: 1px solid #e0d8cc;
+    border-top: 2px solid var(--olive);
+    min-width: 190px;
+    z-index: 200;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    padding: 8px 0;
+    transition: opacity 0.2s, visibility 0.2s;
+  }
+  .has-dropdown:hover .dropdown { opacity: 1; visibility: visible; }
+  .has-dropdown .dropdown a {
+    display: block;
+    padding: 10px 22px;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    color: var(--text-mid);
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+    white-space: nowrap;
+  }
+  .has-dropdown .dropdown a:hover { background: var(--cream); color: var(--olive-dark); }
+  @media (max-width: 768px) { .desktop-nav { display: none; } }
+  @media (min-width: 769px) { .hamburger { display: none; } }
+
   /* ── HERO ── */
   .hero {
     position: relative;
@@ -888,6 +951,39 @@
       </button>
     </div>
   </div>
+  <nav class="desktop-nav">
+    <ul class="nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li class="has-dropdown">
+        <a href="shop.html">Shop <span class="nav-chevron">▾</span></a>
+        <div class="dropdown">
+          <a href="shop.html">Best Sellers</a>
+          <a href="shop.html">Reusable Bags</a>
+          <a href="shop.html">Lunch Boxes &amp; Pots</a>
+          <a href="shop.html">Bundles</a>
+          <a href="shop.html">All Products</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="#">About <span class="nav-chevron">▾</span></a>
+        <div class="dropdown">
+          <a href="#" onclick="event.preventDefault();document.getElementById('aboutOverlay').classList.add('open');document.body.style.overflow='hidden';">Our Story</a>
+          <a href="#">Our Mission</a>
+          <a href="#">Sustainability</a>
+          <a href="#">Giving Back</a>
+        </div>
+      </li>
+      <li class="has-dropdown">
+        <a href="#">Recipes &amp; Tips <span class="nav-chevron">▾</span></a>
+        <div class="dropdown">
+          <a href="#">Blog</a>
+          <a href="#">Recipes</a>
+          <a href="#">FAQ</a>
+        </div>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 </header>
 
 <!-- SEARCH OVERLAY -->
