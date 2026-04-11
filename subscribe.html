@@ -495,6 +495,9 @@
         submitBtn.disabled = true;
         submitBtn.textContent = 'Subscribing…';
 
+        var profileAttrs = { email: email };
+        if (firstName) profileAttrs.first_name = firstName;
+
         var payload = {
           data: {
             type: 'subscription',
@@ -502,19 +505,20 @@
               profile: {
                 data: {
                   type: 'profile',
-                  attributes: {
-                    email: email
-                  }
+                  attributes: profileAttrs
                 }
-              },
-              list_id: 'Y7tEX8'
+              }
+            },
+            relationships: {
+              list: {
+                data: {
+                  type: 'list',
+                  id: 'Y7tEX8'
+                }
+              }
             }
           }
         };
-
-        if (firstName) {
-          payload.data.attributes.profile.data.attributes.first_name = firstName;
-        }
 
         fetch('https://a.klaviyo.com/client/subscriptions/?company_id=RJRWkV', {
           method: 'POST',
