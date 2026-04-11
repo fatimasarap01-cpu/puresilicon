@@ -56,35 +56,13 @@
 
     /* ── Logo ── */
     .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
       text-decoration: none;
+      display: block;
     }
 
-    .logo-mark {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--olive);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .logo-mark svg {
-      width: 18px;
-      height: 18px;
-      fill: var(--cream);
-    }
-
-    .logo-text {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.45rem;
-      font-weight: 600;
-      color: var(--olive);
-      letter-spacing: 0.01em;
+    .logo img {
+      height: 150px;
+      display: block;
     }
 
     /* ── Card ── */
@@ -369,13 +347,7 @@
 
     <!-- Logo -->
     <a href="https://puresilicon.ca" class="logo" aria-label="PureSilicon – return to homepage">
-      <div class="logo-mark">
-        <!-- leaf icon -->
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 2C6 2 3 8 3 13c0 4.5 3.5 8 9 9 5.5-1 9-4.5 9-9 0-5-3-11-9-11zm0 0c0 6-4 10-4 10"/>
-        </svg>
-      </div>
-      <span class="logo-text">PureSilicon</span>
+      <img src="pure-silicon-logo.png" alt="Pure Silicon">
     </a>
 
     <!-- Card -->
@@ -495,8 +467,10 @@
         submitBtn.disabled = true;
         submitBtn.textContent = 'Subscribing…';
 
-        var profileAttrs = { email: email };
-        if (firstName) profileAttrs.first_name = firstName;
+        var profileAttributes = { email: email };
+        if (firstName) {
+          profileAttributes.first_name = firstName;
+        }
 
         var payload = {
           data: {
@@ -505,15 +479,7 @@
               profile: {
                 data: {
                   type: 'profile',
-                  attributes: profileAttrs
-                }
-              }
-            },
-            relationships: {
-              list: {
-                data: {
-                  type: 'list',
-                  id: 'Y7tEX8'
+                  attributes: profileAttributes
                 }
               }
             }
@@ -524,7 +490,7 @@
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'revision': '2023-02-22'
+            'revision': '2024-02-15'
           },
           body: JSON.stringify(payload)
         })
