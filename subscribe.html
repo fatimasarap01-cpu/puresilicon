@@ -459,25 +459,18 @@
           data: {
             type: 'subscription',
             attributes: {
+              custom_source: 'website',
               profile: {
                 data: {
                   type: 'profile',
                   attributes: profileAttributes
                 }
               }
-            },
-            relationships: {
-              list: {
-                data: {
-                  type: 'list',
-                  id: 'Y7tEX8'
-                }
-              }
             }
           }
         };
 
-        fetch('https://a.klaviyo.com/client/subscriptions/?company_id=RJRWkV', {
+        fetch('https://a.klaviyo.com/client/subscriptions/?company_id=RJRWkV&list_id=Y7tEX8', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
