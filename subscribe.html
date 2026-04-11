@@ -488,22 +488,71 @@
           return;
         }
 
-        // TODO: Replace this block with your actual Mailchimp / Klaviyo fetch call.
-        // e.g. fetch('https://your-list-url', { method: 'POST', body: new FormData(form) })
+        var firstName = document.getElementById('first-name').value.trim();
+        var submitBtn = form.querySelector('.btn-submit');
 
-        // Show thank-you state
-        formState.style.display = 'none';
-        thankyouState.style.display = 'flex';
-        thankyouState.style.opacity = '0';
-        thankyouState.style.transform = 'translateY(8px)';
-        thankyouState.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+        // Disable button while submitting
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Subscribing…';
 
-        // Trigger animation on next frame
-        requestAnimationFrame(function () {
+        var payload = {
+          data: {
+            type: 'subscription',
+            attributes: {
+              profile: {
+                data: {
+                  type: 'profile',
+                  attributes: {
+                    email: email
+                  }
+                }
+              },
+              list_id: 'Y7tEX8'
+            }
+          }
+        };
+
+        if (firstName) {
+          payload.data.attributes.profile.data.attributes.first_name = firstName;
+        }
+
+        fetch('https://a.klaviyo.com/client/subscriptions/?company_id=RJRWkV', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'revision': '2023-02-22'
+          },
+          body: JSON.stringify(payload)
+        })
+        .then(function (res) {
+          if (!res.ok) {
+            return res.text().then(function () { throw new Error('API error'); });
+          }
+          // Show thank-you state
+          formState.style.display = 'none';
+          thankyouState.style.display = 'flex';
+          thankyouState.style.opacity = '0';
+          thankyouState.style.transform = 'translateY(8px)';
+          thankyouState.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+
           requestAnimationFrame(function () {
-            thankyouState.style.opacity = '1';
-            thankyouState.style.transform = 'translateY(0)';
+            requestAnimationFrame(function () {
+              thankyouState.style.opacity = '1';
+              thankyouState.style.transform = 'translateY(0)';
+            });
           });
+        })
+        .catch(function () {
+          var errorEl = document.getElementById('form-error');
+          if (!errorEl) {
+            errorEl = document.createElement('p');
+            errorEl.id = 'form-error';
+            errorEl.style.cssText = 'color:#c0392b;font-size:0.88rem;text-align:center;margin-top:0.5rem;';
+            form.appendChild(errorEl);
+          }
+          errorEl.textContent = 'Something went wrong, please try again.';
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Subscribe \u0026 Save 10%';
         });
       });
 
