@@ -687,11 +687,45 @@
       <img class="logo-img" src="pure-silicon-logo.png" alt="PureSilicon">
     </a>
     <div class="header-icons">
-      <button>&#128269;</button>
-      <button>&#128722;</button>
+      <button onclick="toggleSearch()" title="Search">&#128269;</button>
+      <button onclick="toggleCart()" title="Cart" style="position:relative;" id="cartBtn">
+        &#128722;
+        <span id="cartBadge" style="display:none;position:absolute;top:-6px;right:-8px;background:var(--burgundy);color:white;font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:none;align-items:center;justify-content:center;line-height:1;">0</span>
+      </button>
     </div>
   </div>
 </header>
+
+<!-- SEARCH OVERLAY -->
+<div id="searchOverlay" style="display:none;position:sticky;top:170px;z-index:99;background:var(--cream);border-bottom:2px solid var(--olive-light);padding:18px 24px;box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+  <div style="max-width:600px;margin:0 auto;display:flex;align-items:center;gap:12px;">
+    <span style="font-size:18px;color:var(--text-light);">&#128269;</span>
+    <input id="searchInput" type="text" placeholder="Search products…" oninput="filterProducts()" autocomplete="off"
+      style="flex:1;border:none;border-bottom:2px solid var(--olive);background:transparent;padding:8px 4px;font-family:'Jost',sans-serif;font-size:15px;color:var(--text-dark);outline:none;">
+    <button onclick="clearSearch()" style="background:none;border:none;font-size:20px;cursor:pointer;color:var(--text-light);line-height:1;">&#10005;</button>
+  </div>
+</div>
+
+<!-- CART SIDEBAR -->
+<div id="cartOverlay" style="display:none;position:fixed;inset:0;z-index:400;">
+  <div onclick="toggleCart()" style="position:absolute;inset:0;background:rgba(0,0,0,0.4);"></div>
+  <div style="position:absolute;top:0;right:0;width:380px;max-width:100vw;height:100%;background:var(--white);display:flex;flex-direction:column;box-shadow:-4px 0 24px rgba(0,0,0,0.15);">
+    <div style="padding:24px 24px 18px;border-bottom:1px solid #e8e2d8;display:flex;justify-content:space-between;align-items:center;">
+      <span style="font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--olive-dark);text-transform:uppercase;letter-spacing:2px;">Your Cart</span>
+      <button onclick="toggleCart()" style="background:none;border:none;font-size:24px;cursor:pointer;color:var(--text-dark);">&#10005;</button>
+    </div>
+    <div id="cartItems" style="flex:1;overflow-y:auto;padding:20px 24px;">
+      <p id="cartEmpty" style="color:var(--text-light);font-size:14px;text-align:center;margin-top:40px;letter-spacing:1px;">Your cart is empty.</p>
+    </div>
+    <div id="cartFooter" style="display:none;padding:20px 24px;border-top:1px solid #e8e2d8;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+        <span style="font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-mid);">Subtotal</span>
+        <span id="cartSubtotal" style="font-size:18px;font-weight:700;color:var(--olive-dark);">$0.00</span>
+      </div>
+      <button style="width:100%;background:var(--olive-dark);color:var(--cream);border:none;padding:16px;font-family:'Jost',sans-serif;font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;">Proceed to Checkout</button>
+    </div>
+  </div>
+</div>
 
 <!-- COLLECTION HEADER -->
 <section class="collection-header">
@@ -714,7 +748,7 @@
 <div class="collection-grid">
 
   <!-- 1. Terracotta Silicone Bag -->
-  <div class="product-card">
+  <div class="product-card" data-name="Reusable Silicone Food Bag – Terracotta">
     <div class="product-card-img" style="background: #d9a88c;">
       <div class="product-badge">Best Seller</div>
       <span class="product-emoji">&#129524;</span>
@@ -722,24 +756,24 @@
     <div class="product-card-info">
       <div class="product-card-name">Reusable Silicone Food Bag – Terracotta</div>
       <div class="product-card-price">$34.99</div>
-      <button class="product-card-btn">Add to Cart</button>
+      <button class="product-card-btn" onclick="addToCart('Reusable Silicone Food Bag – Terracotta', 34.99, '&#129524;')">Add to Cart</button>
     </div>
   </div>
 
   <!-- 2. Green Silicone Bag -->
-  <div class="product-card">
+  <div class="product-card" data-name="Reusable Silicone Food Bag – Green">
     <div class="product-card-img" style="background: #b5c98a;">
       <span class="product-emoji">&#129524;</span>
     </div>
     <div class="product-card-info">
       <div class="product-card-name">Reusable Silicone Food Bag – Green</div>
       <div class="product-card-price">$34.99</div>
-      <button class="product-card-btn">Add to Cart</button>
+      <button class="product-card-btn" onclick="addToCart('Reusable Silicone Food Bag – Green', 34.99, '&#129524;')">Add to Cart</button>
     </div>
   </div>
 
   <!-- 3. White Silicone Bag -->
-  <div class="product-card">
+  <div class="product-card" data-name="Reusable Silicone Food Bag – White">
     <div class="product-card-img" style="background: #e8e4dc;">
       <div class="product-badge">New</div>
       <span class="product-emoji">&#129524;</span>
@@ -747,36 +781,36 @@
     <div class="product-card-info">
       <div class="product-card-name">Reusable Silicone Food Bag – White</div>
       <div class="product-card-price">$34.99</div>
-      <button class="product-card-btn">Add to Cart</button>
+      <button class="product-card-btn" onclick="addToCart('Reusable Silicone Food Bag – White', 34.99, '&#129524;')">Add to Cart</button>
     </div>
   </div>
 
   <!-- 4. Beige Storage Container -->
-  <div class="product-card">
+  <div class="product-card" data-name="Silicone Storage Container – Beige">
     <div class="product-card-img" style="background: #ddd5c5;">
       <span class="product-emoji">&#129379;</span>
     </div>
     <div class="product-card-info">
       <div class="product-card-name">Silicone Storage Container – Beige</div>
       <div class="product-card-price">$34.99</div>
-      <button class="product-card-btn">Add to Cart</button>
+      <button class="product-card-btn" onclick="addToCart('Silicone Storage Container – Beige', 34.99, '&#129379;')">Add to Cart</button>
     </div>
   </div>
 
   <!-- 5. Clear Silicone Bag 3-Pack -->
-  <div class="product-card">
+  <div class="product-card" data-name="Silicone Snack Bags – Clear 3-Pack">
     <div class="product-card-img" style="background: #e0ead6;">
       <span class="product-emoji">&#127861;</span>
     </div>
     <div class="product-card-info">
       <div class="product-card-name">Silicone Snack Bags – Clear 3-Pack</div>
       <div class="product-card-price">$34.99</div>
-      <button class="product-card-btn">Add to Cart</button>
+      <button class="product-card-btn" onclick="addToCart('Silicone Snack Bags – Clear 3-Pack', 34.99, '&#127861;')">Add to Cart</button>
     </div>
   </div>
 
   <!-- 6. Starter Kit Bundle -->
-  <div class="product-card">
+  <div class="product-card" data-name="Silicone Starter Kit – Mixed Set of 3">
     <div class="product-card-img" style="background: #d4c9b5;">
       <div class="product-badge">Bundle</div>
       <span class="product-emoji">&#127873;</span>
@@ -784,7 +818,7 @@
     <div class="product-card-info">
       <div class="product-card-name">Silicone Starter Kit – Mixed Set of 3</div>
       <div class="product-card-price">$34.99</div>
-      <button class="product-card-btn">Add to Cart</button>
+      <button class="product-card-btn" onclick="addToCart('Silicone Starter Kit – Mixed Set of 3', 34.99, '&#127873;')">Add to Cart</button>
     </div>
   </div>
 
@@ -849,5 +883,109 @@
   </div>
 </footer>
 
+<script>
+// ── SEARCH ──
+function toggleSearch() {
+  var el = document.getElementById('searchOverlay');
+  var visible = el.style.display !== 'none';
+  el.style.display = visible ? 'none' : 'block';
+  if (!visible) { document.getElementById('searchInput').focus(); }
+  else { clearSearch(); }
+}
+
+function filterProducts() {
+  var query = document.getElementById('searchInput').value.toLowerCase().trim();
+  var cards = document.querySelectorAll('.product-card');
+  var visible = 0;
+  cards.forEach(function(card) {
+    var name = card.getAttribute('data-name').toLowerCase();
+    var show = !query || name.includes(query);
+    card.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  document.querySelector('.product-count').textContent = visible + ' Product' + (visible !== 1 ? 's' : '');
+}
+
+function clearSearch() {
+  document.getElementById('searchInput').value = '';
+  filterProducts();
+  document.getElementById('searchOverlay').style.display = 'none';
+}
+
+// ── CART ──
+var cart = [];
+
+function toggleCart() {
+  var el = document.getElementById('cartOverlay');
+  el.style.display = el.style.display === 'none' ? 'flex' : 'none';
+  document.body.style.overflow = el.style.display === 'flex' ? 'hidden' : '';
+}
+
+function addToCart(name, price, emoji) {
+  var existing = cart.find(function(i) { return i.name === name; });
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({ name: name, price: price, emoji: emoji, qty: 1 });
+  }
+  updateCartUI();
+  // flash the cart open briefly
+  document.getElementById('cartOverlay').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function changeQty(name, delta) {
+  var idx = cart.findIndex(function(i) { return i.name === name; });
+  if (idx === -1) return;
+  cart[idx].qty += delta;
+  if (cart[idx].qty <= 0) cart.splice(idx, 1);
+  updateCartUI();
+}
+
+function updateCartUI() {
+  var total = cart.reduce(function(s, i) { return s + i.qty; }, 0);
+  var subtotal = cart.reduce(function(s, i) { return s + i.price * i.qty; }, 0);
+
+  // badge
+  var badge = document.getElementById('cartBadge');
+  badge.textContent = total;
+  badge.style.display = total > 0 ? 'flex' : 'none';
+
+  // items
+  var container = document.getElementById('cartItems');
+  var empty = document.getElementById('cartEmpty');
+  var footer = document.getElementById('cartFooter');
+
+  if (cart.length === 0) {
+    empty.style.display = 'block';
+    footer.style.display = 'none';
+    container.innerHTML = '';
+    container.appendChild(empty);
+    return;
+  }
+
+  empty.style.display = 'none';
+  footer.style.display = 'block';
+  document.getElementById('cartSubtotal').textContent = '$' + subtotal.toFixed(2);
+
+  container.innerHTML = '';
+  cart.forEach(function(item) {
+    var row = document.createElement('div');
+    row.style.cssText = 'display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #f0ebe2;';
+    row.innerHTML =
+      '<span style="font-size:32px;flex-shrink:0;">' + item.emoji + '</span>' +
+      '<div style="flex:1;min-width:0;">' +
+        '<div style="font-size:13px;font-weight:600;color:var(--text-dark);line-height:1.4;margin-bottom:4px;">' + item.name + '</div>' +
+        '<div style="font-size:13px;color:var(--olive-dark);font-weight:500;">$' + item.price.toFixed(2) + '</div>' +
+      '</div>' +
+      '<div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">' +
+        '<button onclick="changeQty(\'' + item.name.replace(/'/g,"\\'") + '\',-1)" style="width:28px;height:28px;border:1px solid #ddd;background:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;">−</button>' +
+        '<span style="font-size:14px;font-weight:600;min-width:16px;text-align:center;">' + item.qty + '</span>' +
+        '<button onclick="changeQty(\'' + item.name.replace(/'/g,"\\'") + '\',1)" style="width:28px;height:28px;border:1px solid #ddd;background:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;">+</button>' +
+      '</div>';
+    container.appendChild(row);
+  });
+}
+</script>
 </body>
 </html>
