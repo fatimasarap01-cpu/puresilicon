@@ -1,0 +1,126 @@
+/* ─────────────────────────────────────────────────────────
+   style-simple.css – PureSilicon shared styles
+   Used by: faq.html, shipping.html, privacy.html, terms.html
+   ───────────────────────────────────────────────────────── */
+
+/* ── VARIABLES ── */
+:root {
+  --olive: #5a6a22;
+  --olive-dark: #3d4a17;
+  --cream: #f5f0e8;
+  --cream-dark: #ede5d4;
+  --white: #fefcf8;
+  --text-dark: #1e1e1e;
+  --text-mid: #444;
+  --text-light: #777;
+}
+
+/* ── RESET ── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* ── HEADER ── */
+.site-header {
+  background: var(--white);
+  border-bottom: 1px solid #e0d8cc;
+  padding: 0 24px;
+}
+.site-header-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.site-header .logo-link {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--olive-dark);
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+.site-header nav a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-mid);
+  text-decoration: none;
+  margin-left: 24px;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+}
+.site-header nav a:hover { color: var(--olive); }
+
+/* ── PAGE HERO ── */
+.page-hero {
+  background: var(--white);
+  border-bottom: 1px solid #e0d8cc;
+  padding: 60px 24px 50px;
+  text-align: center;
+}
+.page-hero .eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--olive);
+  margin-bottom: 16px;
+}
+.page-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 6vw, 64px);
+  font-weight: 900;
+  color: var(--text-dark);
+  line-height: 1.1;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+.page-hero p {
+  font-size: 15px;
+  color: var(--text-mid);
+  font-weight: 300;
+  line-height: 1.8;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ── CONTENT WRAP ── */
+.content-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 60px 24px 80px;
+}
+
+/* ── FOOTER ── */
+.site-footer {
+  background: #1e1e1e;
+  color: #aaa;
+  padding: 40px 24px;
+  font-size: 13px;
+}
+.site-footer-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  align-items: center;
+  justify-content: space-between;
+}
+.site-footer a { color: #aaa; text-decoration: none; transition: color 0.2s; }
+.site-footer a:hover { color: #e8e0d0; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.footer-copy { color: #666; font-size: 12px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .site-header nav a:not(:first-child) { display: none; }
+  .site-footer-inner { flex-direction: column; align-items: flex-start; }
+}
