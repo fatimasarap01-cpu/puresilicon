@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service – PureSilicon</title>
+  <meta name="description" content="PureSilicon's terms of service — use of site, ordering, pricing, intellectual property, and governing law (Ontario, Canada).">
+  <link rel="canonical" href="https://puresilicon.ca/terms.html">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%235a6a22'/><text y='.9em' font-size='75' x='12'>🌿</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --olive: #5a6a22;
+      --olive-dark: #3d4a17;
+      --cream: #f5f0e8;
+      --cream-dark: #ede5d4;
+      --white: #fefcf8;
+      --text-dark: #1e1e1e;
+      --text-mid: #444;
+      --text-light: #777;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      background: var(--white);
+      border-bottom: 1px solid #e0d8cc;
+      padding: 0 24px;
+    }
+    .site-header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .site-header .logo-link {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--olive-dark);
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+    .site-header nav a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-mid);
+      text-decoration: none;
+      margin-left: 24px;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    .site-header nav a:hover { color: var(--olive); }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--olive-dark) 0%, var(--olive) 50%, #7a9020 100%);
+      padding: 70px 24px 60px;
+      text-align: center;
+    }
+    .page-hero .eyebrow {
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+    .page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 6vw, 60px);
+      font-weight: 600;
+      color: var(--cream);
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .page-hero p {
+      color: rgba(255,255,255,0.75);
+      font-size: 13px;
+      font-weight: 300;
+    }
+
+    /* ── CONTENT ── */
+    .content-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    .policy-block {
+      background: var(--white);
+      border: 1px solid #e0d8cc;
+      border-radius: 4px;
+      padding: 48px 44px;
+    }
+
+    .policy-block h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--olive-dark);
+      margin-top: 36px;
+      margin-bottom: 12px;
+    }
+    .policy-block h2:first-child { margin-top: 0; }
+
+    .policy-block p {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--text-mid);
+      margin-bottom: 14px;
+    }
+    .policy-block p:last-child { margin-bottom: 0; }
+
+    .policy-block ul {
+      margin: 8px 0 14px 20px;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--text-mid);
+    }
+    .policy-block ul li { margin-bottom: 6px; }
+
+    .policy-block a {
+      color: var(--olive);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .policy-block a:hover { border-color: var(--olive); }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--cream-dark);
+      margin: 32px 0;
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: #1e1e1e;
+      color: #aaa;
+      padding: 40px 24px;
+      font-size: 13px;
+    }
+    .site-footer-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .site-footer a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .site-footer a:hover { color: #e8e0d0; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+    .footer-copy { color: #666; font-size: 12px; }
+
+    @media (max-width: 600px) {
+      .site-header nav a:not(:first-child) { display: none; }
+      .policy-block { padding: 32px 24px; }
+      .site-footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="logo-link" href="index.html">PureSilicon</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <p class="eyebrow">Legal</p>
+    <h1>Terms of Service</h1>
+    <p>Last updated: April 2026</p>
+  </section>
+
+  <!-- CONTENT -->
+  <main class="content-wrap">
+    <div class="policy-block">
+
+      <p>By accessing or purchasing from puresilicon.ca, you agree to the following terms. Please read them — they're written to be clear, not confusing.</p>
+
+      <hr class="divider">
+
+      <h2>Use of This Site</h2>
+      <p>You may use this website for personal, non-commercial purposes. You agree not to:</p>
+      <ul>
+        <li>Use the site in any way that violates applicable laws or regulations</li>
+        <li>Attempt to gain unauthorized access to any part of the site or its systems</li>
+        <li>Scrape, copy, or reproduce content without our permission</li>
+        <li>Use the site to distribute spam or malicious content</li>
+      </ul>
+      <p>We reserve the right to restrict access to the site for users who violate these terms.</p>
+
+      <hr class="divider">
+
+      <h2>Orders &amp; Payment</h2>
+      <p>When you place an order, you're making an offer to purchase the selected items. We reserve the right to accept or decline any order. An order is confirmed once you receive an order confirmation email from us.</p>
+      <p>Payment is processed securely at checkout. We accept major credit cards and other payment methods as displayed at checkout. Full payment is required before your order is processed and shipped.</p>
+
+      <hr class="divider">
+
+      <h2>Pricing</h2>
+      <p>All prices on puresilicon.ca are listed in Canadian dollars (CAD) unless otherwise stated. Prices are subject to change without notice. In the event of a pricing error, we reserve the right to cancel the order and issue a full refund.</p>
+      <p>Applicable taxes will be calculated and displayed at checkout based on your shipping address.</p>
+
+      <hr class="divider">
+
+      <h2>Intellectual Property</h2>
+      <p>All content on this website — including text, images, logos, graphics, product designs, and brand assets — is the property of PureSilicon and is protected by Canadian and international copyright law.</p>
+      <p>You may not reproduce, distribute, or use any of our content for commercial purposes without our written permission. Personal, non-commercial use (such as sharing a product link or screenshot) is fine.</p>
+
+      <hr class="divider">
+
+      <h2>Limitation of Liability</h2>
+      <p>PureSilicon provides this website and its products "as is." To the fullest extent permitted by law, we are not liable for:</p>
+      <ul>
+        <li>Indirect, incidental, or consequential damages arising from use of our products or website</li>
+        <li>Losses due to circumstances outside our control (e.g., carrier delays, natural events)</li>
+        <li>Errors or inaccuracies in product descriptions (though we strive for accuracy)</li>
+      </ul>
+      <p>Our total liability to you for any claim will not exceed the amount you paid for the relevant order.</p>
+
+      <hr class="divider">
+
+      <h2>Changes to These Terms</h2>
+      <p>We may update these terms from time to time. Changes will be posted on this page with an updated date. Continued use of the site after changes are posted constitutes your acceptance of the updated terms.</p>
+
+      <hr class="divider">
+
+      <h2>Governing Law</h2>
+      <p>These terms are governed by the laws of the Province of Ontario and the federal laws of Canada applicable therein. Any disputes arising from these terms or your use of this site shall be subject to the exclusive jurisdiction of the courts of Ontario, Canada.</p>
+
+      <hr class="divider">
+
+      <h2>Contact Us</h2>
+      <p>Questions about these terms? We're easy to reach.</p>
+      <p>
+        PureSilicon<br>
+        Email: <a href="mailto:hello@puresilicon.ca">hello@puresilicon.ca</a><br>
+        Canada
+      </p>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+        <a href="faq.html">FAQ</a>
+        <a href="shipping.html">Shipping &amp; Refunds</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+      <span class="footer-copy">&copy; 2026, PureSilicon. All rights reserved.</span>
+    </div>
+  </footer>
+
+</body>
+</html>

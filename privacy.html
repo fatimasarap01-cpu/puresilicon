@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy – PureSilicon</title>
+  <meta name="description" content="PureSilicon's privacy policy — how we collect, use, and protect your personal information in compliance with PIPEDA.">
+  <link rel="canonical" href="https://puresilicon.ca/privacy.html">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%235a6a22'/><text y='.9em' font-size='75' x='12'>🌿</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --olive: #5a6a22;
+      --olive-dark: #3d4a17;
+      --cream: #f5f0e8;
+      --cream-dark: #ede5d4;
+      --white: #fefcf8;
+      --text-dark: #1e1e1e;
+      --text-mid: #444;
+      --text-light: #777;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      background: var(--white);
+      border-bottom: 1px solid #e0d8cc;
+      padding: 0 24px;
+    }
+    .site-header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .site-header .logo-link {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--olive-dark);
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+    .site-header nav a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-mid);
+      text-decoration: none;
+      margin-left: 24px;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    .site-header nav a:hover { color: var(--olive); }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--olive-dark) 0%, var(--olive) 50%, #7a9020 100%);
+      padding: 70px 24px 60px;
+      text-align: center;
+    }
+    .page-hero .eyebrow {
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+    .page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 6vw, 60px);
+      font-weight: 600;
+      color: var(--cream);
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .page-hero p {
+      color: rgba(255,255,255,0.75);
+      font-size: 13px;
+      font-weight: 300;
+    }
+
+    /* ── CONTENT ── */
+    .content-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    .policy-block {
+      background: var(--white);
+      border: 1px solid #e0d8cc;
+      border-radius: 4px;
+      padding: 48px 44px;
+    }
+
+    .policy-block h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--olive-dark);
+      margin-top: 36px;
+      margin-bottom: 12px;
+    }
+    .policy-block h2:first-child { margin-top: 0; }
+
+    .policy-block p {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--text-mid);
+      margin-bottom: 14px;
+    }
+    .policy-block p:last-child { margin-bottom: 0; }
+
+    .policy-block ul {
+      margin: 8px 0 14px 20px;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--text-mid);
+    }
+    .policy-block ul li { margin-bottom: 6px; }
+
+    .policy-block a {
+      color: var(--olive);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .policy-block a:hover { border-color: var(--olive); }
+
+    .last-updated {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-bottom: 32px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--cream-dark);
+      margin: 32px 0;
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: #1e1e1e;
+      color: #aaa;
+      padding: 40px 24px;
+      font-size: 13px;
+    }
+    .site-footer-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .site-footer a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .site-footer a:hover { color: #e8e0d0; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+    .footer-copy { color: #666; font-size: 12px; }
+
+    @media (max-width: 600px) {
+      .site-header nav a:not(:first-child) { display: none; }
+      .policy-block { padding: 32px 24px; }
+      .site-footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="logo-link" href="index.html">PureSilicon</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <p class="eyebrow">Your Data, Our Responsibility</p>
+    <h1>Privacy Policy</h1>
+    <p>Last updated: April 2026</p>
+  </section>
+
+  <!-- CONTENT -->
+  <main class="content-wrap">
+    <div class="policy-block">
+
+      <p>At PureSilicon, we take your privacy seriously. This policy explains what personal information we collect, why we collect it, and how we handle it — in plain language, not legalese. We operate in accordance with Canada's <em>Personal Information Protection and Electronic Documents Act</em> (PIPEDA).</p>
+
+      <hr class="divider">
+
+      <h2>Information We Collect</h2>
+      <p>When you shop with us or get in touch, we may collect:</p>
+      <ul>
+        <li><strong>Contact details</strong> — name, email address, phone number</li>
+        <li><strong>Shipping details</strong> — delivery address</li>
+        <li><strong>Order information</strong> — products purchased, order history, payment confirmation (we do not store full card numbers)</li>
+        <li><strong>Communications</strong> — messages you send us via our contact form or email</li>
+        <li><strong>Browsing data</strong> — pages visited, time on site, referring URL, device type (collected via cookies)</li>
+      </ul>
+      <p>We only collect information that is reasonably necessary to provide our products and services.</p>
+
+      <hr class="divider">
+
+      <h2>How We Use Your Information</h2>
+      <p>We use your information to:</p>
+      <ul>
+        <li>Process and fulfil your orders</li>
+        <li>Send order confirmations and shipping updates</li>
+        <li>Respond to your questions and support requests</li>
+        <li>Send marketing emails (only if you've opted in — you can unsubscribe any time)</li>
+        <li>Improve our website and product offerings</li>
+        <li>Comply with legal obligations</li>
+      </ul>
+      <p>We will never sell your personal information to third parties.</p>
+
+      <hr class="divider">
+
+      <h2>Sharing Your Information</h2>
+      <p>We share your information only where necessary:</p>
+      <ul>
+        <li><strong>Shipping partners</strong> — to deliver your order (name and address only)</li>
+        <li><strong>Payment processors</strong> — to securely handle transactions</li>
+        <li><strong>Email service providers</strong> — to send order confirmations and newsletters</li>
+        <li><strong>Analytics tools</strong> — to understand how our site is used (anonymised data)</li>
+      </ul>
+      <p>All third-party providers we use are bound by confidentiality agreements and are not permitted to use your data for their own purposes.</p>
+
+      <hr class="divider">
+
+      <h2>Cookies</h2>
+      <p>Our website uses cookies — small text files stored on your device — to remember your preferences, keep your cart, and understand how visitors use the site. You can disable cookies in your browser settings, though some features may not work as expected.</p>
+      <p>We do not use cookies to track you across other websites or sell your browsing data.</p>
+
+      <hr class="divider">
+
+      <h2>Your Rights</h2>
+      <p>Under PIPEDA, you have the right to:</p>
+      <ul>
+        <li>Know what personal information we hold about you</li>
+        <li>Request corrections to inaccurate information</li>
+        <li>Withdraw consent for marketing communications at any time</li>
+        <li>Request deletion of your personal data (subject to legal retention requirements)</li>
+      </ul>
+      <p>To exercise any of these rights, simply contact us at the address below.</p>
+
+      <hr class="divider">
+
+      <h2>Contact Us</h2>
+      <p>Questions about this policy or how we handle your data? We're happy to help.</p>
+      <p>
+        PureSilicon<br>
+        Email: <a href="mailto:hello@puresilicon.ca">hello@puresilicon.ca</a><br>
+        Canada
+      </p>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+        <a href="faq.html">FAQ</a>
+        <a href="shipping.html">Shipping &amp; Refunds</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+      <span class="footer-copy">&copy; 2026, PureSilicon. All rights reserved.</span>
+    </div>
+  </footer>
+
+</body>
+</html>
