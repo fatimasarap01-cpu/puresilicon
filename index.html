@@ -1290,6 +1290,16 @@ function goSearch() {
   window.location.href = 'shop.html' + (q ? '?q=' + encodeURIComponent(q) : '');
 }
 
+function addToCart(name, price, emoji) {
+  var cart = getCart();
+  var existing = cart.find(function(i) { return i.name === name; });
+  if (existing) { existing.qty++; } else { cart.push({ name: name, price: price, emoji: emoji, qty: 1 }); }
+  saveCart(cart);
+  renderCart();
+  updateBadge();
+  document.getElementById('cartOverlay').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
 function toggleCart() {
   var el = document.getElementById('cartOverlay');
   el.style.display = el.style.display === 'none' ? 'flex' : 'none';
