@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ – PureSilicon</title>
+  <meta name="description" content="Frequently asked questions about PureSilicon reusable silicone food storage products — materials, shipping, returns, safety, and more.">
+  <link rel="canonical" href="https://puresilicon.ca/faq.html">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%235a6a22'/><text y='.9em' font-size='75' x='12'>🌿</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --olive: #5a6a22;
+      --olive-dark: #3d4a17;
+      --cream: #f5f0e8;
+      --cream-dark: #ede5d4;
+      --white: #fefcf8;
+      --text-dark: #1e1e1e;
+      --text-mid: #444;
+      --text-light: #777;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      background: var(--white);
+      border-bottom: 1px solid #e0d8cc;
+      padding: 0 24px;
+    }
+    .site-header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .site-header .logo-link {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--olive-dark);
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+    .site-header nav a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-mid);
+      text-decoration: none;
+      margin-left: 24px;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    .site-header nav a:hover { color: var(--olive); }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--olive-dark) 0%, var(--olive) 50%, #7a9020 100%);
+      padding: 70px 24px 60px;
+      text-align: center;
+    }
+    .page-hero .eyebrow {
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+    .page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 6vw, 60px);
+      font-weight: 600;
+      color: var(--cream);
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .page-hero p {
+      color: rgba(255,255,255,0.8);
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* ── CONTENT ── */
+    .content-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    /* ── ACCORDION ── */
+    .faq-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+
+    .faq-item {
+      background: var(--white);
+      border: 1px solid #e0d8cc;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 22px 24px;
+      text-align: left;
+      font-family: 'Jost', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text-dark);
+      transition: color 0.2s;
+    }
+    .faq-question:hover { color: var(--olive); }
+    .faq-question[aria-expanded="true"] { color: var(--olive-dark); }
+
+    .faq-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--cream-dark);
+      color: var(--olive-dark);
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      transition: background 0.2s, transform 0.25s;
+    }
+    .faq-question[aria-expanded="true"] .faq-icon {
+      background: var(--olive);
+      color: var(--white);
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 24px 22px;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--text-mid);
+      border-top: 1px solid var(--cream-dark);
+      padding-top: 18px;
+    }
+    .faq-item.open .faq-answer { display: block; }
+
+    /* ── CONTACT CTA ── */
+    .faq-cta {
+      margin-top: 48px;
+      background: var(--white);
+      border: 1px solid #e0d8cc;
+      border-radius: 4px;
+      padding: 36px 32px;
+      text-align: center;
+    }
+    .faq-cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--olive-dark);
+      margin-bottom: 10px;
+    }
+    .faq-cta p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .faq-cta a.btn {
+      display: inline-block;
+      background: var(--olive);
+      color: var(--cream);
+      padding: 12px 32px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .faq-cta a.btn:hover { background: var(--olive-dark); }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: #1e1e1e;
+      color: #aaa;
+      padding: 40px 24px;
+      font-size: 13px;
+    }
+    .site-footer-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .site-footer a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .site-footer a:hover { color: #e8e0d0; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+    .footer-copy { color: #666; font-size: 12px; }
+
+    @media (max-width: 600px) {
+      .site-header nav a:not(:first-child) { display: none; }
+      .site-footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="logo-link" href="index.html">PureSilicon</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <p class="eyebrow">Got Questions?</p>
+    <h1>Frequently Asked Questions</h1>
+    <p>Everything you need to know about our products, shipping, and policies.</p>
+  </section>
+
+  <!-- FAQ ACCORDION -->
+  <main class="content-wrap">
+    <ul class="faq-list" id="faqList">
+
+      <li class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What materials are your products made from?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          All PureSilicon products are made from 100% food-grade platinum silicone — free from plastic, PEVA, BPA, and other harmful chemicals. They're built to last a lifetime.
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How long does shipping take?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          We typically process orders within 1–3 business days. Standard shipping within Canada takes 5–10 business days. Expedited options are available at checkout.
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What is your return policy?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          We offer a 30-day return window for unused items in their original condition. If your product has a defect, we'll replace it free of charge — just reach out to us.
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Do you offer wholesale or bulk pricing?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Yes! We work with retailers, caterers, and organisations. Contact us and we'll get back to you with pricing details.
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Are your products dishwasher safe?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Absolutely. All PureSilicon products are dishwasher safe, microwave safe, freezer safe, and oven safe up to 400°F / 200°C.
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Are PureSilicon products food safe?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Yes. Our silicone is platinum-grade and meets all Canadian and US food safety standards. No fillers, no toxins.
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Where are you based?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          PureSilicon is a proudly Canadian brand.
+        </div>
+      </li>
+
+      <li class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Do you ship internationally?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          We currently ship within Canada. International shipping is coming soon.
+        </div>
+      </li>
+
+    </ul>
+
+    <div class="faq-cta">
+      <h2>Still have questions?</h2>
+      <p>We're happy to help. Reach out to our team and we'll get back to you promptly.</p>
+      <a href="contact.html" class="btn">Contact Us</a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+        <a href="faq.html">FAQ</a>
+        <a href="shipping.html">Shipping &amp; Refunds</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+      <span class="footer-copy">&copy; 2026, PureSilicon. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(function(i) {
+          i.classList.remove('open');
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        // Open clicked if it was closed
+        if (!isOpen) {
+          item.classList.add('open');
+          this.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

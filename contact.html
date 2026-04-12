@@ -4,6 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact Us – PureSilicon</title>
+<meta name="description" content="Get in touch with the PureSilicon team. Questions about orders, products, or wholesale? We'd love to hear from you.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://puresilicon.ca/contact.html">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://puresilicon.ca/contact.html">
+<meta property="og:title" content="Contact Us – PureSilicon">
+<meta property="og:description" content="Get in touch with the PureSilicon team. Questions about orders, products, or wholesale? We'd love to hear from you.">
+<meta property="og:image" content="https://puresilicon.ca/pure-silicon-logo.png">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact Us – PureSilicon">
+<meta name="twitter:description" content="Get in touch with the PureSilicon team. Questions about orders, products, or wholesale? We'd love to hear from you.">
+<meta name="twitter:image" content="https://puresilicon.ca/pure-silicon-logo.png">
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%235a6a22'/><text y='.9em' font-size='75' x='12'>🌿</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -549,8 +565,6 @@
   <button class="nav-close" onclick="document.getElementById('navOverlay').classList.remove('open')">✕</button>
   <a href="index.html">Home</a>
   <a href="shop.html">Shop</a>
-  <a href="#">Sustainability</a>
-  <a href="#">Recipes &amp; Tips</a>
   <a href="contact.html">Contact</a>
 </div>
  
@@ -586,17 +600,12 @@
         <a href="#">About <span class="nav-chevron">▾</span></a>
         <div class="dropdown">
           <a href="index.html">Our Story</a>
-          <a href="index.html">Our Mission</a>
-          <a href="#">Sustainability</a>
-          <a href="#">Giving Back</a>
         </div>
       </li>
       <li class="has-dropdown">
         <a href="#">Recipes &amp; Tips <span class="nav-chevron">▾</span></a>
         <div class="dropdown">
-          <a href="#">Blog</a>
-          <a href="#">Recipes</a>
-          <a href="#">FAQ</a>
+          <a href="faq.html">FAQ</a>
         </div>
       </li>
       <li><a href="contact.html">Contact</a></li>
@@ -808,11 +817,32 @@
   <h2>Join the</h2>
   <div class="big-offer">10% Off</div>
   <p>Your first order when you subscribe</p>
-  <form class="nl-form" name="newsletter" method="POST" data-netlify="true">
-    <input type="hidden" name="form-name" value="newsletter">
-    <input type="email" name="email" placeholder="Enter your email" required>
-    <button type="submit">Subscribe &amp; Save</button>
+  <form class="nl-form" id="nl-form-contact" onsubmit="nlSubmit(event)">
+    <input type="email" id="nl-email-contact" placeholder="Enter your email" required>
+    <button type="submit" id="nl-btn-contact">Subscribe &amp; Save</button>
   </form>
+  <p id="nl-success-contact" style="display:none;color:#f5f0e8;font-size:13px;letter-spacing:1px;margin-top:12px;">✓ You're in! Check your inbox for 10% off.</p>
+  <p id="nl-error-contact" style="display:none;color:#ffaaaa;font-size:13px;letter-spacing:1px;margin-top:12px;">Something went wrong — please try again.</p>
+  <script>
+  function nlSubmit(e) {
+    e.preventDefault();
+    var email = document.getElementById('nl-email-contact').value.trim();
+    var btn = document.getElementById('nl-btn-contact');
+    btn.disabled = true; btn.textContent = 'Subscribing…';
+    fetch('https://a.klaviyo.com/client/subscriptions/?company_id=RJRWkV', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/vnd.api+json', 'revision': '2024-10-15' },
+      body: JSON.stringify({ data: { type: 'subscription', attributes: { custom_source: 'contact-page', profile: { data: { type: 'profile', attributes: { email: email } } } }, relationships: { list: { data: { type: 'list', id: 'Y7tEX8' } } } } })
+    }).then(function(res) {
+      if (!res.ok) throw new Error();
+      document.getElementById('nl-form-contact').style.display = 'none';
+      document.getElementById('nl-success-contact').style.display = 'block';
+    }).catch(function() {
+      document.getElementById('nl-error-contact').style.display = 'block';
+      btn.disabled = false; btn.textContent = 'Subscribe & Save';
+    });
+  }
+  </script>
 </section>
  
 <!-- CERTIFICATIONS -->
@@ -845,27 +875,18 @@
     <div class="footer-col">
       <h4>Our Company</h4>
       <a href="#">Who We Are</a>
-      <a href="#">Shipping &amp; Refund Policy</a>
-      <a href="#">Terms of Service</a>
-      <a href="#">Privacy Policy</a>
-      <a href="#">FAQs</a>
-      <a href="#">Giving Back</a>
+      <a href="shipping.html">Shipping &amp; Refund Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="faq.html">FAQs</a>
     </div>
     <div class="footer-col">
       <h4>Links</h4>
       <a href="contact.html">Contact Us</a>
       <a href="contact.html">Let's Collaborate</a>
-      <a href="#">Wholesale</a>
-      <a href="#">Sustainability</a>
-      <a href="#">Sitemap</a>
     </div>
     <div class="footer-col">
       <h4>Get Connected</h4>
-      <a href="#">📘 Facebook</a>
-      <a href="#">📸 Instagram</a>
-      <a href="#">📌 Pinterest</a>
-      <a href="#">▶️ YouTube</a>
-      <a href="#">🎵 TikTok</a>
     </div>
     <div class="footer-col">
       <h4>Contact Us</h4>
@@ -879,12 +900,6 @@
   </div>
   <div class="footer-bottom">
     <span>© 2026, PureSilicon. All rights reserved.</span>
-    <div class="social-icons">
-      <a href="#">f</a>
-      <a href="#">ig</a>
-      <a href="#">yt</a>
-      <a href="#">tt</a>
-    </div>
   </div>
 </footer>
  
