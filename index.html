@@ -98,6 +98,8 @@
   .cat-img svg { width: 60%; height: 60%; opacity: 0.5; }
   .cat-img .cat-emoji { font-size: 64px; }
   .cat-img:hover .cat-emoji { transform: scale(1.1); transition: transform 0.3s; }
+  .cat-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+  .cat-img:hover img { transform: scale(1.05); }
   .cat-label {
     font-family: 'Playfair Display', serif;
     font-size: 14px;
@@ -142,6 +144,8 @@
     position: relative;
     overflow: hidden;
   }
+  .product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+  .product-card:hover .product-img img { transform: scale(1.05); }
   .product-badge {
     position: absolute;
     top: 10px;
@@ -190,7 +194,9 @@
     justify-content: center;
     font-size: 100px;
     min-height: 380px;
+    overflow: hidden;
   }
+  .feature-img img { width: 100%; height: 100%; object-fit: cover; }
   .feature-text {
     background: var(--olive);
     color: var(--cream);
@@ -515,20 +521,20 @@
 <section class="categories">
   <div class="categories-grid">
     <div class="cat-card">
-      <div class="cat-img" style="background:#e8f0cc;">
-        <span class="cat-emoji">🧴</span>
+      <div class="cat-img">
+        <img src="home-bags-kit.png" alt="Silicone Food Bags">
       </div>
       <div class="cat-label">Silicone<br>Food Bags</div>
     </div>
     <div class="cat-card">
-      <div class="cat-img" style="background:#f0e0d0;">
-        <span class="cat-emoji">🥡</span>
+      <div class="cat-img">
+        <img src="home-container.png" alt="Storage Containers">
       </div>
       <div class="cat-label">Storage<br>Containers</div>
     </div>
     <div class="cat-card">
-      <div class="cat-img" style="background:#e0ead8;">
-        <span class="cat-emoji">⭐</span>
+      <div class="cat-img">
+        <img src="home-bestseller.png" alt="Best Sellers">
       </div>
       <div class="cat-label">Best<br>Sellers</div>
     </div>
@@ -546,9 +552,9 @@
   <div class="section-title">Our Products</div>
   <div class="products-grid">
     <div class="product-card">
-      <div class="product-img" style="background:#e6efd4;">
+      <div class="product-img">
         <div class="product-badge">Best Seller</div>
-        🧴
+        <img src="home-bestseller.png" alt="Reusable Silicone Food Bags – Starter Kit">
       </div>
       <div class="stars">★★★★★</div>
       <div class="product-name">Reusable Silicone Food Bags – Starter Kit (3-Pack)</div>
@@ -556,8 +562,8 @@
       <button class="add-to-cart">Add to Cart</button>
     </div>
     <div class="product-card">
-      <div class="product-img" style="background:#f2e4d4;">
-        🫙
+      <div class="product-img">
+        <img src="home-freezer.png" alt="Silicone Freezer Bags">
       </div>
       <div class="stars">★★★★★</div>
       <div class="product-name">Silicone Freezer Bags – Small 330ml Slim Pouch (2-Pack)</div>
@@ -575,8 +581,8 @@
       <button class="add-to-cart">Add to Cart</button>
     </div>
     <div class="product-card">
-      <div class="product-img" style="background:#f8f0e4;">
-        🍱
+      <div class="product-img">
+        <img src="home-container.png" alt="Silicone Food Storage Container Set">
       </div>
       <div class="stars">★★★★★</div>
       <div class="product-name">Silicone Food Storage Container Set – Leakproof Lids</div>
@@ -588,7 +594,7 @@
 
 <!-- FEATURE SPLIT 1 -->
 <section class="feature-split">
-  <div class="feature-img">🌿</div>
+  <div class="feature-img"><img src="home-bags.png" alt="Reusable Silicone Bags"></div>
   <div class="feature-text">
     <div class="eyebrow">You Asked, We Listened</div>
     <h2>Now in<br>All-Clear</h2>
@@ -600,7 +606,7 @@
 
 <!-- FEATURE SPLIT 2 (reversed) -->
 <section class="feature-split reverse">
-  <div class="feature-img" style="background:#f2e4d0;">🥙</div>
+  <div class="feature-img"><img src="home-freezer.png" alt="Silicone Bags in Freezer"></div>
   <div class="feature-text">
     <div class="eyebrow">Sustainable Living</div>
     <h2>Built for<br>Real Life</h2>

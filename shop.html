@@ -114,13 +114,15 @@
     opacity: 0.92;
   }
 
-  .product-card-img .product-emoji {
-    font-size: 80px;
+  .product-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     transition: transform 0.4s ease;
   }
 
-  .product-card:hover .product-emoji {
-    transform: scale(1.08);
+  .product-card:hover .product-card-img img {
+    transform: scale(1.05);
   }
 
   .product-badge {
@@ -394,9 +396,9 @@
 
   <!-- 1. Terracotta Silicone Bag -->
   <div class="product-card" data-name="Reusable Silicone Food Bag – Terracotta">
-    <div class="product-card-img" style="background: #d9a88c;">
+    <div class="product-card-img">
       <div class="product-badge">Best Seller</div>
-      <span class="product-emoji">&#129524;</span>
+      <img src="product-bag-terracotta.png" alt="Reusable Silicone Food Bag – Terracotta">
     </div>
     <div class="product-card-info">
       <div class="product-card-name">Reusable Silicone Food Bag – Terracotta</div>
@@ -407,8 +409,8 @@
 
   <!-- 2. Green Silicone Bag -->
   <div class="product-card" data-name="Reusable Silicone Food Bag – Green">
-    <div class="product-card-img" style="background: #b5c98a;">
-      <span class="product-emoji">&#129524;</span>
+    <div class="product-card-img">
+      <img src="product-bag-green.png" alt="Reusable Silicone Food Bag – Green">
     </div>
     <div class="product-card-info">
       <div class="product-card-name">Reusable Silicone Food Bag – Green</div>
@@ -419,9 +421,9 @@
 
   <!-- 3. White Silicone Bag -->
   <div class="product-card" data-name="Reusable Silicone Food Bag – White">
-    <div class="product-card-img" style="background: #e8e4dc;">
+    <div class="product-card-img">
       <div class="product-badge">New</div>
-      <span class="product-emoji">&#129524;</span>
+      <img src="product-bag-white.png" alt="Reusable Silicone Food Bag – White">
     </div>
     <div class="product-card-info">
       <div class="product-card-name">Reusable Silicone Food Bag – White</div>
@@ -432,8 +434,8 @@
 
   <!-- 4. Beige Storage Container -->
   <div class="product-card" data-name="Silicone Storage Container – Beige">
-    <div class="product-card-img" style="background: #ddd5c5;">
-      <span class="product-emoji">&#129379;</span>
+    <div class="product-card-img">
+      <img src="product-container-beige.png" alt="Silicone Storage Container – Beige">
     </div>
     <div class="product-card-info">
       <div class="product-card-name">Silicone Storage Container – Beige</div>
