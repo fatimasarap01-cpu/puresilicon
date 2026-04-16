@@ -23,10 +23,10 @@
 .gallery-main img{width:100%;height:auto;display:block;transition:transform .5s ease;}
 .gallery-main:hover img{transform:scale(1.04);}
 .gallery-badge{position:absolute;top:16px;left:16px;background:var(--burgundy);color:white;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px;z-index:2;}
-.gallery-thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px;}
-.gallery-thumb{aspect-ratio:1;overflow:hidden;cursor:pointer;border:2px solid transparent;background:var(--cream);transition:border-color .2s;}
+.gallery-thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px;}
+.gallery-thumb{aspect-ratio:4/3;overflow:hidden;cursor:pointer;border:2px solid transparent;background:var(--cream);transition:border-color .2s;}
 .gallery-thumb.active,.gallery-thumb:hover{border-color:var(--olive);}
-.gallery-thumb img{width:100%;height:100%;object-fit:contain;}
+.gallery-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .3s;}.gallery-thumb:hover img{transform:scale(1.05);}@media(max-width:600px){.gallery-thumbs{grid-template-columns:repeat(2,1fr);}}
 .thumb-placeholder{aspect-ratio:1;background:var(--cream-dark);display:flex;align-items:center;justify-content:center;color:var(--text-light);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;border:2px dashed #c8bfae;text-align:center;padding:6px;line-height:1.4;}
 
 /* Product Info */
@@ -195,14 +195,14 @@
         <div class="gallery-thumb active" onclick="swapImg('terracotta-4.png', this)">
           <img src="terracotta-4.png" alt="Terracotta bag lifestyle 2">
         </div>
-        <div class="gallery-thumb" onclick="swapImg('terracotta-1.jpg', this)">
-          <img src="terracotta-1.jpg" alt="Terracotta bag open view">
+        <div class="gallery-thumb" onclick="swapImg('terracotta-new2.png', this)">
+          <img src="terracotta-new2.png" alt="Terracotta bag on cutting board">
         </div>
         <div class="gallery-thumb" onclick="swapImg('terracotta-2.jpg', this)">
           <img src="terracotta-2.jpg" alt="Terracotta bag sealed on counter">
         </div>
-        <div class="gallery-thumb" onclick="swapImg('terracotta-3.jpg', this)">
-          <img src="terracotta-3.jpg" alt="Terracotta bag lifestyle">
+        <div class="gallery-thumb" onclick="swapImg('terracotta-new4.png', this)">
+          <img src="terracotta-new4.png" alt="Terracotta bag with mango">
         </div>
       </div>
     </div>
