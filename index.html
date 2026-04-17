@@ -403,14 +403,15 @@
   <div class="about-hero">
     <div class="about-hero-content">
       <div class="eyebrow">Our Story</div>
+      <div class="about-hero-divider"></div>
       <h1>It All Started with a <span>Search.</span></h1>
       <p>We went looking for real silicone food storage bags, and couldn't find them. Just PEVA plastic, marketed as the real thing. So we built PureSilicon.</p>
     </div>
   </div>
 
   <!-- Story Block 1 -->
-  <div class="about-story dark">
-    <div class="about-story-img" style="background:#e8f0cc;padding:0;overflow:hidden;"><img src="about-2.png" alt="PureSilicon Was Born" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+  <div class="about-story dark about-reveal">
+    <div class="about-story-img" style="background:#e8f0cc;padding:0;overflow:hidden;position:relative;"><img src="about-2.png" alt="PureSilicon Was Born" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;"></div>
     <div class="about-story-text">
       <div class="eyebrow">The Beginning</div>
       <h2>PureSilicon<br>Was Born</h2>
@@ -420,8 +421,8 @@
   </div>
 
   <!-- Story Block 2 -->
-  <div class="about-story reverse">
-    <div class="about-story-img" style="background:#f0e0d0;padding:0;overflow:hidden;"><img src="about-1.jpg" alt="Making It Easy to Reuse" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+  <div class="about-story reverse about-reveal">
+    <div class="about-story-img" style="background:#f0e0d0;padding:0;overflow:hidden;position:relative;"><img src="about-1.jpg" alt="Making It Easy to Reuse" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;"></div>
     <div class="about-story-text">
       <div class="eyebrow">Our Mission</div>
       <h2>Making It Easy<br>to Reuse</h2>
@@ -431,8 +432,8 @@
   </div>
 
   <!-- Story Block 3 -->
-  <div class="about-story burgundy">
-    <div class="about-story-img" style="background:#f4e8d8;padding:0;overflow:hidden;"><img src="about-3.jpg" alt="For the Food Lovers" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+  <div class="about-story burgundy about-reveal">
+    <div class="about-story-img" style="background:#f4e8d8;padding:0;overflow:hidden;position:relative;"><img src="about-3.jpg" alt="For the Food Lovers" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;"></div>
     <div class="about-story-text">
       <div class="eyebrow">For You</div>
       <h2>For the<br>Food Lovers</h2>
@@ -442,8 +443,9 @@
   </div>
 
   <!-- Values Strip -->
-  <div class="about-values-strip">
+  <div class="about-values-strip about-reveal">
     <h2>What We Stand For</h2>
+    <p class="about-values-tagline">The principles behind every product we make</p>
     <div class="about-values-row">
       <div>
         <div class="about-val-icon"><img src="recycle.png" alt="Recycle"></div>
@@ -464,11 +466,15 @@
   </div>
 
   <!-- Closing -->
-  <div class="about-closing">
-    <h2>Thank You for Joining Us</h2>
-    <p>Every PureSilicon bag in your kitchen is one less piece of plastic in the world. We're so grateful you've chosen to be part of this journey with us.</p>
-    <div class="founder">— The PureSilicon Team</div>
-    <a href="shop.html" class="btn-primary" style="margin-top:30px;">Shop Our Collection</a>
+  <div class="about-closing about-reveal">
+    <div class="about-closing-inner">
+      <div class="about-closing-leaf">🌿</div>
+      <h2>Thank You for Joining Us</h2>
+      <p>Every PureSilicon bag in your kitchen is one less piece of plastic in the world. We're so grateful you've chosen to be part of this journey with us.</p>
+      <div class="about-closing-divider"></div>
+      <div class="founder">— The PureSilicon Team</div>
+      <a href="shop.html" class="btn-primary" style="margin-top:36px;display:inline-block;">Shop Our Collection</a>
+    </div>
   </div>
 </div>
 
@@ -488,11 +494,28 @@
       }
     }
   });
+
+  // Fade-in on scroll for about sections
+  var revealEls = aboutOverlay.querySelectorAll('.about-reveal');
+  var revealObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObs.unobserve(entry.target);
+      }
+    });
+  }, { root: aboutOverlay, threshold: 0.12 });
+  revealEls.forEach(function(el) { revealObs.observe(el); });
 })();
 </script>
 
 <!-- ANNOUNCEMENT BAR -->
-<div class="announcement-bar"><span class="marquee-track">&#127807; Save 10% when you <a href="subscribe.html">sign up to our newsletter</a> &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;&nbsp; Free shipping on orders over $75 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#127807; Save 10% when you <a href="subscribe.html">sign up to our newsletter</a> &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;&nbsp; Free shipping on orders over $75 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+<div class="announcement-bar">
+  <div class="announcement-track">
+    <span>🌿 Save 10% when you <a href="subscribe.html">sign up to our newsletter</a> &nbsp;·&nbsp; Free shipping on orders over $75 &nbsp;·&nbsp;</span>
+    <span>🌿 Save 10% when you <a href="subscribe.html">sign up to our newsletter</a> &nbsp;·&nbsp; Free shipping on orders over $75 &nbsp;·&nbsp;</span>
+  </div>
+</div>
 
 <!-- HEADER -->
 <header>
