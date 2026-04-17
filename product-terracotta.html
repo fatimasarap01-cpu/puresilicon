@@ -19,8 +19,8 @@
 
 /* Gallery */
 .gallery{position:sticky;top:210px;}
-.gallery-main{width:100%;overflow:hidden;background:var(--cream);position:relative;}
-.gallery-main img{width:100%;height:auto;display:block;transition:transform .5s ease;}
+.gallery-main{width:100%;overflow:hidden;background:var(--cream);position:relative;aspect-ratio:4/3;}
+.gallery-main img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
 .gallery-main:hover img{transform:scale(1.04);}
 .gallery-badge{position:absolute;top:16px;left:16px;background:var(--burgundy);color:white;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px;z-index:2;}
 .gallery-thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px;}
@@ -123,9 +123,7 @@
 </div>
 
 <!-- ANNOUNCEMENT BAR -->
-<div class="announcement-bar">
-  &#127807; Save 10% when you <a href="subscribe.html">sign up to our newsletter</a> &nbsp;&middot;&nbsp; Free shipping on orders over $75
-</div>
+<div class="announcement-bar"><span class="marquee-track">&#127807; Save 10% when you <a href="subscribe.html">sign up to our newsletter</a> &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;&nbsp; Free shipping on orders over $75 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#127807; Save 10% when you <a href="subscribe.html">sign up to our newsletter</a> &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;&nbsp; Free shipping on orders over $75 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
 
 <!-- HEADER -->
 <header>
