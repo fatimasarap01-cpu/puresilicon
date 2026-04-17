@@ -325,52 +325,51 @@
     padding: 80px 24px;
     text-align: center;
   }
-  .reviews-score-row {
+  .reviews-intro {
+    max-width: 520px;
+    margin: 0 auto 32px;
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+  .reviews-cta-stars {
+    color: #c8a94a;
+    font-size: 28px;
+    letter-spacing: 4px;
+    margin-bottom: 28px;
+  }
+  .reviews-cta-buttons {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 18px;
-    margin-bottom: 48px;
-  }
-  .reviews-score-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 56px;
-    font-weight: 900;
-    color: var(--olive-dark);
-    line-height: 1;
-  }
-  .reviews-score-detail { text-align: left; }
-  .review-stars { color: #c8a94a; font-size: 20px; letter-spacing: 3px; margin-bottom: 4px; }
-  .review-count { font-size: 12px; color: var(--text-light); letter-spacing: 1px; text-transform: uppercase; }
-  .reviews-grid {
-    max-width: 960px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
   }
-  .review-card {
-    background: var(--white);
-    padding: 32px;
-    text-align: left;
-    border-left: 3px solid var(--olive);
-    position: relative;
+  .btn-review {
+    display: inline-block;
+    padding: 14px 28px;
+    background: var(--olive-dark);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: background 0.2s;
   }
-  .review-card::before {
-    content: '\201C';
-    font-family: 'Playfair Display', serif;
-    font-size: 72px;
-    color: var(--olive);
-    opacity: 0.15;
-    position: absolute;
-    top: 8px;
-    left: 20px;
-    line-height: 1;
+  .btn-review:hover { background: var(--olive); }
+  .btn-review--outline {
+    background: transparent;
+    border: 2px solid var(--olive-dark);
+    color: var(--olive-dark);
   }
-  .review-card-stars { color: #c8a94a; font-size: 13px; letter-spacing: 2px; margin-bottom: 10px; }
-  .review-title { font-weight: 700; font-size: 14px; margin-bottom: 10px; color: var(--text-dark); }
-  .review-text { font-size: 13px; color: var(--text-mid); line-height: 1.8; margin-bottom: 14px; font-weight: 300; }
-  .review-author { font-size: 11px; color: var(--olive-dark); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+  .btn-review--outline:hover { background: var(--olive-dark); color: var(--white); }
+  .reviews-note {
+    font-size: 12px;
+    color: var(--text-light);
+    letter-spacing: 0.5px;
+  }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
@@ -380,7 +379,7 @@
     .feature-split.reverse .feature-img { order: 0; }
     .feature-split.reverse .feature-text { order: 0; }
     .values-grid { grid-template-columns: 1fr; }
-    .reviews-grid { grid-template-columns: 1fr; }
+    .reviews-cta-buttons { flex-direction: column; align-items: center; }
   }
 </style>
 </head>
@@ -732,40 +731,13 @@
 
 <!-- REVIEWS -->
 <section class="reviews-section">
-  <div class="section-title">What Our Customers Are Saying</div>
-  <div class="reviews-score-row">
-    <div class="reviews-score-num">4.9</div>
-    <div class="reviews-score-detail">
-      <div class="review-stars">★★★★★</div>
-      <div class="review-count">from 847 verified reviews</div>
-    </div>
+  <div class="section-title">Be the First to Share Your Experience</div>
+  <p class="reviews-intro">We're just getting started — and we'd love to hear from you. If you've tried PureSilicon, your honest feedback means the world to us and helps others make the right choice.</p>
+  <div class="reviews-cta-stars">★★★★★</div>
+  <div class="reviews-cta-buttons">
+    <a href="https://g.page/r/CZVQCr4caV2bEAI/review" class="btn-review" target="_blank" rel="noopener">Leave a Review on Google</a>
   </div>
-  <div class="reviews-grid">
-    <div class="review-card">
-      <div class="review-card-stars">★★★★★</div>
-      <div class="review-title">Fantastic silicone food bags!</div>
-      <p class="review-text">These are just great for storing my vegetables and meal preps. Leakproof, easy to clean, and they've already replaced every plastic bag in my house...</p>
-      <div class="review-author">— Sarah M.</div>
-    </div>
-    <div class="review-card">
-      <div class="review-card-stars">★★★★★</div>
-      <div class="review-title">Best purchase I've made this year</div>
-      <p class="review-text">I bought the starter kit and I'm obsessed. The quality is incredible and I love knowing I'm not contributing to plastic waste anymore. Will buy more...</p>
-      <div class="review-author">— Jamie K.</div>
-    </div>
-    <div class="review-card">
-      <div class="review-card-stars">★★★★★</div>
-      <div class="review-title">Perfect for meal prepping</div>
-      <p class="review-text">I use these every single week for meal prep. They go in the fridge, freezer, and microwave. So versatile and they've held up perfectly after months of use...</p>
-      <div class="review-author">— Aisha T.</div>
-    </div>
-    <div class="review-card">
-      <div class="review-card-stars">★★★★★</div>
-      <div class="review-title">Finally ditched plastic bags!</div>
-      <p class="review-text">I've tried so many reusable bags but PureSilicon is on another level. The seal is airtight, cleanup is a breeze, and they look great in my fridge too...</p>
-      <div class="review-author">— Marcus L.</div>
-    </div>
-  </div>
+  <p class="reviews-note">Already left a review? Thank you — it genuinely helps.</p>
 </section>
 
 <!-- NEWSLETTER -->
