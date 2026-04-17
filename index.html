@@ -26,19 +26,41 @@
   /* ── HERO ── */
   .hero {
     position: relative;
-    height: 85vh;
-    min-height: 520px;
-    background: linear-gradient(135deg, var(--olive-dark) 0%, var(--olive) 40%, #7a9020 100%);
+    height: 90vh;
+    min-height: 560px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
   }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('bundle-3.png');
+    background-size: cover;
+    background-position: center 30%;
+    transform: scale(1.04);
+    transition: transform 8s ease;
+  }
+  .hero:hover .hero-bg { transform: scale(1.0); }
   .hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background: linear-gradient(
+      to bottom,
+      rgba(20, 28, 8, 0.55) 0%,
+      rgba(30, 40, 10, 0.35) 50%,
+      rgba(20, 28, 8, 0.65) 100%
+    );
+    z-index: 1;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 40%, rgba(10,15,4,0.45) 100%);
+    z-index: 1;
   }
   .hero-content {
     text-align: center;
@@ -47,29 +69,36 @@
     animation: fadeUp 1s ease both;
   }
   .hero-eyebrow {
-    color: rgba(255,255,255,0.7);
-    letter-spacing: 4px;
+    display: inline-block;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: 5px;
     text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 500;
-    margin-bottom: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-bottom: 22px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 8px 20px;
+    backdrop-filter: blur(4px);
   }
   .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(42px, 8vw, 90px);
+    font-size: clamp(48px, 9vw, 96px);
     font-weight: 900;
-    color: var(--cream);
+    color: #fff;
     line-height: 1.0;
     letter-spacing: -1px;
     margin-bottom: 20px;
+    text-shadow: 0 2px 24px rgba(0,0,0,0.3);
   }
   .hero h1 span { color: #c8d96e; }
   .hero-sub {
-    color: rgba(255,255,255,0.85);
+    color: rgba(255,255,255,0.88);
     font-size: 16px;
     font-weight: 300;
-    letter-spacing: 1px;
-    margin-bottom: 36px;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.3);
   }
 
   /* ── CATEGORY GRID ── */
@@ -245,65 +274,103 @@
 
   /* ── VALUES ── */
   .values-section {
-    background: var(--cream);
-    padding: 70px 24px;
+    background: var(--olive-dark);
+    padding: 80px 24px;
     text-align: center;
   }
+  .values-section .section-title { color: var(--cream); margin-bottom: 16px; }
+  .values-section .section-subtitle {
+    color: rgba(255,255,255,0.6);
+    font-size: 15px;
+    font-weight: 300;
+    max-width: 480px;
+    margin: 0 auto 56px;
+    line-height: 1.7;
+  }
   .values-grid {
-    max-width: 1100px;
+    max-width: 1000px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    margin-top: 50px;
+    gap: 2px;
   }
-  .value-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 20px;
-    border: 2px solid var(--olive);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 32px;
+  .value-card {
+    background: rgba(255,255,255,0.05);
+    padding: 44px 32px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: background .3s;
+  }
+  .value-card:hover { background: rgba(255,255,255,0.1); }
+  .value-stat {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 900;
+    color: #c8d96e;
+    line-height: 1;
+    margin-bottom: 8px;
   }
   .value-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
-    color: var(--olive-dark);
-    margin-bottom: 12px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
   }
-  .value-text { font-size: 14px; line-height: 1.8; color: var(--text-mid); }
-  .value-link { color: var(--olive); font-size: 13px; font-weight: 600; text-decoration: underline; display: inline-block; margin-top: 10px; }
+  .value-text { font-size: 13px; line-height: 1.8; color: rgba(255,255,255,0.55); font-weight: 300; }
 
   /* ── REVIEWS ── */
   .reviews-section {
-    background: var(--white);
-    padding: 70px 24px;
+    background: var(--cream);
+    padding: 80px 24px;
     text-align: center;
   }
-  .review-stars { color: var(--olive); font-size: 24px; margin-bottom: 6px; }
-  .review-count { font-size: 13px; color: var(--text-light); margin-bottom: 40px; }
+  .reviews-score-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 48px;
+  }
+  .reviews-score-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px;
+    font-weight: 900;
+    color: var(--olive-dark);
+    line-height: 1;
+  }
+  .reviews-score-detail { text-align: left; }
+  .review-stars { color: #c8a94a; font-size: 20px; letter-spacing: 3px; margin-bottom: 4px; }
+  .review-count { font-size: 12px; color: var(--text-light); letter-spacing: 1px; text-transform: uppercase; }
   .reviews-grid {
-    max-width: 900px;
+    max-width: 960px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    gap: 16px;
   }
   .review-card {
-    background: var(--cream);
-    padding: 28px;
+    background: var(--white);
+    padding: 32px;
     text-align: left;
+    border-left: 3px solid var(--olive);
+    position: relative;
   }
-  .review-card-stars { color: var(--olive); font-size: 14px; margin-bottom: 8px; }
-  .review-title { font-weight: 700; font-size: 14px; margin-bottom: 8px; }
-  .review-text { font-size: 13px; color: var(--text-mid); line-height: 1.7; margin-bottom: 12px; }
-  .review-author { font-size: 12px; color: var(--text-light); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+  .review-card::before {
+    content: '\201C';
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    color: var(--olive);
+    opacity: 0.15;
+    position: absolute;
+    top: 8px;
+    left: 20px;
+    line-height: 1;
+  }
+  .review-card-stars { color: #c8a94a; font-size: 13px; letter-spacing: 2px; margin-bottom: 10px; }
+  .review-title { font-weight: 700; font-size: 14px; margin-bottom: 10px; color: var(--text-dark); }
+  .review-text { font-size: 13px; color: var(--text-mid); line-height: 1.8; margin-bottom: 14px; font-weight: 300; }
+  .review-author { font-size: 11px; color: var(--olive-dark); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
@@ -425,9 +492,7 @@
 </script>
 
 <!-- ANNOUNCEMENT BAR -->
-<div class="announcement-bar">
-  🌿 Save 10% when you <a href="subscribe.html">sign up to our newsletter</a> &nbsp;·&nbsp; Free shipping on orders over $75
-</div>
+<div class="announcement-bar"><span class="marquee-track">&#127807; Save 10% when you <a href="subscribe.html">sign up to our newsletter</a> &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;&nbsp; Free shipping on orders over $75 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#127807; Save 10% when you <a href="subscribe.html">sign up to our newsletter</a> &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;&nbsp; Free shipping on orders over $75 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
 
 <!-- HEADER -->
 <header>
@@ -451,10 +516,10 @@
       <li class="has-dropdown">
         <a href="shop.html">Shop <span class="nav-chevron">▾</span></a>
         <div class="dropdown">
-          <a href="shop.html">Best Sellers</a>
-          <a href="shop.html">Reusable Bags</a>
-          <a href="shop.html">Lunch Boxes &amp; Pots</a>
-          <a href="shop.html">Bundles</a>
+          <a href="shop.html?filter=bestseller">Best Sellers</a>
+          <a href="shop.html?filter=bag">Reusable Bags</a>
+          <a href="shop.html?filter=container">Container</a>
+          <a href="shop.html?filter=bundle">Bundles</a>
           <a href="shop.html">All Products</a>
         </div>
       </li>
@@ -509,6 +574,7 @@
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-bg"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">No Plastic · No PEVA · Pure Silicone</div>
     <h1>Reusables,<br>for <span>Life</span></h1>
@@ -520,123 +586,121 @@
 <!-- CATEGORIES -->
 <section class="categories">
   <div class="categories-grid">
-    <div class="cat-card">
+    <a href="shop.html?filter=bag" class="cat-card" style="text-decoration:none;">
       <div class="cat-img">
-        <img src="home-bags-kit.png" alt="Silicone Food Bags">
+        <img src="assorted-3.png" alt="Silicone Food Bags">
       </div>
       <div class="cat-label">Silicone<br>Food Bags</div>
-    </div>
-    <div class="cat-card">
+    </a>
+    <a href="shop.html?filter=container" class="cat-card" style="text-decoration:none;">
       <div class="cat-img">
-        <img src="home-container.png" alt="Storage Containers">
+        <img src="container-1.png" alt="Storage Containers">
       </div>
       <div class="cat-label">Storage<br>Containers</div>
-    </div>
-    <div class="cat-card">
+    </a>
+    <a href="shop.html?filter=bestseller" class="cat-card" style="text-decoration:none;">
       <div class="cat-img">
-        <img src="home-bestseller.png" alt="Best Sellers">
+        <img src="terracotta-4.png" alt="Best Sellers">
       </div>
       <div class="cat-label">Best<br>Sellers</div>
-    </div>
-    <div class="cat-card">
-      <div class="cat-img" style="background:#f4e8d8;">
-        <span class="cat-emoji">🎁</span>
+    </a>
+    <a href="shop.html?filter=bundle" class="cat-card" style="text-decoration:none;">
+      <div class="cat-img">
+        <img src="bundle-2.png" alt="Bundles">
       </div>
       <div class="cat-label">Bundles &<br>Gift Sets</div>
-    </div>
+    </a>
   </div>
 </section>
 
 <!-- PRODUCTS -->
 <section class="section">
-  <div class="section-title">Our Products</div>
+  <div class="section-title">Shop the Collection</div>
   <div class="products-grid">
-    <div class="product-card">
+    <div class="product-card" onclick="window.location='product-terracotta.html'" style="cursor:pointer;">
       <div class="product-img">
         <div class="product-badge">Best Seller</div>
-        <img src="home-bestseller.png" alt="Reusable Silicone Food Bags – Starter Kit">
+        <img src="product-bag-terracotta.png" alt="Reusable Silicone Food Bag – Terracotta 500ML">
       </div>
       <div class="stars">★★★★★</div>
-      <div class="product-name">Reusable Silicone Food Bags – Starter Kit (3-Pack)</div>
-      <div class="product-price">$34.99</div>
-      <button class="add-to-cart">Add to Cart</button>
+      <div class="product-name">Reusable Silicone Food Bag – Terracotta 500ML</div>
+      <div class="product-price">$29.99</div>
+      <a href="product-terracotta.html" class="add-to-cart" style="text-decoration:underline;">View Product</a>
     </div>
-    <div class="product-card">
+    <div class="product-card" onclick="window.location='product-green.html'" style="cursor:pointer;">
       <div class="product-img">
-        <img src="home-freezer.png" alt="Silicone Freezer Bags">
+        <img src="product-bag-green.png" alt="Reusable Silicone Food Bag – Green 1000ML">
       </div>
       <div class="stars">★★★★★</div>
-      <div class="product-name">Silicone Freezer Bags – Small 330ml Slim Pouch (2-Pack)</div>
-      <div class="product-price">$18.99</div>
-      <button class="add-to-cart">Add to Cart</button>
+      <div class="product-name">Reusable Silicone Food Bag – Green 1000ML</div>
+      <div class="product-price">$32.99</div>
+      <a href="product-green.html" class="add-to-cart" style="text-decoration:underline;">View Product</a>
     </div>
-    <div class="product-card">
-      <div class="product-img" style="background:#e4ecd8;">
+    <div class="product-card" onclick="window.location='product-white.html'" style="cursor:pointer;">
+      <div class="product-img">
         <div class="product-badge">New</div>
-        🥗
+        <img src="white-2.png" alt="Reusable Silicone Food Bag – White 1500ML">
       </div>
       <div class="stars">★★★★★</div>
-      <div class="product-name">Silicone Snack Bags – Multi-Size Set of 3 (Clear)</div>
-      <div class="product-price">$24.99</div>
-      <button class="add-to-cart">Add to Cart</button>
+      <div class="product-name">Reusable Silicone Food Bag – White 1500ML</div>
+      <div class="product-price">$36.99</div>
+      <a href="product-white.html" class="add-to-cart" style="text-decoration:underline;">View Product</a>
     </div>
-    <div class="product-card">
+    <div class="product-card" onclick="window.location='product-beige.html'" style="cursor:pointer;">
       <div class="product-img">
-        <img src="home-container.png" alt="Silicone Food Storage Container Set">
+        <img src="product-container-beige.png" alt="Silicone Storage Container – Beige pack of 4">
       </div>
       <div class="stars">★★★★★</div>
-      <div class="product-name">Silicone Food Storage Container Set – Leakproof Lids</div>
-      <div class="product-price">$42.99</div>
-      <button class="add-to-cart">Add to Cart</button>
+      <div class="product-name">Silicone Storage Container – Beige pack of 4</div>
+      <div class="product-price">$44.99</div>
+      <a href="product-beige.html" class="add-to-cart" style="text-decoration:underline;">View Product</a>
     </div>
   </div>
 </section>
 
 <!-- FEATURE SPLIT 1 -->
 <section class="feature-split">
-  <div class="feature-img"><img src="home-bags.png" alt="Reusable Silicone Bags"></div>
+  <div class="feature-img"><img src="assorted-3.png" alt="Reusable Silicone Bags"></div>
   <div class="feature-text">
-    <div class="eyebrow">You Asked, We Listened</div>
-    <h2>Now in<br>All-Clear</h2>
-    <p>Our bestselling silicone pouches are now available in a brand-new all-clear 3-pack. Same trusted quality, same convenience — just crystal clarity to see exactly what's inside.</p>
-    <p>Perfect for busy days, organised fridges, and little ones who like to know what's coming next.</p>
-    <a href="shop.html" class="btn-primary">Shop Now</a>
+    <div class="eyebrow">Three Sizes. One Set.</div>
+    <h2>Every Size<br>You Need</h2>
+    <p>From snack-sized 500ML to generous 1500ML — our silicone bags come in the sizes that fit your real life. Whether it's a handful of nuts or a full batch of soup, there's a PureSilicon bag made for it.</p>
+    <p>Available in Terracotta, Green and White. Mix and match, or grab the full assorted 3-pack.</p>
+    <a href="shop.html?filter=bag" class="btn-primary">Shop Bags</a>
   </div>
 </section>
 
 <!-- FEATURE SPLIT 2 (reversed) -->
 <section class="feature-split reverse">
-  <div class="feature-img"><img src="home-freezer.png" alt="Silicone Bags in Freezer"></div>
+  <div class="feature-img"><img src="bundle-2.png" alt="Bundle – Bags and Container"></div>
   <div class="feature-text">
-    <div class="eyebrow">Sustainable Living</div>
+    <div class="eyebrow">The Complete Kitchen</div>
     <h2>Built for<br>Real Life</h2>
-    <p>Make meal prep easier and more sustainable with our reusable essentials. Silicone bags replace single-use plastic for snacks, sandwiches, and leftovers.</p>
-    <p>Practical, long-lasting, and planet-friendly — PureSilicon helps you reduce waste without compromising on convenience.</p>
-    <a href="shop.html" class="btn-primary">Explore Range</a>
+    <p>Our bundle pairs our best-selling silicone bags with the stackable beige container set — everything you need to replace single-use plastic for good.</p>
+    <p>Freezer to microwave, fridge to table. BPA-free, PEVA-free, and built to last thousands of uses.</p>
+    <a href="product-bundle.html" class="btn-primary">Shop the Bundle</a>
   </div>
 </section>
 
 <!-- VALUES -->
 <section class="values-section">
-  <div class="section-title" style="text-align:center;">Why PureSilicon</div>
+  <div class="section-title">Why PureSilicon</div>
+  <p class="section-subtitle">Food storage that's better for your family and the planet — without any compromise.</p>
   <div class="values-grid">
-    <div>
-      <div class="value-icon">♻️</div>
-      <div class="value-title">Reuse & Reduce Waste</div>
-      <p class="value-text">Our commitment to waste reduction is at the core of what we do. Every product is designed to replace single-use plastic — forever.</p>
-      <a href="#" class="value-link">Learn more</a>
+    <div class="value-card">
+      <div class="value-stat">1,000+</div>
+      <div class="value-title">Uses Per Bag</div>
+      <p class="value-text">Each PureSilicon bag replaces hundreds of single-use plastic bags over its lifetime — that's real, lasting impact.</p>
     </div>
-    <div>
-      <div class="value-icon">🥦</div>
-      <div class="value-title">Live Well</div>
-      <p class="value-text">100% food-grade silicone — BPA free, PEVA free, and plastic free. Our products make meal prep and healthy living effortless.</p>
-      <a href="#" class="value-link">Learn more</a>
+    <div class="value-card">
+      <div class="value-stat">100%</div>
+      <div class="value-title">Food-Grade Silicone</div>
+      <p class="value-text">BPA-free, PEVA-free and phthalate-free. Platinum-cured silicone — the safest grade available for your family.</p>
     </div>
-    <div>
-      <div class="value-icon">💚</div>
-      <div class="value-title">We Care</div>
-      <p class="value-text">Sustainability is at the heart of everything we do. We design for longevity, reusability, and recyclability — because the planet deserves the best.</p>
-      <a href="#" class="value-link">Learn more</a>
+    <div class="value-card">
+      <div class="value-stat">–40°<br><span style="font-size:0.55em;">to</span> 230°</div>
+      <div class="value-title">Temperature Range</div>
+      <p class="value-text">Straight from freezer to microwave to oven. No transfer, no fuss — just one bag that does it all.</p>
     </div>
   </div>
 </section>
@@ -644,8 +708,13 @@
 <!-- REVIEWS -->
 <section class="reviews-section">
   <div class="section-title">What Our Customers Are Saying</div>
-  <div class="review-stars">★★★★★</div>
-  <div class="review-count">from 847 reviews</div>
+  <div class="reviews-score-row">
+    <div class="reviews-score-num">4.9</div>
+    <div class="reviews-score-detail">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-count">from 847 verified reviews</div>
+    </div>
+  </div>
   <div class="reviews-grid">
     <div class="review-card">
       <div class="review-card-stars">★★★★★</div>
