@@ -47,7 +47,7 @@ body {
 .announcement-track span { display: inline-block; }
 @keyframes ticker {
   0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(-25%); }
 }
 .announcement-bar a { color: var(--cream); text-decoration: underline; }
 
