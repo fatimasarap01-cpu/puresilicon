@@ -25,35 +25,63 @@
 <style>
   /* ── COLLECTION HEADER ── */
   .collection-header {
-    background: var(--white);
-    border-bottom: 1px solid #e0d8cc;
-    padding: 60px 24px 50px;
+    position: relative;
+    height: 44vh;
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    overflow: hidden;
+  }
+  .collection-header-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('bundle-2.png');
+    background-size: cover;
+    background-position: center 40%;
+    transform: scale(1.04);
+    transition: transform 8s ease;
+  }
+  .collection-header:hover .collection-header-bg { transform: scale(1.0); }
+  .collection-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(20,28,8,0.5) 0%, rgba(20,28,8,0.45) 100%);
+    z-index: 1;
+  }
+  .collection-header-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 24px;
   }
   .collection-header .eyebrow {
     font-size: 11px;
     font-weight: 600;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     text-transform: uppercase;
-    color: var(--olive);
-    margin-bottom: 16px;
+    color: rgba(200,217,110,0.9);
+    margin-bottom: 14px;
   }
   .collection-header h1 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(36px, 6vw, 64px);
     font-weight: 900;
-    color: var(--text-dark);
+    color: #fff;
     line-height: 1.1;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     letter-spacing: -1px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
   }
   .collection-header p {
-    font-size: 15px;
-    color: var(--text-mid);
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
     font-weight: 300;
-    max-width: 520px;
+    max-width: 480px;
     margin: 0 auto;
     line-height: 1.8;
+    letter-spacing: 0.5px;
   }
 
   /* ── COLLECTION TOOLBAR ── */
@@ -97,6 +125,12 @@
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.10);
   }
 
   .product-card-img {
@@ -107,22 +141,17 @@
     justify-content: center;
     position: relative;
     overflow: hidden;
-    transition: opacity 0.3s ease;
-  }
-
-  .product-card:hover .product-card-img {
-    opacity: 0.92;
   }
 
   .product-card-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    transition: transform 0.5s ease;
   }
 
   .product-card:hover .product-card-img img {
-    transform: scale(1.05);
+    transform: scale(1.07);
   }
 
   .product-badge {
@@ -163,23 +192,23 @@
 
   .product-card-btn {
     display: inline-block;
-    background: var(--olive-dark);
-    color: var(--cream);
-    padding: 10px 28px;
+    background: transparent;
+    color: var(--olive-dark);
+    padding: 8px 20px;
     font-family: 'Jost', sans-serif;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
     text-decoration: none;
-    border: 2px solid var(--olive-dark);
+    border: 1.5px solid var(--olive-dark);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
   }
 
   .product-card-btn:hover {
-    background: transparent;
-    color: var(--olive-dark);
+    background: var(--olive-dark);
+    color: var(--cream);
   }
 
   /* ── RESPONSIVE ── */
@@ -292,9 +321,7 @@
 </script>
 
 <!-- ANNOUNCEMENT BAR -->
-<div class="announcement-bar">
-  &#127807; Save 10% when you <a href="subscribe.html">sign up to our newsletter</a> &nbsp;&middot;&nbsp; Free shipping on orders over $75
-</div>
+<div class="announcement-bar"><span class="marquee-track">&#127807; Save 10% when you <a href="subscribe.html">sign up to our newsletter</a> &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;&nbsp; Free shipping on orders over $75 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#127807; Save 10% when you <a href="subscribe.html">sign up to our newsletter</a> &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;&nbsp; Free shipping on orders over $75 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
 
 <!-- HEADER -->
 <header>
@@ -317,10 +344,10 @@
       <li class="has-dropdown">
         <a href="shop.html">Shop <span class="nav-chevron">▾</span></a>
         <div class="dropdown">
-          <a href="shop.html">Best Sellers</a>
-          <a href="shop.html">Reusable Bags</a>
-          <a href="shop.html">Lunch Boxes &amp; Pots</a>
-          <a href="shop.html">Bundles</a>
+          <a href="shop.html?filter=bestseller">Best Sellers</a>
+          <a href="shop.html?filter=bag">Reusable Bags</a>
+          <a href="shop.html?filter=container">Container</a>
+          <a href="shop.html?filter=bundle">Bundles</a>
           <a href="shop.html">All Products</a>
         </div>
       </li>
@@ -375,19 +402,22 @@
 
 <!-- COLLECTION HEADER -->
 <section class="collection-header">
-  <p class="eyebrow">The PureSilicon Store</p>
-  <h1>All Products</h1>
-  <p>Reusable, food-grade silicone essentials designed to replace single-use plastic — for good.</p>
+  <div class="collection-header-bg"></div>
+  <div class="collection-header-content">
+    <p class="eyebrow">The PureSilicon Store</p>
+    <h1>All Products</h1>
+    <p>Reusable, food-grade silicone essentials designed to replace single-use plastic — for good.</p>
+  </div>
 </section>
 
 <!-- TOOLBAR -->
 <div class="collection-toolbar">
   <span class="product-count">6 Products</span>
-  <select class="sort-select">
-    <option>Sort by: Featured</option>
-    <option>Price: Low to High</option>
-    <option>Price: High to Low</option>
-    <option>Newest</option>
+  <select class="sort-select" onchange="sortProducts(this.value)">
+    <option value="low-high">Price: Low to High</option>
+    <option value="high-low">Price: High to Low</option>
+    <option value="featured">Featured</option>
+    <option value="newest">Newest</option>
   </select>
 </div>
 
@@ -395,7 +425,7 @@
 <div class="collection-grid">
 
   <!-- 1. Terracotta Silicone Bag -->
-  <div class="product-card" data-name="Reusable Silicone Food Bag – Terracotta 500ML" onclick="window.location='product-terracotta.html'" style="cursor:pointer;">
+  <div class="product-card" data-name="Reusable Silicone Food Bag – Terracotta 500ML" data-price="29.99" data-sort="newest" data-filter="bag" onclick="window.location='product-terracotta.html'" style="cursor:pointer;">
     <div class="product-card-img">
       <div class="product-badge">Best Seller</div>
       <img src="product-bag-terracotta.png" alt="Reusable Silicone Food Bag – Terracotta 500ML">
@@ -408,7 +438,7 @@
   </div>
 
   <!-- 2. Green Silicone Bag -->
-  <div class="product-card" data-name="Reusable Silicone Food Bag – Green 1000 ML" onclick="window.location='product-green.html'" style="cursor:pointer;">
+  <div class="product-card" data-name="Reusable Silicone Food Bag – Green 1000 ML" data-price="32.99" data-filter="bag" onclick="window.location='product-green.html'" style="cursor:pointer;">
     <div class="product-card-img">
       <img src="product-bag-green.png" alt="Reusable Silicone Food Bag – Green 1000 ML">
     </div>
@@ -420,7 +450,7 @@
   </div>
 
   <!-- 3. White Silicone Bag -->
-  <div class="product-card" data-name="Reusable Silicone Food Bag – White 1500 ML" onclick="window.location='product-white.html'" style="cursor:pointer;">
+  <div class="product-card" data-name="Reusable Silicone Food Bag – White 1500 ML" data-price="36.99" data-filter="bag bestseller" onclick="window.location='product-white.html'" style="cursor:pointer;">
     <div class="product-card-img">
       <div class="product-badge">New</div>
       <img src="white-2.png" alt="Reusable Silicone Food Bag – White 1500 ML">
@@ -433,7 +463,7 @@
   </div>
 
   <!-- 4. Beige Storage Container -->
-  <div class="product-card" data-name="Silicone Storage Container – Beige pack of 4" onclick="window.location='product-beige.html'" style="cursor:pointer;">
+  <div class="product-card" data-name="Silicone Storage Container – Beige pack of 4" data-price="44.99" data-filter="container" onclick="window.location='product-beige.html'" style="cursor:pointer;">
     <div class="product-card-img">
       <img src="product-container-beige.png" alt="Silicone Storage Container – Beige pack of 4">
     </div>
@@ -445,9 +475,9 @@
   </div>
 
   <!-- 5. Assorted Silicone Bag 3-Pack -->
-  <div class="product-card" data-name="Silicone Assorted bag – each size 3-Pack" onclick="window.location='product-assorted.html'" style="cursor:pointer;">
+  <div class="product-card" data-name="Silicone Assorted bag – each size 3-Pack" data-price="34.99" data-sort="featured" data-filter="bag bestseller" onclick="window.location='product-assorted.html'" style="cursor:pointer;">
     <div class="product-card-img" style="background: #e0ead6;">
-      <img src="assorted-1.png" alt="Silicone Assorted bag – each size 3-Pack" style="width:100%;height:100%;object-fit:cover;">
+      <img src="assorted-3.png" alt="Silicone Assorted bag – each size 3-Pack" style="width:100%;height:100%;object-fit:cover;">
     </div>
     <div class="product-card-info">
       <div class="product-card-name">Silicone Assorted bag – each size 3-Pack</div>
@@ -457,10 +487,10 @@
   </div>
 
   <!-- 6. Bundle Assorted bags and container -->
-  <div class="product-card" data-name="Bundle Assorted bags and container" onclick="window.location='product-bundle.html'" style="cursor:pointer;">
-    <div class="product-card-img" style="background: #d4c9b5;">
+  <div class="product-card" data-name="Bundle Assorted bags and container" data-price="69.99" data-sort="featured" data-filter="bundle" onclick="window.location='product-bundle.html'" style="cursor:pointer;">
+    <div class="product-card-img">
       <div class="product-badge">Bundle</div>
-      <span class="product-emoji">&#127873;</span>
+      <img src="bundle-1.png" alt="Bundle Assorted bags and container">
     </div>
     <div class="product-card-info">
       <div class="product-card-name">Bundle Assorted bags and container</div>
@@ -620,11 +650,66 @@ function updateBadge() {
   badge.style.display = total > 0 ? 'flex' : 'none';
 }
 
+// ── SORT / FILTER ──
+function sortProducts(val) {
+  var grid = document.querySelector('.collection-grid');
+  var cards = Array.from(grid.querySelectorAll('.product-card'));
+
+  if (val === 'featured') {
+    cards.forEach(function(c) {
+      c.style.display = c.getAttribute('data-sort') === 'featured' ? '' : 'none';
+    });
+    var shown = cards.filter(function(c){ return c.getAttribute('data-sort') === 'featured'; }).length;
+    document.querySelector('.product-count').textContent = shown + ' Products';
+    return;
+  }
+
+  if (val === 'newest') {
+    cards.forEach(function(c) {
+      c.style.display = c.getAttribute('data-sort') === 'newest' ? '' : 'none';
+    });
+    document.querySelector('.product-count').textContent = '1 Product';
+    return;
+  }
+
+  // Show all first, then sort if needed
+  cards.forEach(function(c) { c.style.display = ''; });
+
+  if (val === 'low-high') {
+    cards.sort(function(a, b) {
+      return parseFloat(a.getAttribute('data-price')) - parseFloat(b.getAttribute('data-price'));
+    });
+    cards.forEach(function(c) { grid.appendChild(c); });
+  } else if (val === 'high-low') {
+    cards.sort(function(a, b) {
+      return parseFloat(b.getAttribute('data-price')) - parseFloat(a.getAttribute('data-price'));
+    });
+    cards.forEach(function(c) { grid.appendChild(c); });
+  }
+
+  document.querySelector('.product-count').textContent = cards.length + ' Products';
+}
+
+// ── CATEGORY FILTER ──
+function filterByCategory(filter) {
+  var cards = Array.from(document.querySelectorAll('.product-card'));
+  var shown = 0;
+  cards.forEach(function(c) {
+    var f = c.getAttribute('data-filter') || '';
+    var show = f.split(' ').indexOf(filter) !== -1;
+    c.style.display = show ? '' : 'none';
+    if (show) shown++;
+  });
+  document.querySelector('.product-count').textContent = shown + ' Product' + (shown !== 1 ? 's' : '');
+}
+
 // ── INIT ──
 updateBadge();
-// Read ?q= URL param and pre-fill search
+// Read ?filter= and ?q= URL params on load
 (function() {
   var params = new URLSearchParams(window.location.search);
+  var filter = params.get('filter');
+  if (filter) filterByCategory(filter);
   var q = params.get('q');
   if (q) {
     document.getElementById('searchOverlay').style.display = 'block';

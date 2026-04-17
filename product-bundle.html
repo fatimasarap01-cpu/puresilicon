@@ -16,7 +16,7 @@
 .product-section{max-width:1200px;margin:0 auto;padding:10px 24px 80px;}
 .product-layout{display:grid;grid-template-columns:55% 1fr;gap:64px;align-items:start;}
 .gallery{position:sticky;top:210px;}
-.gallery-main{width:100%;overflow:hidden;background:#d4c9b5;position:relative;display:flex;align-items:center;justify-content:center;}
+.gallery-main{width:100%;overflow:hidden;background:#d4c9b5;position:relative;aspect-ratio:4/3;}
 .gallery-badge{position:absolute;top:16px;left:16px;background:var(--burgundy);color:white;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px;z-index:2;}
 .gallery-main-emoji{font-size:110px;line-height:1;}
 .gallery-thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px;}
@@ -98,7 +98,7 @@
 <div class="nav-overlay" id="navOverlay"><button class="nav-close" onclick="document.getElementById('navOverlay').classList.remove('open')">&#10005;</button><a href="index.html">Home</a><a href="shop.html">Shop</a><a href="contact.html">Contact</a></div>
 <div class="about-overlay" id="aboutOverlay"><button class="about-close on-dark" id="aboutCloseBtn" onclick="document.getElementById('aboutOverlay').classList.remove('open');document.body.style.overflow='';">&#10005;</button><div class="about-hero"><div class="about-hero-content"><div class="eyebrow">Our Story</div><h1>It All Started with a <span>Simple Question</span></h1><p>What if storing food could be better — for your family, and for the planet?</p></div></div><div class="about-closing"><h2>Thank You for Joining Us</h2><p>Every PureSilicon product in your kitchen is one less piece of plastic in the world.</p><div class="founder">— The PureSilicon Team</div><a href="shop.html" class="btn-primary" style="margin-top:30px;">Shop Our Collection</a></div></div>
 
-<div class="announcement-bar">&#127807; Save 10% when you <a href="subscribe.html">sign up to our newsletter</a> &nbsp;&middot;&nbsp; Free shipping on orders over $75</div>
+<div class="announcement-bar"><span class="marquee-track">&#127807; Save 10% when you <a href="subscribe.html">sign up to our newsletter</a> &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;&nbsp; Free shipping on orders over $75 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#127807; Save 10% when you <a href="subscribe.html">sign up to our newsletter</a> &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;&nbsp; Free shipping on orders over $75 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
 <header>
   <div class="header-inner">
     <button class="hamburger" onclick="document.getElementById('navOverlay').classList.add('open')">&#9776;</button>
@@ -117,13 +117,12 @@
     <div class="gallery">
       <div class="gallery-main">
         <div class="gallery-badge">Bundle</div>
-        <div class="gallery-main-emoji">🎁</div>
+        <img id="mainImg" src="bundle-1.png" alt="Bundle Assorted bags and container" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;">
       </div>
       <div class="gallery-thumbs">
-        <div class="gallery-thumb active" style="background:#d4c9b5;display:flex;align-items:center;justify-content:center;font-size:28px;">🎁</div>
-        <div class="thumb-placeholder">Add<br>Photo</div>
-        <div class="thumb-placeholder">Add<br>Photo</div>
-        <div class="thumb-placeholder">Add<br>Photo</div>
+        <div class="gallery-thumb active" onclick="swapImg('bundle-1.png', this)"><img src="bundle-1.png" alt="Bundle photo 1"></div>
+        <div class="gallery-thumb" onclick="swapImg('bundle-2.png', this)"><img src="bundle-2.png" alt="Bundle photo 2"></div>
+        <div class="gallery-thumb" onclick="swapImg('bundle-3.png', this)"><img src="bundle-3.png" alt="Bundle photo 3"></div>
       </div>
     </div>
     <div class="product-info">
@@ -209,6 +208,7 @@ function changeQtyCart(name,delta){var cart=getCart();var idx=cart.findIndex(fun
 function renderCart(){var cart=getCart();var container=document.getElementById('cartItems');var footer=document.getElementById('cartFooter');var subtotal=cart.reduce(function(s,i){return s+i.price*i.qty;},0);if(cart.length===0){container.innerHTML='<p style="color:var(--text-light);font-size:14px;text-align:center;margin-top:40px;letter-spacing:1px;">Your cart is empty.</p>';footer.style.display='none';return;}footer.style.display='block';document.getElementById('cartSubtotal').textContent='$'+subtotal.toFixed(2);container.innerHTML='';cart.forEach(function(item){var row=document.createElement('div');row.style.cssText='display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #f0ebe2;';row.innerHTML='<span style="font-size:28px;flex-shrink:0;">'+item.emoji+'</span><div style="flex:1;min-width:0;"><div style="font-size:13px;font-weight:600;color:var(--text-dark);line-height:1.4;margin-bottom:4px;">'+item.name+'</div><div style="font-size:13px;color:var(--olive-dark);font-weight:500;">$'+item.price.toFixed(2)+'</div></div><div style="display:flex;align-items:center;gap:8px;flex-shrink:0;"><button onclick="changeQtyCart(\''+item.name.replace(/'/g,"\\'")+'\',-1)" style="width:28px;height:28px;border:1px solid #ddd;background:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;">&#8722;</button><span style="font-size:14px;font-weight:600;min-width:16px;text-align:center;">'+item.qty+'</span><button onclick="changeQtyCart(\''+item.name.replace(/'/g,"\\'")+'\',1)" style="width:28px;height:28px;border:1px solid #ddd;background:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;">+</button></div>';container.appendChild(row);});}
 function updateBadge(){var cart=getCart();var total=cart.reduce(function(s,i){return s+i.qty;},0);var badge=document.getElementById('cartBadge');badge.textContent=total;badge.style.display=total>0?'flex':'none';}
 function toggleAcc(btn){var content=btn.nextElementSibling;var isOpen=content.classList.contains('open');document.querySelectorAll('.accordion-content').forEach(function(c){c.classList.remove('open');});document.querySelectorAll('.accordion-trigger').forEach(function(b){b.classList.remove('open');});if(!isOpen){content.classList.add('open');btn.classList.add('open');}}
+function swapImg(src,el){document.getElementById('mainImg').src=src;document.querySelectorAll('.gallery-thumb').forEach(function(t){t.classList.remove('active');});el.classList.add('active');}
 updateBadge();
 </script>
 </body>
