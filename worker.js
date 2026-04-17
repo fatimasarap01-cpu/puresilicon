@@ -29,6 +29,7 @@ async function handleCheckout(request, env) {
   body.set('success_url', `${origin}/success.html?session_id={CHECKOUT_SESSION_ID}`);
   body.set('cancel_url', `${origin}/shop.html`);
   body.set('payment_method_types[0]', 'card');
+  body.set('invoice_creation[enabled]', 'true');
 
   items.forEach((item, i) => {
     const p = `line_items[${i}]`;
