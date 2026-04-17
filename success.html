@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmed – PureSilicon</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%235a6a22'/><text y='.9em' font-size='75' x='12'>🌿</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style-simple.css">
+  <style>
+    .success-wrap {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px;
+    }
+    .success-card {
+      background: var(--white);
+      border: 1px solid #e0d8cc;
+      border-radius: 4px;
+      padding: 64px 52px;
+      text-align: center;
+      max-width: 540px;
+      width: 100%;
+    }
+    .success-icon {
+      width: 72px;
+      height: 72px;
+      background: #f2f5e8;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+    }
+    .success-icon svg {
+      width: 36px;
+      height: 36px;
+      stroke: var(--olive-dark);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .success-card h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+    }
+    .success-card p {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--text-mid);
+      margin-bottom: 12px;
+    }
+    .success-card p:last-of-type { margin-bottom: 36px; }
+    .btn-primary {
+      display: inline-block;
+      background: var(--olive-dark);
+      color: var(--cream);
+      text-decoration: none;
+      padding: 14px 36px;
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover { opacity: 0.88; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="logo-link" href="index.html">PureSilicon</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="success-wrap">
+    <div class="success-card">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h1>Order Confirmed!</h1>
+      <p>Thank you for your purchase. A confirmation email is on its way to you.</p>
+      <p>Your reusable silicone essentials will ship within 1–2 business days.</p>
+      <a href="shop.html" class="btn-primary">Continue Shopping</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+        <a href="faq.html">FAQ</a>
+        <a href="shipping.html">Shipping &amp; Refunds</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+      <span class="footer-copy">&copy; 2026, PureSilicon. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+    // Clear cart after successful payment
+    localStorage.removeItem('psCart');
+  </script>
+
+</body>
+</html>

@@ -133,7 +133,7 @@
         <span style="font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-mid);">Subtotal</span>
         <span id="cartSubtotal" style="font-size:18px;font-weight:700;color:var(--olive-dark);">$0.00</span>
       </div>
-      <button style="width:100%;background:var(--olive-dark);color:var(--cream);border:none;padding:16px;font-family:'Jost',sans-serif;font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;">Proceed to Checkout</button>
+      <button onclick="proceedToCheckout(this)" style="width:100%;background:var(--olive-dark);color:var(--cream);border:none;padding:16px;font-family:'Jost',sans-serif;font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;">Proceed to Checkout</button>
     </div>
   </div>
 </div>
@@ -292,5 +292,6 @@ function swapImg(src,el){document.getElementById('mainImg').src=src;document.que
 function toggleAcc(btn){var content=btn.nextElementSibling;var isOpen=content.classList.contains('open');document.querySelectorAll('.accordion-content').forEach(function(c){c.classList.remove('open');});document.querySelectorAll('.accordion-trigger').forEach(function(b){b.classList.remove('open');});if(!isOpen){content.classList.add('open');btn.classList.add('open');}}
 updateBadge();
 </script>
+<script src="checkout-handler.js"></script>
 </body>
 </html>
