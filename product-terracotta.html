@@ -52,14 +52,13 @@
 
 .trust-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:22px 0 0;border-top:1px solid #e8e2d8;}
 .trust-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:5px;}
-.trust-icon{width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:50%;box-shadow:0 4px 16px rgba(0,0,0,0.07);padding:10px;margin:0 auto 4px;font-size:22px;}
-.trust-icon img{width:100%;height:100%;object-fit:contain;}
+.trust-icon{width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:50%;box-shadow:0 4px 16px rgba(0,0,0,0.07);padding:10px;margin:0 auto 4px;font-size:22px;} .trust-icon img{width:100%;height:100%;object-fit:contain;}
 .trust-label{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--olive-dark);line-height:1.4;}
 
 /* Feature Strip */
 .feature-strip{background:var(--olive-dark);color:var(--cream);padding:56px 24px;}
-.feature-strip-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center;}
-.feat-icon{font-size:38px;margin-bottom:14px;}
+.feature-strip-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(6,1fr);gap:24px;text-align:center;}
+.feat-icon{width:72px;height:72px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:50%;box-shadow:0 4px 20px rgba(0,0,0,0.15);padding:14px;margin:0 auto 16px;font-size:30px;} .feat-icon img{width:100%;height:100%;object-fit:contain;}
 .feat-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#c8d96e;margin-bottom:8px;}
 .feat-desc{font-size:13px;line-height:1.7;color:rgba(255,255,255,.75);font-weight:300;}
 
@@ -102,7 +101,7 @@
 .related-price{font-size:14px;color:var(--olive-dark);font-weight:500;text-align:center;}
 
 /* Responsive */
-@media(max-width:960px){.product-layout{grid-template-columns:1fr;gap:36px;}.gallery{position:static;}.feature-strip-inner{grid-template-columns:repeat(2,1fr);}.reviews-grid{grid-template-columns:repeat(2,1fr);}.related-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:960px){.product-layout{grid-template-columns:1fr;gap:36px;}.gallery{position:static;}.feature-strip-inner{grid-template-columns:repeat(3,1fr);}.reviews-grid{grid-template-columns:repeat(2,1fr);}.related-grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:600px){.atc-row{flex-direction:column;}.feature-strip-inner{grid-template-columns:1fr 1fr;}.reviews-grid{grid-template-columns:1fr;}.related-grid{grid-template-columns:repeat(2,1fr);}}
 </style>
 </head>
@@ -235,7 +234,7 @@
         <div class="trust-item"><div class="trust-icon"><img src="bpa-free.png" alt="BPA-Free"></div><span class="trust-label">BPA-Free</span></div>
         <div class="trust-item"><div class="trust-icon"><img src="recycle.png" alt="Zero Waste"></div><span class="trust-label">Zero Waste</span></div>
         <div class="trust-item"><div class="trust-icon">❄️</div><span class="trust-label">Freezer Safe</span></div>
-        <div class="trust-item"><span class="trust-icon">🍽️</span><span class="trust-label">Dishwasher Safe</span></div>
+        <div class="trust-item"><div class="trust-icon">🍽️</div><span class="trust-label">Dishwasher Safe</span></div>
         <div class="trust-item"><span class="trust-icon">🚚</span><span class="trust-label">Free Ship $75+</span></div>
         <div class="trust-item"><span class="trust-icon">↩️</span><span class="trust-label">30-Day Returns</span></div>
       </div>
@@ -247,10 +246,12 @@
 <!-- FEATURE STRIP -->
 <section class="feature-strip">
   <div class="feature-strip-inner">
-    <div><div class="feat-icon">♻️</div><div class="feat-label">Zero Waste</div><div class="feat-desc">Replaces hundreds of single-use plastic bags over its lifetime</div></div>
-    <div><div class="feat-icon">🛡️</div><div class="feat-label">Food Safe</div><div class="feat-desc">100% food-grade silicone. BPA-free, PEVA-free &amp; phthalate-free</div></div>
-    <div><div class="feat-icon">❄️</div><div class="feat-label">Freezer to Microwave</div><div class="feat-desc">Goes straight from freezer to microwave — no transfer needed</div></div>
-    <div><div class="feat-icon">🍽️</div><div class="feat-label">Dishwasher Safe</div><div class="feat-desc">Top-rack dishwasher safe for effortless everyday cleaning</div></div>
+    <div><div class="feat-icon"><img src="bpa-free.png" alt="BPA-Free"></div><div class="feat-label">BPA-Free</div></div>
+    <div><div class="feat-icon"><img src="recycle.png" alt="Zero Waste"></div><div class="feat-label">Zero Waste</div></div>
+    <div><div class="feat-icon">❄️</div><div class="feat-label">Freezer Safe</div></div>
+    <div><div class="feat-icon">🍽️</div><div class="feat-label">Dishwasher Safe</div></div>
+    <div><div class="feat-icon">🚚</div><div class="feat-label">Free Ship $75+</div></div>
+    <div><div class="feat-icon">↩️</div><div class="feat-label">30-Day Returns</div></div>
   </div>
 </section>
 
