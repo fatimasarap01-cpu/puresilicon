@@ -4,8 +4,9 @@
     {
       "name": "Python HTTP Server",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8090"],
-      "port": 8090
+      "runtimeArgs": ["-m", "http.server"],
+      "port": 8090,
+      "autoPort": true
     },
     {
       "name": "npx serve",
