@@ -111,29 +111,57 @@ header {
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(-6px);
   background: var(--white);
-  border: 1px solid #e0d8cc;
-  border-top: 2px solid var(--olive);
+  border: 1px solid #e8e0d4;
+  border-radius: 6px;
   min-width: 240px;
   z-index: 200;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  padding: 8px 0;
-  transition: opacity 0.2s, visibility 0.2s;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06);
+  padding: 10px 0;
+  overflow: visible;
+  transition: opacity 0.22s ease, visibility 0.22s ease, transform 0.22s ease;
 }
-.has-dropdown:hover .dropdown { opacity: 1; visibility: visible; }
+.has-dropdown:hover .dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+/* Arrow pointer */
+.has-dropdown .dropdown::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 6px;
+  background: var(--white);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+.has-dropdown .dropdown::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 8px;
+  background: #e8e0d4;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  z-index: -1;
+}
 .has-dropdown .dropdown a {
   display: block;
-  padding: 13px 28px;
-  font-size: 14px;
+  padding: 11px 24px 11px 22px;
+  font-size: 13.5px;
   font-weight: 400;
   letter-spacing: 0.5px;
   color: var(--text-mid);
   text-decoration: none;
-  transition: background 0.15s, color 0.15s;
+  border-left: 2px solid transparent;
+  transition: border-color 0.15s, color 0.15s, padding-left 0.15s;
   white-space: nowrap;
 }
-.has-dropdown .dropdown a:hover { background: var(--cream); color: var(--olive-dark); }
+.has-dropdown .dropdown a:hover { background: transparent; color: var(--olive-dark); border-left-color: var(--olive); padding-left: 26px; }
+/* Divider before Shop All */
+.has-dropdown .dropdown a:last-child { border-top: 1px solid #f0ebe3; margin-top: 4px; padding-top: 13px; font-weight: 500; }
 @media (max-width: 768px) { .desktop-nav { display: none; } }
 @media (min-width: 769px) { .hamburger { display: none; } }
 
