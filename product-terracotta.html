@@ -34,7 +34,6 @@
 .product-title{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,34px);font-weight:900;color:var(--text-dark);line-height:1.2;margin-bottom:14px;letter-spacing:-.5px;}
 .product-stars-row{display:flex;align-items:center;gap:8px;margin-bottom:20px;}
 .stars-gold{color:#c8a94a;font-size:15px;letter-spacing:2px;}
-.review-count{font-size:13px;color:var(--text-mid);text-decoration:underline;cursor:pointer;}
 .product-price{font-size:34px;font-weight:900;color:var(--olive-dark);margin-bottom:24px;font-family:'Playfair Display',serif;}
 .product-desc{font-size:15px;line-height:1.9;color:var(--text-mid);font-weight:300;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid #e8e2d8;}
 .product-features{list-style:none;margin-bottom:32px;}
@@ -72,18 +71,6 @@
 .accordion-content ul{padding-left:20px;margin-top:10px;}
 .accordion-content li{margin-bottom:8px;}
 
-/* Reviews */
-.reviews-section{background:var(--cream);padding:64px 24px;}
-.reviews-section h2{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;text-transform:uppercase;color:var(--olive-dark);text-align:center;margin-bottom:6px;letter-spacing:-.5px;}
-.reviews-summary{text-align:center;margin-bottom:44px;}
-.reviews-stars-big{color:#c8a94a;font-size:30px;letter-spacing:5px;}
-.reviews-avg{font-size:13px;color:var(--text-mid);letter-spacing:1px;margin-top:8px;}
-.reviews-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.review-card{background:var(--white);padding:28px;}
-.review-stars{color:#c8a94a;font-size:14px;margin-bottom:12px;letter-spacing:2px;}
-.review-text{font-size:14px;line-height:1.75;color:var(--text-mid);font-weight:300;margin-bottom:14px;}
-.review-author{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--olive-dark);}
-
 /* Related */
 .related-section{padding:64px 24px;}
 .related-section h2{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;text-transform:uppercase;color:var(--olive-dark);text-align:center;margin-bottom:44px;letter-spacing:-.5px;}
@@ -96,8 +83,8 @@
 .related-price{font-size:14px;color:var(--olive-dark);font-weight:500;text-align:center;}
 
 /* Responsive */
-@media(max-width:960px){.product-layout{grid-template-columns:1fr;gap:36px;}.gallery{position:static;}.feature-strip-inner{grid-template-columns:repeat(3,1fr);}.reviews-grid{grid-template-columns:repeat(2,1fr);}.related-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:600px){.atc-row{flex-direction:column;}.feature-strip-inner{grid-template-columns:1fr 1fr;}.reviews-grid{grid-template-columns:1fr;}.related-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:960px){.product-layout{grid-template-columns:1fr;gap:36px;}.gallery{position:static;}.feature-strip-inner{grid-template-columns:repeat(3,1fr);}.related-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.atc-row{flex-direction:column;}.feature-strip-inner{grid-template-columns:1fr 1fr;}.related-grid{grid-template-columns:repeat(2,1fr);}}
 </style>
 </head>
 <body>
@@ -142,7 +129,7 @@
           <a href="shop.html">Bundles</a>
         </div>
       </li>
-      <li><a href="recipes.html">Recipes &amp; Tips</a></li>
+      
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
@@ -219,7 +206,6 @@
       </ul>
       <div class="atc-row">
         <div class="qty-ctrl">
-          <button onclick="changeQty(-1)">&#8722;</button>
           <span id="qty">1</span>
           <button onclick="changeQty(1)">+</button>
         </div>
@@ -289,30 +275,6 @@
 </section>
 
 <!-- REVIEWS -->
-<section class="reviews-section">
-  <h2>What Our Customers Say</h2>
-  <div class="reviews-summary">
-    <div class="reviews-stars-big">★★★★★</div>
-    <div class="reviews-avg">4.9 out of 5 &middot; 24 reviews</div>
-  </div>
-  <div class="reviews-grid">
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Absolutely love these! I've replaced all my ziplock bags and couldn't be happier. They seal perfectly and clean up so easily in the dishwasher."</p>
-      <div class="review-author">— Sarah M., Calgary</div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"The terracotta colour is even more beautiful in person. Food stays fresh for days and it goes straight from the freezer to the microwave — game changer!"</p>
-      <div class="review-author">— Jessica L., Vancouver</div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Great product, fast shipping and beautiful packaging. I bought one and immediately ordered three more. Perfect size for snacks and dips."</p>
-      <div class="review-author">— Michelle T., Toronto</div>
-    </div>
-  </div>
-</section>
 
 <!-- RELATED PRODUCTS -->
 <section class="related-section">

@@ -28,7 +28,6 @@
 .product-title{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,34px);font-weight:900;color:var(--text-dark);line-height:1.2;margin-bottom:14px;letter-spacing:-.5px;}
 .product-stars-row{display:flex;align-items:center;gap:8px;margin-bottom:20px;}
 .stars-gold{color:#c8a94a;font-size:15px;letter-spacing:2px;}
-.review-count{font-size:13px;color:var(--text-mid);text-decoration:underline;cursor:pointer;}
 .product-price{font-size:34px;font-weight:900;color:var(--olive-dark);margin-bottom:24px;font-family:'Playfair Display',serif;}
 .product-desc{font-size:15px;line-height:1.9;color:var(--text-mid);font-weight:300;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid #e8e2d8;}
 .product-features{list-style:none;margin-bottom:32px;}
@@ -61,15 +60,6 @@
 .accordion-content ul{padding-left:20px;margin-top:10px;}
 .accordion-content li{margin-bottom:8px;}
 .reviews-section{background:var(--cream);padding:64px 24px;}
-.reviews-section h2{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;text-transform:uppercase;color:var(--olive-dark);text-align:center;margin-bottom:6px;letter-spacing:-.5px;}
-.reviews-summary{text-align:center;margin-bottom:44px;}
-.reviews-stars-big{color:#c8a94a;font-size:30px;letter-spacing:5px;}
-.reviews-avg{font-size:13px;color:var(--text-mid);letter-spacing:1px;margin-top:8px;}
-.reviews-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.review-card{background:var(--white);padding:28px;}
-.review-stars{color:#c8a94a;font-size:14px;margin-bottom:12px;letter-spacing:2px;}
-.review-text{font-size:14px;line-height:1.75;color:var(--text-mid);font-weight:300;margin-bottom:14px;}
-.review-author{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--olive-dark);}
 .related-section{padding:64px 24px;}
 .related-section h2{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;text-transform:uppercase;color:var(--olive-dark);text-align:center;margin-bottom:44px;letter-spacing:-.5px;}
 .related-grid{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
@@ -79,8 +69,8 @@
 .related-card:hover .related-img img{transform:scale(1.05);}
 .related-name{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--text-dark);margin-bottom:4px;text-align:center;line-height:1.4;}
 .related-price{font-size:14px;color:var(--olive-dark);font-weight:500;text-align:center;}
-@media(max-width:960px){.product-layout{grid-template-columns:1fr;gap:36px;}.gallery{position:static;}.feature-strip-inner{grid-template-columns:repeat(3,1fr);}.reviews-grid{grid-template-columns:repeat(2,1fr);}.related-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:600px){.atc-row{flex-direction:column;}.feature-strip-inner{grid-template-columns:1fr 1fr;}.reviews-grid{grid-template-columns:1fr;}}
+@media(max-width:960px){.product-layout{grid-template-columns:1fr;gap:36px;}.gallery{position:static;}.feature-strip-inner{grid-template-columns:repeat(3,1fr);}.related-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.atc-row{flex-direction:column;}.feature-strip-inner{grid-template-columns:1fr 1fr;}}
 </style>
 </head>
 <body>
@@ -111,7 +101,7 @@
   <nav class="desktop-nav"><ul class="nav-list">
     <li><a href="index.html">Home</a></li>
     <li class="has-dropdown"><a href="shop.html">Shop <span class="nav-chevron">▾</span></a><div class="dropdown"><a href="shop.html">All Products</a><a href="shop.html">Reusable Bags</a><a href="shop.html">Bundles</a></div></li>
-    <li><a href="recipes.html">Recipes &amp; Tips</a></li>
+    
     <li><a href="contact.html">Contact</a></li>
   </ul></nav>
 </header>
@@ -166,7 +156,6 @@
       </ul>
       <div class="atc-row">
         <div class="qty-ctrl">
-          <button onclick="changeQty(-1)">&#8722;</button>
           <span id="qty">1</span>
           <button onclick="changeQty(1)">+</button>
         </div>
@@ -226,16 +215,6 @@
         <li>Questions? Email us at support@puresilicon.ca</li>
       </ul>
     </div>
-  </div>
-</section>
-
-<section class="reviews-section">
-  <h2>What Our Customers Say</h2>
-  <div class="reviews-summary"><div class="reviews-stars-big">★★★★★</div><div class="reviews-avg">4.9 out of 5 &middot; 18 reviews</div></div>
-  <div class="reviews-grid">
-    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Perfect size for meal prepping. I use it every single day for my lunches — it holds a full salad and seals perfectly without leaking."</p><div class="review-author">— Priya K., Edmonton</div></div>
-    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"The green colour is so beautiful — looks amazing in my fridge. It's replaced about 4 boxes of ziplock bags already. So happy with this purchase!"</p><div class="review-author">— Danielle B., Ottawa</div></div>
-    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"I was sceptical at first but the seal is genuinely incredible. No leaks even with soups. Goes in the dishwasher and comes out perfect every time."</p><div class="review-author">— Tom R., Montreal</div></div>
   </div>
 </section>
 

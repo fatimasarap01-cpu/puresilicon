@@ -28,7 +28,6 @@
 .product-title{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,34px);font-weight:900;color:var(--text-dark);line-height:1.2;margin-bottom:14px;letter-spacing:-.5px;}
 .product-stars-row{display:flex;align-items:center;gap:8px;margin-bottom:20px;}
 .stars-gold{color:#c8a94a;font-size:15px;letter-spacing:2px;}
-.review-count{font-size:13px;color:var(--text-mid);text-decoration:underline;cursor:pointer;}
 .product-price{font-size:34px;font-weight:900;color:var(--olive-dark);margin-bottom:6px;font-family:'Playfair Display',serif;}
 .product-savings{font-size:13px;color:var(--burgundy);font-weight:600;letter-spacing:1px;margin-bottom:22px;}
 .product-desc{font-size:15px;line-height:1.9;color:var(--text-mid);font-weight:300;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid #e8e2d8;}
@@ -68,15 +67,6 @@
 .accordion-content ul{padding-left:20px;margin-top:10px;}
 .accordion-content li{margin-bottom:8px;}
 .reviews-section{background:var(--cream);padding:64px 24px;}
-.reviews-section h2{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;text-transform:uppercase;color:var(--olive-dark);text-align:center;margin-bottom:6px;letter-spacing:-.5px;}
-.reviews-summary{text-align:center;margin-bottom:44px;}
-.reviews-stars-big{color:#c8a94a;font-size:30px;letter-spacing:5px;}
-.reviews-avg{font-size:13px;color:var(--text-mid);letter-spacing:1px;margin-top:8px;}
-.reviews-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.review-card{background:var(--white);padding:28px;}
-.review-stars{color:#c8a94a;font-size:14px;margin-bottom:12px;letter-spacing:2px;}
-.review-text{font-size:14px;line-height:1.75;color:var(--text-mid);font-weight:300;margin-bottom:14px;}
-.review-author{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--olive-dark);}
 .related-section{padding:64px 24px;}
 .related-section h2{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;text-transform:uppercase;color:var(--olive-dark);text-align:center;margin-bottom:44px;letter-spacing:-.5px;}
 .related-grid{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
@@ -86,8 +76,8 @@
 .related-card:hover .related-img img{transform:scale(1.05);}
 .related-name{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--text-dark);margin-bottom:4px;text-align:center;line-height:1.4;}
 .related-price{font-size:14px;color:var(--olive-dark);font-weight:500;text-align:center;}
-@media(max-width:960px){.product-layout{grid-template-columns:1fr;gap:36px;}.gallery{position:static;}.feature-strip-inner{grid-template-columns:repeat(3,1fr);}.reviews-grid{grid-template-columns:repeat(2,1fr);}.related-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:600px){.atc-row{flex-direction:column;}.feature-strip-inner{grid-template-columns:1fr 1fr;}.reviews-grid{grid-template-columns:1fr;}}
+@media(max-width:960px){.product-layout{grid-template-columns:1fr;gap:36px;}.gallery{position:static;}.feature-strip-inner{grid-template-columns:repeat(3,1fr);}.related-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.atc-row{flex-direction:column;}.feature-strip-inner{grid-template-columns:1fr 1fr;}}
 </style>
 </head>
 <body>
@@ -101,7 +91,7 @@
     <a href="index.html" class="logo-area"><img class="logo-img" src="pure-silicon-logo.png" alt="PureSilicon"></a>
     <div class="header-icons"><button onclick="toggleCart()" title="Cart" style="position:relative;" id="cartBtn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><span id="cartBadge" style="display:none;position:absolute;top:-6px;right:-8px;background:var(--burgundy);color:white;font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;align-items:center;justify-content:center;line-height:1;">0</span></button></div>
   </div>
-  <nav class="desktop-nav"><ul class="nav-list"><li><a href="index.html">Home</a></li><li class="has-dropdown"><a href="shop.html">Shop <span class="nav-chevron">▾</span></a><div class="dropdown"><a href="shop.html">All Products</a><a href="shop.html">Reusable Bags</a><a href="shop.html">Bundles</a></div></li><li><a href="recipes.html">Recipes &amp; Tips</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+  <nav class="desktop-nav"><ul class="nav-list"><li><a href="index.html">Home</a></li><li class="has-dropdown"><a href="shop.html">Shop <span class="nav-chevron">▾</span></a><div class="dropdown"><a href="shop.html">All Products</a><a href="shop.html">Reusable Bags</a><a href="shop.html">Bundles</a></div></li><li><a href="contact.html">Contact</a></li></ul></nav>
 </header>
 
 <div id="cartOverlay" style="display:none;position:fixed;inset:0;z-index:400;"><div onclick="toggleCart()" style="position:absolute;inset:0;background:rgba(0,0,0,0.4);"></div><div style="position:absolute;top:0;right:0;width:380px;max-width:100vw;height:100%;background:var(--white);display:flex;flex-direction:column;box-shadow:-4px 0 24px rgba(0,0,0,0.15);"><div style="padding:24px 24px 18px;border-bottom:1px solid #e8e2d8;display:flex;justify-content:space-between;align-items:center;"><span style="font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--olive-dark);text-transform:uppercase;letter-spacing:2px;">Your Cart</span><button onclick="toggleCart()" style="background:none;border:none;font-size:24px;cursor:pointer;color:var(--text-dark);">&#10005;</button></div><div id="cartItems" style="flex:1;overflow-y:auto;padding:20px 24px;"></div><div id="cartFooter" style="display:none;padding:20px 24px;border-top:1px solid #e8e2d8;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;"><span style="font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-mid);">Subtotal</span><span id="cartSubtotal" style="font-size:18px;font-weight:700;color:var(--olive-dark);">$0.00</span></div><button onclick="proceedToCheckout(this)" style="width:100%;background:var(--olive-dark);color:var(--cream);border:none;padding:16px;font-family:'Jost',sans-serif;font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;">Proceed to Checkout</button></div></div></div>
@@ -147,7 +137,7 @@
         <li>Beautiful curated gift set — perfect for the eco-conscious home</li>
       </ul>
       <div class="atc-row">
-        <div class="qty-ctrl"><button onclick="changeQty(-1)">&#8722;</button><span id="qty">1</span><button onclick="changeQty(1)">+</button></div>
+        <div class="qty-ctrl"><span id="qty">1</span><button onclick="changeQty(1)">+</button></div>
         <button class="btn-atc" id="atcBtn" onclick="handleAddToCart()">Add to Cart</button>
       </div></div>
     </div>
@@ -172,21 +162,11 @@
   <div class="accordion-item"><button class="accordion-trigger" onclick="toggleAcc(this)">Shipping &amp; Returns <span class="acc-chevron">+</span></button><div class="accordion-content"><ul><li>Free standard shipping on all orders over $75 within Canada — this bundle qualifies!</li><li>Standard shipping: 3–7 business days</li><li>Express shipping available at checkout</li><li>30-day hassle-free returns on unused, unopened items</li><li>Questions? Email us at support@puresilicon.ca</li></ul></div></div>
 </section>
 
-<section class="reviews-section">
-  <h2>What Our Customers Say</h2>
-  <div class="reviews-summary"><div class="reviews-stars-big">★★★★★</div><div class="reviews-avg">5.0 out of 5 &middot; 8 reviews</div></div>
-  <div class="reviews-grid">
-    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"I bought this as a housewarming gift and it was a huge hit. Beautiful packaging, gorgeous products. We use ours every single day now."</p><div class="review-author">— Stephanie W., Calgary</div></div>
-    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"This bundle is incredible value. The bags and containers together completely transformed how I store food. My plastic use has dropped dramatically."</p><div class="review-author">— Marcus H., Toronto</div></div>
-    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Bought this for myself as a 'treat' and it genuinely changed my kitchen. The containers are SO well designed and the bags seal perfectly every time."</p><div class="review-author">— Helen F., Vancouver</div></div>
-  </div>
-</section>
-
 <section class="related-section">
   <h2>You May Also Like</h2>
   <div class="related-grid">
     <a href="product-assorted.html" class="related-card"><div class="related-img" style="background:#e0ead6;display:flex;align-items:center;justify-content:center;font-size:60px;">🛍️</div><div class="related-name">Silicone Assorted bag – each size 3-Pack</div><div class="related-price">$34.99</div></a>
-    <a href="product-beige.html" class="related-card"><div class="related-img"><img src="product-container-beige.png" alt="Beige containers"></div><div class="related-name">Silicone Storage Container – Beige pack of 4</div><div class="related-price">$44.99</div></a>
+    <a href="product-beige.html" class="related-card"><div class="related-img"><img src="product-container-beige.png" alt="Beige containers"></div><div class="related-name">Silicone Storage Containers – Beige pack of 4</div><div class="related-price">$44.99</div></a>
     <a href="product-white.html" class="related-card"><div class="related-img"><img src="product-bag-white.png" alt="White 1500ML"></div><div class="related-name">Reusable Silicone Food Bag – White 1500 ML</div><div class="related-price">$36.99</div></a>
   </div>
 </section>
