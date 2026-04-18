@@ -19,7 +19,6 @@ export async function onRequestPost(context) {
   body.set('payment_method_types[0]', 'card');
   body.set('billing_address_collection', 'required');
   body.set('shipping_address_collection[allowed_countries][0]', 'CA');
-  body.set('shipping_address_collection[allowed_countries][1]', 'US');
   body.set('phone_number_collection[enabled]', 'true');
 
   items.forEach((item, i) => {
