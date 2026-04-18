@@ -43,10 +43,6 @@
 .btn-atc{flex:1;background:var(--olive-dark);color:var(--cream);border:none;padding:16px 24px;font-family:'Jost',sans-serif;font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;transition:background .3s;}
 .btn-atc:hover{background:var(--olive);}
 .btn-atc.added{background:#4a7c4a;}
-.trust-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:22px 0 0;border-top:1px solid #e8e2d8;}
-.trust-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:5px;}
-.trust-icon{width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:50%;box-shadow:0 4px 16px rgba(0,0,0,0.07);padding:10px;margin:0 auto 4px;font-size:22px;} .trust-icon img{width:100%;height:100%;object-fit:contain;}
-.trust-label{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--olive-dark);line-height:1.4;}
 .feature-strip{background:var(--olive-dark);color:var(--cream);padding:56px 24px;}
 .feature-strip-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(6,1fr);gap:24px;text-align:center;}
 .feat-icon{width:72px;height:72px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:50%;box-shadow:0 4px 20px rgba(0,0,0,0.15);padding:14px;margin:0 auto 16px;font-size:30px;} .feat-icon img{width:100%;height:100%;object-fit:contain;}
@@ -135,15 +131,7 @@
       <div class="atc-row">
         <div class="qty-ctrl"><button onclick="changeQty(-1)">&#8722;</button><span id="qty">1</span><button onclick="changeQty(1)">+</button></div>
         <button class="btn-atc" id="atcBtn" onclick="handleAddToCart()">Add to Cart</button>
-      </div>
-      <div class="trust-row">
-        <div class="trust-item"><div class="trust-icon"><img src="bpa-free.png" alt="BPA-Free"></div><span class="trust-label">BPA-Free</span></div>
-        <div class="trust-item"><div class="trust-icon"><img src="recycle.png" alt="Zero Waste"></div><span class="trust-label">Zero Waste</span></div>
-        <div class="trust-item"><div class="trust-icon">❄️</div><span class="trust-label">Freezer Safe</span></div>
-        <div class="trust-item"><div class="trust-icon">🍽️</div><span class="trust-label">Dishwasher Safe</span></div>
-        <div class="trust-item"><div class="trust-icon">🚚</div><span class="trust-label">Free Ship $75+</span></div>
-        <div class="trust-item"><div class="trust-icon">↩️</div><span class="trust-label">30-Day Returns</span></div>
-      </div>
+      </div></div>
     </div>
   </div>
 </section>
