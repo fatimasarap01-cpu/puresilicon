@@ -22,6 +22,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%235a6a22'/><text y='.9em' font-size='75' x='12'>🌿</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="preload" as="image" href="bundle-3.webp">
 <style>
   /* ── HERO ── */
   .hero {
@@ -36,7 +37,7 @@
   .hero-bg {
     position: absolute;
     inset: 0;
-    background-image: url('bundle-3.png');
+    background-image: url('bundle-3.webp');
     background-size: cover;
     background-position: center 30%;
     transform: scale(1.04);
@@ -442,7 +443,7 @@
 
   <!-- Story Block 1 -->
   <div class="about-story dark about-reveal">
-    <div class="about-story-img" style="background:#e8f0cc;padding:0;overflow:hidden;position:relative;"><img src="about-2.png" alt="PureSilicon Was Born" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;"></div>
+    <div class="about-story-img" style="background:#e8f0cc;padding:0;overflow:hidden;position:relative;"><img src="about-2.webp" alt="PureSilicon Was Born" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;"></div>
     <div class="about-story-text">
       <div class="eyebrow">The Beginning</div>
       <h2>PureSilicon<br>Was Born</h2>
@@ -453,7 +454,7 @@
 
   <!-- Story Block 2 -->
   <div class="about-story reverse about-reveal">
-    <div class="about-story-img" style="background:#f0e0d0;padding:0;overflow:hidden;position:relative;"><img src="about-1.jpg" alt="Making It Easy to Reuse" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;"></div>
+    <div class="about-story-img" style="background:#f0e0d0;padding:0;overflow:hidden;position:relative;"><img src="about-1.webp" alt="Making It Easy to Reuse" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;"></div>
     <div class="about-story-text">
       <div class="eyebrow">Our Mission</div>
       <h2>Making It Easy<br>to Reuse</h2>
@@ -464,7 +465,7 @@
 
   <!-- Story Block 3 -->
   <div class="about-story burgundy about-reveal">
-    <div class="about-story-img" style="background:#f4e8d8;padding:0;overflow:hidden;position:relative;"><img src="about-3.jpg" alt="For the Food Lovers" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;"></div>
+    <div class="about-story-img" style="background:#f4e8d8;padding:0;overflow:hidden;position:relative;"><img src="about-3.webp" alt="For the Food Lovers" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;"></div>
     <div class="about-story-text">
       <div class="eyebrow">For You</div>
       <h2>For the<br>Food Lovers</h2>
@@ -479,17 +480,17 @@
     <p class="about-values-tagline">The principles behind every product we make</p>
     <div class="about-values-row">
       <div>
-        <div class="about-val-icon"><img src="recycle.png" alt="Recycle"></div>
+        <div class="about-val-icon"><img src="recycle.png" alt="Recycle" loading="lazy" width="64" height="64"></div>
         <div class="about-val-label">Zero Waste</div>
         <p class="about-val-desc">Every product replaces hundreds of single-use plastic bags over its lifetime.</p>
       </div>
       <div>
-        <div class="about-val-icon"><img src="bpa-free.png" alt="BPA Free"></div>
+        <div class="about-val-icon"><img src="bpa-free.png" alt="BPA Free" loading="lazy" width="64" height="64"></div>
         <div class="about-val-label">Food Safe</div>
         <p class="about-val-desc">100% food-grade silicone. BPA free, PEVA free, phthalate free — always.</p>
       </div>
       <div>
-        <div class="about-val-icon"><img src="women-owned.png" alt="Women Owned"></div>
+        <div class="about-val-icon"><img src="women-owned.png" alt="Women Owned" loading="lazy" width="64" height="64"></div>
         <div class="about-val-label">Women Owned</div>
         <p class="about-val-desc">Proudly founded and led by women, right here in Calgary, Alberta.</p>
       </div>
@@ -644,25 +645,25 @@
   <div class="categories-grid">
     <a href="shop.html?filter=bag" class="cat-card" style="text-decoration:none;">
       <div class="cat-img">
-        <img src="assorted-3.png" alt="Silicone Food Bags">
+        <img src="assorted-3.webp" alt="Silicone Food Bags" loading="lazy">
       </div>
       <div class="cat-label">Silicone<br>Food Bags</div>
     </a>
     <a href="shop.html?filter=container" class="cat-card" style="text-decoration:none;">
       <div class="cat-img">
-        <img src="container-beige-kitchen.png" alt="Storage Containers">
+        <img src="container-beige-kitchen.webp" alt="Storage Containers" loading="lazy">
       </div>
       <div class="cat-label">Storage<br>Containers</div>
     </a>
     <a href="shop.html?filter=bestseller" class="cat-card" style="text-decoration:none;">
       <div class="cat-img">
-        <img src="terracotta-4.png" alt="Best Sellers">
+        <img src="terracotta-4.webp" alt="Best Sellers" loading="lazy">
       </div>
       <div class="cat-label">Best<br>Sellers</div>
     </a>
     <a href="shop.html?filter=bundle" class="cat-card" style="text-decoration:none;">
       <div class="cat-img">
-        <img src="bundle-2.png" alt="Bundles">
+        <img src="bundle-2.webp" alt="Bundles" loading="lazy">
       </div>
       <div class="cat-label">Bundles &<br>Gift Sets</div>
     </a>
@@ -676,7 +677,7 @@
     <div class="product-card" onclick="window.location='product-terracotta.html'" style="cursor:pointer;">
       <div class="product-img">
         <div class="product-badge">Best Seller</div>
-        <img src="product-bag-terracotta.png" alt="Reusable Silicone Food Bag Terracotta 500ML">
+        <img src="product-bag-terracotta.webp" alt="Reusable Silicone Food Bag Terracotta 500ML" loading="lazy" width="600" height="600">
       </div>
       <div class="stars">★★★★★</div>
       <div class="product-name">Reusable Silicone Food Bag Terracotta 500ML</div>
@@ -685,7 +686,7 @@
     </div>
     <div class="product-card" onclick="window.location='product-green.html'" style="cursor:pointer;">
       <div class="product-img">
-        <img src="product-bag-green.png" alt="Reusable Silicone Food Bag Green 1000ML">
+        <img src="product-bag-green.webp" alt="Reusable Silicone Food Bag Green 1000ML" loading="lazy" width="600" height="600">
       </div>
       <div class="stars">★★★★★</div>
       <div class="product-name">Reusable Silicone Food Bag Green 1000ML</div>
@@ -695,7 +696,7 @@
     <div class="product-card" onclick="window.location='product-white.html'" style="cursor:pointer;">
       <div class="product-img">
         <div class="product-badge">New</div>
-        <img src="white-2.png" alt="Reusable Silicone Food Bag White 1500ML">
+        <img src="white-2.webp" alt="Reusable Silicone Food Bag White 1500ML" loading="lazy" width="600" height="600">
       </div>
       <div class="stars">★★★★★</div>
       <div class="product-name">Reusable Silicone Food Bag White 1500ML</div>
@@ -704,7 +705,7 @@
     </div>
     <div class="product-card" onclick="window.location='product-beige.html'" style="cursor:pointer;">
       <div class="product-img">
-        <img src="container-beige-kitchen.png" alt="Silicone Storage Containers Beige pack of 4">
+        <img src="container-beige-kitchen.webp" alt="Silicone Storage Containers Beige pack of 4" loading="lazy" width="600" height="600">
       </div>
       <div class="stars">★★★★★</div>
       <div class="product-name">Silicone Storage Containers Beige pack of 4</div>
@@ -716,7 +717,7 @@
 
 <!-- FEATURE SPLIT 1 -->
 <section class="feature-split">
-  <div class="feature-img"><img src="assorted-3.png" alt="Reusable Silicone Bags"></div>
+  <div class="feature-img"><img src="assorted-3.webp" alt="Reusable Silicone Bags" loading="lazy"></div>
   <div class="feature-text">
     <div class="eyebrow">Three Sizes. One Set.</div>
     <h2>Every Size<br>You Need</h2>
@@ -728,7 +729,7 @@
 
 <!-- FEATURE SPLIT 2 (reversed) -->
 <section class="feature-split reverse">
-  <div class="feature-img"><img src="bundle-2.png" alt="Bundle Bags and Container"></div>
+  <div class="feature-img"><img src="bundle-2.webp" alt="Bundle Bags and Container" loading="lazy"></div>
   <div class="feature-text">
     <div class="eyebrow">The Complete Kitchen</div>
     <h2>Built for<br>Real Life</h2>
@@ -786,25 +787,25 @@
 <div class="certs">
   <div class="cert-item">
     <div class="cert-badge">
-      <img src="recycle.png" alt="Zero Waste">
+      <img src="recycle.png" alt="Zero Waste" loading="lazy" width="64" height="64">
     </div>
     <span class="cert-label">Zero Waste</span>
   </div>
   <div class="cert-item">
     <div class="cert-badge">
-      <img src="women-owned.png" alt="Women Owned">
+      <img src="women-owned.png" alt="Women Owned" loading="lazy" width="64" height="64">
     </div>
     <span class="cert-label">Women Owned</span>
   </div>
   <div class="cert-item">
     <div class="cert-badge">
-      <img src="fda-approved.png" alt="FDA Approved">
+      <img src="fda-approved.png" alt="FDA Approved" loading="lazy" width="64" height="64">
     </div>
     <span class="cert-label">FDA Approved</span>
   </div>
   <div class="cert-item">
     <div class="cert-badge">
-      <img src="bpa-free.png" alt="BPA Free">
+      <img src="bpa-free.png" alt="BPA Free" loading="lazy" width="64" height="64">
     </div>
     <span class="cert-label">BPA Free</span>
   </div>
