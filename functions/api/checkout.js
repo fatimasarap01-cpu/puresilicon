@@ -17,6 +17,10 @@ export async function onRequestPost(context) {
   body.set('success_url', `${origin}/success.html?session_id={CHECKOUT_SESSION_ID}`);
   body.set('cancel_url', `${origin}/shop.html`);
   body.set('payment_method_types[0]', 'card');
+  body.set('billing_address_collection', 'required');
+  body.set('shipping_address_collection[allowed_countries][0]', 'CA');
+  body.set('shipping_address_collection[allowed_countries][1]', 'US');
+  body.set('phone_number_collection[enabled]', 'true');
 
   items.forEach((item, i) => {
     const p = `line_items[${i}]`;
