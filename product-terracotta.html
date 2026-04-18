@@ -52,7 +52,8 @@
 
 .trust-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:22px 0 0;border-top:1px solid #e8e2d8;}
 .trust-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:5px;}
-.trust-icon{font-size:20px;}
+.trust-icon{width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:50%;box-shadow:0 4px 16px rgba(0,0,0,0.07);padding:10px;margin:0 auto 4px;font-size:22px;}
+.trust-icon img{width:100%;height:100%;object-fit:contain;}
 .trust-label{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--olive-dark);line-height:1.4;}
 
 /* Feature Strip */
@@ -231,9 +232,9 @@
         <button class="btn-atc" id="atcBtn" onclick="handleAddToCart()">Add to Cart</button>
       </div>
       <div class="trust-row">
-        <div class="trust-item"><span class="trust-icon">🛡️</span><span class="trust-label">BPA-Free</span></div>
-        <div class="trust-item"><span class="trust-icon">♻️</span><span class="trust-label">Zero Waste</span></div>
-        <div class="trust-item"><span class="trust-icon">❄️</span><span class="trust-label">Freezer Safe</span></div>
+        <div class="trust-item"><div class="trust-icon"><img src="bpa-free.png" alt="BPA-Free"></div><span class="trust-label">BPA-Free</span></div>
+        <div class="trust-item"><div class="trust-icon"><img src="recycle.png" alt="Zero Waste"></div><span class="trust-label">Zero Waste</span></div>
+        <div class="trust-item"><div class="trust-icon">❄️</div><span class="trust-label">Freezer Safe</span></div>
         <div class="trust-item"><span class="trust-icon">🍽️</span><span class="trust-label">Dishwasher Safe</span></div>
         <div class="trust-item"><span class="trust-icon">🚚</span><span class="trust-label">Free Ship $75+</span></div>
         <div class="trust-item"><span class="trust-icon">↩️</span><span class="trust-label">30-Day Returns</span></div>
@@ -397,7 +398,7 @@ function handleAddToCart(){
   var price=29.99;
   var cart=getCart();
   var existing=cart.find(function(i){return i.name===name;});
-  if(existing){existing.qty+=qty;}else{cart.push({name:name,price:price,emoji:'🛍️',qty:qty});}
+  if(existing){existing.qty+=qty;}else{cart.push({name:name,price:price,image:'product-bag-terracotta.png',emoji:'🛍️',qty:qty});}
   saveCart(cart);
   updateBadge();
   var btn=document.getElementById('atcBtn');
@@ -435,7 +436,7 @@ function renderCart(){
   cart.forEach(function(item){
     var row=document.createElement('div');
     row.style.cssText='display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #f0ebe2;';
-    row.innerHTML='<span style="font-size:28px;flex-shrink:0;">'+item.emoji+'</span><div style="flex:1;min-width:0;"><div style="font-size:13px;font-weight:600;color:var(--text-dark);line-height:1.4;margin-bottom:4px;">'+item.name+'</div><div style="font-size:13px;color:var(--olive-dark);font-weight:500;">$'+item.price.toFixed(2)+'</div></div><div style="display:flex;align-items:center;gap:8px;flex-shrink:0;"><button onclick="changeQtyCart(\''+item.name.replace(/'/g,"\\'")+'\',-1)" style="width:28px;height:28px;border:1px solid #ddd;background:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;">&#8722;</button><span style="font-size:14px;font-weight:600;min-width:16px;text-align:center;">'+item.qty+'</span><button onclick="changeQtyCart(\''+item.name.replace(/'/g,"\\'")+'\'  ,1)" style="width:28px;height:28px;border:1px solid #ddd;background:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;">+</button></div>';
+    row.innerHTML='<div style="width:60px;height:60px;flex-shrink:0;border-radius:8px;overflow:hidden;background:#f5f0e8;">'+(item.image?'<img src="'+item.image+'" style="width:100%;height:100%;object-fit:cover;" alt="">':'<span style="font-size:28px;display:flex;align-items:center;justify-content:center;height:100%;">'+item.emoji+'</span>')+'</div><div style="flex:1;min-width:0;"><div style="font-size:13px;font-weight:600;color:var(--text-dark);line-height:1.4;margin-bottom:4px;">'+item.name+'</div><div style="font-size:13px;color:var(--olive-dark);font-weight:500;">$'+item.price.toFixed(2)+'</div></div><div style="display:flex;align-items:center;gap:8px;flex-shrink:0;"><button onclick="changeQtyCart(\''+item.name.replace(/'/g,"\\'")+'\',-1)" style="width:28px;height:28px;border:1px solid #ddd;background:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;">&#8722;</button><span style="font-size:14px;font-weight:600;min-width:16px;text-align:center;">'+item.qty+'</span><button onclick="changeQtyCart(\''+item.name.replace(/'/g,"\\'")+'\'  ,1)" style="width:28px;height:28px;border:1px solid #ddd;background:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;">+</button></div>';
     container.appendChild(row);
   });
 }
