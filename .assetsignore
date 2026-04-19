@@ -1,0 +1,9 @@
+.git
+.github
+node_modules
+.claude
+.assetsignore
+wrangler.jsonc
+netlify.toml
+*.md
+functions
