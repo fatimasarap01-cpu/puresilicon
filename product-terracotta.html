@@ -189,7 +189,7 @@
     <div class="product-info">
       <p class="product-eyebrow">PureSilicon</p>
       <h1 class="product-title">Reusable Silicone Food Bag Terracotta 500ML</h1>
-      <div class="product-price">$1.00</div>
+      <div class="product-price">$29.99</div>
       <p class="product-desc">Our bestselling terracotta bag is the perfect everyday companion for snacks, dips, baby food and small portions. At 500ML it slips easily into any bag, lunchbox or pocket — and its warm earthy tone looks beautiful in any kitchen. Made from 100% food-grade silicone with a secure pinch seal, it keeps food fresh without a single piece of plastic.</p>
       <ul class="product-features">
         <li>500ML capacity — ideal for snacks &amp; small portions</li>
@@ -339,7 +339,7 @@ function changeQty(delta){qty=Math.max(1,qty+delta);document.getElementById('qty
 
 function handleAddToCart(){
   var name='Reusable Silicone Food Bag Terracotta 500ML';
-  var price=1.00;
+  var price=29.99;
   var cart=getCart();
   var existing=cart.find(function(i){return i.name===name;});
   if(existing){existing.qty+=qty;}else{cart.push({name:name,price:price,image:'product-bag-terracotta.png',emoji:'🛍️',qty:qty});}
