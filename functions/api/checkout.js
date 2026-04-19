@@ -12,6 +12,8 @@ export async function onRequestPost(context) {
     return json({ error: 'Cart is empty' }, 400);
   }
 
+  const subtotal = items.reduce((sum, item) => sum + Number(item.price) * Math.max(1, parseInt(item.qty) || 1), 0);
+
   const origin = new URL(request.url).origin;
   const body = new URLSearchParams({ mode: 'payment' });
   body.set('success_url', `${origin}/success.html?session_id={CHECKOUT_SESSION_ID}`);
@@ -20,6 +22,13 @@ export async function onRequestPost(context) {
   body.set('billing_address_collection', 'required');
   body.set('shipping_address_collection[allowed_countries][0]', 'CA');
   body.set('phone_number_collection[enabled]', 'true');
+  body.set('allow_promotion_codes', 'true');
+
+  // Free shipping over $75, otherwise standard rate ($5.99 CAD)
+  const rateId = subtotal >= 75
+    ? 'shr_1TNgha3kPqER5hcq6p7FgdUc'
+    : 'shr_1TNgic3kPqER5hcqvdDCzphy';
+  body.set('shipping_options[0][shipping_rate]', rateId);
 
   items.forEach((item, i) => {
     const p = `line_items[${i}]`;
