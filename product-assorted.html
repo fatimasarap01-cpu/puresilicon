@@ -28,7 +28,7 @@
     "url": "https://puresilicon.ca/product-assorted.html",
     "priceCurrency": "CAD",
     "price": "34.99",
-    "availability": "https://schema.org/OutOfStock",
+    "availability": "https://schema.org/InStock",
     "seller": { "@type": "Organization", "name": "PureSilicon" }
   }
 }
@@ -158,7 +158,8 @@
         <li>The perfect starter set to replace single-use plastic</li>
       </ul>
       <div class="atc-row">
-        <button class="btn-atc" disabled style="background:#ccc;color:#888;cursor:not-allowed;pointer-events:none;width:100%;">Out of Stock</button>
+        <div class="qty-ctrl"><span id="qty">1</span><button onclick="changeQty(1)">+</button></div>
+        <button class="btn-atc" id="atcBtn" onclick="handleAddToCart()">Add to Cart</button>
       </div></div>
     </div>
   </div>
