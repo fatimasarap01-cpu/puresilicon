@@ -41,6 +41,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://puresilicon.ca/product-set6.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://puresilicon.ca/recipes.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
